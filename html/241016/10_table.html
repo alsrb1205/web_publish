@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        table,th,td{
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+        /* 똑같은 스타일 적용해야할때 */
+
+        table{
+            width: 50%;
+            /* height:  400px;  */
+            /* height 는 퍼센트 적용 x */
+        }
+        th,td{
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">구분</th>
+                <th scope="col">제목 1</th>
+                <th scope="col">제목 2</th>
+                <th scope="col">제목 3</th>
+            </tr>
+            <!--  tr에는 스타일 적용 X -->
+        </thead>
+        <tbody>
+            <tr>
+
+                <th scope="row">1</th>
+                <td>data11</td>
+                <td>data12</td>
+                <td>data13</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>data21</td>
+                <td>data22</td>
+                <td>data23</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>data31</td>
+                <td>data32</td>
+                <td>data33</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>data41</td>
+                <td>data42</td>
+                <td>data43</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">합계</th>
+                <td>total1</td>
+                <td>total2</td>
+                <td>total3</td>
+            </tr>
+        </tfoot>
+
+    </table>
+    <br>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">구분</th>
+                <th scope="col">제목 1</th>
+                <th scope="col">제목 2</th>
+                <th scope="col">제목 3</th>
+            </tr>
+            <!--  tr에는 스타일 적용 X -->
+        </thead>
+        <tbody>
+            <tr>
+
+                <th scope="row">1</th>
+                <td colspan="3">data11</td>
+                <!-- <td colspan="2">data12</td> -->
+                <!-- <td>data13</td> -->
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td rowspan="2">data21</td>
+                <td >data22</td>
+                <td>data23</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <!-- <td>data31</td> -->
+                <td colspan="2">data32</td>
+                <!-- <td>data33</td> -->
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>data41</td>
+                <td>data42</td>
+                <td>data43</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">합계</th>
+                <td>total1</td>
+                <td>total2</td>
+                <td>total3</td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+</body>
+
+</html>
