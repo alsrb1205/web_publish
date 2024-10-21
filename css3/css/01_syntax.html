@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_syntax</title>
+    <style>
+        /* Internal, External syntax 
+            [선택자(selector)]
+                { 프로터티(property):값(value); }
+            - 선택자종류 : id(#), class(.), 경로(부모/자식 관계를 통해)
+        */
+        /* 공백없이 써야함 */
+        li.internal{
+            color: blue;
+        }
+    </style>
+</head>    <link rel="stylesheet" href="/css3/css/syntax.css">
+
+<body>
+    <h1>CSS 문법</h1>
+    <ul>
+        <!-- Inline syntax :  style="프로퍼티:값;" -->
+        <li style="color: red;">Inline style</li>
+        <li class="internal">Internal style</li>
+        <li class="external">External style</li>
+    </ul>
+</body>
+</html>
