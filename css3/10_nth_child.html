@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child</title>
+    <style>
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        ul.first li:first-child {
+            color: blue;
+        }
+        li:last-child {
+            text-decoration: underline;
+        }
+        li:nth-child(3) {
+            background-color: aqua;
+        }
+        li:nth-last-child(3) {
+            color: brown;
+        }
+        /* ul.first > li:nth-last-child(2) > a */
+        ul.first > li:nth-child(4) > a {
+            color: tomato;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .box article {
+            width: 70px;
+            height: 70px;
+            border: 1px solid silver;
+        }
+        article:first-child {
+            background-color: yellow;
+        }
+        article:nth-child(3) {
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>nth-child pseudo-class selector</h1>
+    <ul class="first">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li><a href="#">naver</a></li>
+        <li>React</li>
+    </ul>
+    <div class="box">
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+        <article></article>
+    </div>
+</body>
+</html>

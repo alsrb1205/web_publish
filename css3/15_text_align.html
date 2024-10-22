@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text align</title>
+    <style>
+        .left {
+            text-align: left;
+        }
+        .right {
+            text-align: right;
+        }
+        .center {
+            text-align: center;
+        }
+        .justify {
+            text-align: justify;
+        }
+        p {
+            border: 1px solid tomato;
+        }
+        .block {
+            display: block;
+        }
+        .inline {
+            display: inline;
+            /* inline 속성을 가진 태그는 text-align 적용 안됨!!!!! */
+        }
+        div > p {
+            width: 150px;
+            height: 50px;
+        }
+        div {
+            border: 2px solid red;
+            text-align: center;
+        }
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .green{
+            background-color: green;
+        }
+        img {
+            width: 10%;
+        }
+        h1 {
+            /* letter-spacing: 10px; */
+            word-spacing: 20px;
+        }
+        .lineheight {
+            line-height: 30px;
+        }
+        h2 {
+            border: 1px solid blue;
+            margin-left: 100px;
+        }
+        .indent1 {
+            text-indent: 30px;
+        }
+        .indent2 {
+            text-indent: -30px;
+        }
+        .uppercase {
+            text-transform: uppercase;
+        }
+        .lowercase {
+            text-transform: lowercase;
+        }
+        .capitalize {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <h1>text align</h1>
+    <h2 class="indent1 lowercase">Text indent1</h2>
+    <h2 class="indent2">Text indent2</h2>
+    <h2 class="capitalize">text transform capitalize</h2>
+    <p class="left uppercase">text-align : left</p>
+    <p class="right">text-align : right</p>
+    <p class="center capitalize">text-align : center</p>
+    <p class="justify lineheight">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus repellendus cumque, nihil fugit eum explicabo temporibus. Dolores fugit tempore quaerat, iusto deserunt animi ea, eos, veritatis sunt debitis repudiandae adipisci?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus repellendus cumque, nihil fugit eum explicabo temporibus. Dolores fugit tempore quaerat, iusto deserunt animi ea, eos, veritatis sunt debitis repudiandae adipisci?
+    </p>
+    <div>
+        <p class="red inline">left</p>
+        <p class="blue inline">right</p>
+        <p class="green inline">center</p>
+        <!-- inline 속성 text-align 으로 정렬가능 -->
+         <img src="/html/images/logoRed.png" alt="cgv">
+         <img src="/html/images/logoRed.png" alt="cgv">
+         <img src="/html/images/logoRed.png" alt="cgv">
+    </div>
+</body>
+</html>
