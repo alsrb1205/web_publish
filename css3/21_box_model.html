@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box-model</title>
+    <style>
+        div{
+            border: 1px solid red;
+        }
+        .padding{
+            /* t(top), r(right), b(bottom), l(left)
+                padding-top: 20px; 
+                padding-right: 10px;
+                padding-bottom: 30px;
+                padding-left: 50px; */
+            padding: 20px 10px 30px 50px;
+        }
+        div.padding>h3{
+            border: 1px solid blue;
+            /* margin: 0; */
+        }
+        .margin{
+            /* t(top), r(right), b(bottom), l(left) */
+            margin: 20px 10px 40px 30px;
+        }
+        .border {
+            border: 1px solid blue;
+            border-top: 10px groove green;
+            border-right: 5px double red;
+            border-bottom: 10px dotted pink;
+            border-left: 5px solid silver;
+        }
+        .box-size{
+            box-sizing: border-box;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+   <h1>Box Model : content, padding, border, margin</h1> 
+   <div class="padding">
+    <h3>padding</h3>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam doloribus obcaecati inventore beatae rerum similique distinctio dicta error pariatur placeat aspernatur id laborum ratione, quidem soluta officiis nisi recusandae cupiditate!
+   </div>
+   <div class="margin">
+    <h3>margin</h3>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam doloribus obcaecati inventore beatae rerum similique distinctio dicta error pariatur placeat aspernatur id laborum ratione, quidem soluta officiis nisi recusandae cupiditate!
+   </div>
+   <div class="border">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam doloribus obcaecati inventore beatae rerum similique distinctio dicta error pariatur placeat aspernatur id laborum ratione, quidem soluta officiis nisi recusandae cupiditate!
+   </div>
+   <div class="border padding margin">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam doloribus obcaecati inventore beatae rerum similique distinctio dicta error pariatur placeat aspernatur id laborum ratione, quidem soluta officiis nisi recusandae cupiditate!
+   </div>
+   <div class=" box-size">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam doloribus obcaecati inventore beatae rerum similique distinctio dicta error pariatur placeat aspernatur id laborum ratione, quidem soluta officiis nisi recusandae cupiditate!
+   </div>
+
+</body>
+</html>
