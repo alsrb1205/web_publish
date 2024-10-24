@@ -1,0 +1,71 @@
+/***************************************
+* title : header style
+* author : jung@test.com
+* final date : 2024/10/24
+****************************************/
+header{
+    border: 1px solid var(--color_border);
+    width: 1000px;
+    height: 150px;
+    margin: 0 auto;
+}
+.header-top, .header-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid green; */
+}
+.header-top-logo{
+    /* border: 1px solid blue; */
+    position: relative;
+    width: 330px;
+}
+.header-top-logo>a>img{
+    width: 120px;
+}
+.header-top-logo>span{
+    position: absolute;
+    top: 30px;
+    left: 120px;
+    letter-spacing: 5px;
+    color: var(--color-primary)
+}
+.header-top ul, .header-bottom ul{
+    /* border: 1px solid green; */
+    list-style-type: none;
+    display: flex;
+}
+/* .header-top ul li{
+    padding: 25px 10px;
+} */
+.header-top ul li a{
+    /* background-color: aqua; */
+    padding: 30px 10px;
+    text-decoration: none;
+    color: var(--color_border);
+}
+.header-top{
+    padding: 20px;
+}
+.header-bottom dl{
+    display: none;
+}
+.header-bottom{
+    /* border: 1px solid blue; */
+    height: 40px;
+    
+}
+.header-bottom li {
+    padding: 10px 25px;
+}
+.header-bottom li a{
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/***************************************
+* title : footer style
+* author : jung@test.com
+* final date : 2024/10/24
+****************************************/
