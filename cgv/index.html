@@ -5,37 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGV</title>
+    <link rel="stylesheet" href="/cgv/css/common.css">
+    <link rel="stylesheet" href="/cgv/css/cgv.css">
 </head>
 
 <body>
     <!-- header -->
     <iframe src="/cgv/cgv_header.html" frameborder="0" width="100%" height="150px">
-
     </iframe>
-
     <!-- content -->
     <div class="content">
         <!-- 예고편 -->
-        <div style="background-color: black; width: 100%;">
-            <iframe width="700" height="500" src="https://www.youtube.com/embed/soCtsN0JYUg?si=HjkITMHD6tWejfyh"
+        <div class="content-top">
+            <iframe width="900" height="500" src="https://www.youtube.com/embed/soCtsN0JYUg?si=HjkITMHD6tWejfyh"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
             </iframe>
         </div>
         <!-- 무비차트리스트 -->
-        <div style="background-color: dimgrey; width: 100%;">
+        <div class="content-moviechart content-padding">
             <div><!-- 컨텐츠 가운데 정렬-->
-                <article>
+                <article class="content-title-style">
                     <div>
-                        <span>무비차트</span>
-                        <span>상영예정작</span>
+                        <span class="content-title-style-font font-color-main">무비차트</span>
+                        <span>&nbsp;</span>
+                        <span class="content-title-style-font font-color-gray">상영예정작</span>
                     </div>
                     <div>
-                        <button>전체보기</button>
+                        <button class="total-view-button">전체보기 &gt;</button>
                     </div>
                 </article>
-                <article>
+                <article class="content-moviechart-list">
                     <ul>
                         <li>
                             <div>
@@ -45,7 +46,51 @@
                                 <h3>제목</h3>
                             </div>
                             <div>
-                                <h5>예매율</h5>
+                                <h5>예매율 100%</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="/cgv/images/moviechart1.jpg" alt="moviechart1" width="200px">
+                            </div>
+                            <div>
+                                <h3>제목</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 100%</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="/cgv/images/moviechart1.jpg" alt="moviechart1" width="200px">
+                            </div>
+                            <div>
+                                <h3>제목</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 100%</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="/cgv/images/moviechart1.jpg" alt="moviechart1" width="200px">
+                            </div>
+                            <div>
+                                <h3>제목</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 100%</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="/cgv/images/moviechart1.jpg" alt="moviechart1" width="200px">
+                            </div>
+                            <div>
+                                <h3>제목</h3>
+                            </div>
+                            <div>
+                                <h5>예매율 100%</h5>
                             </div>
                         </li>
                         <!-- 무비차트 리스트 반복 -->
@@ -54,65 +99,103 @@
             </div>
         </div>
         <!-- 이벤트, 특별관 등.. -->
-        <div> <!-- 배경색이 없는 섹션들을 묶어서 가운데 정렬하기위해 div로 묶음-->
+        <div class="content-event-special"> <!-- 배경색이 없는 섹션들을 묶어서 가운데 정렬하기위해 div로 묶음-->
             <!-- 이벤트 -->
-            <section>
-                <div>
-                    <h3>EVENT</h3>
-                    <button>전체보기</button>
+            <section class="content-padding ">
+                <div class="content-title-style">
+                    <h3 class="content-title-style-font font-color-main">EVENT</h3>
+                    <button class="total-view-button">전체보기 &gt;</button>
                 </div>
                 <ul>
                     <li>
                         <div>
-                            <img src="/cgv/images/event1.jpg" alt="event img" width="200px">
+                            <img src="/cgv/images/event1.jpg" alt="event img">
                         </div>
-                        <p>
-                            [콜렉터블 무비머니]Vol.1 맥스 달튼
-                        </p>
-                        <p>
-                            2024.09.25~2024.10.31
-                        </p>
+                        <div>
+                            <p>
+                                [콜렉터블 무비머니]Vol.1 맥스 달튼
+                            </p>
+                            <p>
+                                2024.09.25~2024.10.31
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/cgv/images/event1.jpg" alt="event img">
+                        </div>
+                        <div>
+                            <p>
+                                [콜렉터블 무비머니]Vol.1 맥스 달튼
+                            </p>
+                            <p>
+                                2024.09.25~2024.10.31
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="/cgv/images/event1.jpg" alt="event img">
+                        </div>
+                        <div>
+                            <p>
+                                [콜렉터블 무비머니]Vol.1 맥스 달튼
+                            </p>
+                            <p>
+                                2024.09.25~2024.10.31
+                            </p>
+                        </div>
                     </li>
                 </ul>
             </section>
             <!-- 특별관 -->
-            <section>
-                <div>
+            <section class="content-padding">
+                <div class="content-title-style">
                     <h3>특별관</h3>
-                    <button>전체보기</button>
+                    <button class="total-view-button">전체보기 &gt;</button>
                 </div>
-                <div>
+                <div class="special">
                     <div>
-                        <img src="/cgv/images/special1.png" alt="special1" width="400px">
+                        <a href="#">
+                            <img src="/cgv/images/special1.png" alt="special1">
+                        </a>
                     </div>
                     <div>
                         <ul>
                             <li>
+                                <a href="#">
                                 <span>SUITE CINEMA</span>
                                 <span>#호텔 컨셉의 프리미엄관</span>
+                            </a>
                             </li>
                             <li>
+                                <a href="#">
                                 <span>CINE & LIVINGROOM</span>
                                 <span>#신개념 소셜 상영관</span>
+                            </a>
                             </li>
                             <li>
+                                <a href="#">
                                 <span>4DX</span>
                                 <span>#모션시트 #오감체험</span>
+                            </a>
                             </li>
                             <li>
+                                <a href="#">
                                 <span>CINE de CHEF</span>
                                 <span>#쉐프가 있는 영화관</span>
+                            </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </section>
             <!-- 패키지 등.. -->
-            <section>
+            <section class="content-packmovie content-padding">
                 <div> <!-- 패키지 -->
                     <div>
                         <span><b>패키지</b></span>
-                        <button>더보기</button>
+                        <button class="total-more-button">더보기</button>
                     </div>
                     <ul>
                         <li>
@@ -127,7 +210,7 @@
                 <div> <!--영화관람권-->
                     <div>
                         <span><b>영화관람권</b></span>
-                        <button>더보기</button>
+                        <button class="total-more-button">더보기</button>
                     </div>
                     <ul>
                         <li>
@@ -142,7 +225,7 @@
                 <div><!--기프트카드-->
                     <div>
                         <span><b>기프트카드</b></span>
-                        <button>더보기</button>
+                        <button class="total-more-button">더보기</button>
                     </div>
                     <ul>
                         <li>
@@ -195,8 +278,7 @@
     </div>
     <!-- content end -->
     <!-- footer -->
-    <iframe src="/cgv/cgv_footer.html" frameborder="0" width="100%"
-    height="200px">
+    <iframe src="/cgv/cgv_footer.html" frameborder="0" width="100%" height="200px">
 
     </iframe>
 </body>

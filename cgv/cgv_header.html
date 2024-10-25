@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="/cgv/css/common.css">
     <link rel="stylesheet" href="/cgv/css/cgv.css">
 </head>
+
 <body>
     <header>
         <div class="header-top">
@@ -18,20 +20,41 @@
                 </a>
                 <span class="font-color-222">DEEP DIVE SPACE</span>
             </div>
-            <div>
+            <div class="header-top-card">
                 <img src="/cgv/images/header_card_img.png" alt="card img">
             </div>
             <nav>
-                <ul class="font-color-222">
-                    <li><a href="/cgv/login/login.html" target="_parent">로그인</a></li>
-                    <li><a href="/cgv/join/join.html" target="_parent">회원가입</a></li>
-                    <li><a href="/cgv/mycgv/mycgv.html" target="_parent">MY CGV</a></li>
-                    <li><a href="/cgv/support/support.html" target="_parent">고객센터</a></li>
+                <ul>
+                    <li>
+                        <a href="/cgv/login/login.html" target="_parent" class="header-menu-icon">
+                            <img src="/cgv/images/loginPassword.png" alt="">
+                            <span>&nbsp;&nbsp;로그인</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cgv/join/join.html" target="_parent" class="header-menu-icon">
+                            <img src="/cgv/images/loginJoin.png" alt="">
+                            <span>회원가입</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cgv/mycgv/mycgv.html" target="_parent" class="header-menu-icon">
+                            <img src="/cgv/images/loginMember.png" alt="">
+                            <span>MY CGV</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cgv/support/support.html" target="_parent" class="header-menu-icon">
+                            <img src="/cgv/images/loginCustomer.png" alt="">
+                            <span>고객센터</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
         <div class="header-bottom">
-            <nav>
+            <div class="header-bottom-content">
                 <ul>
                     <li>
                         <a href="">영화</a>
@@ -93,12 +116,13 @@
                         </dl>
                     </li>
                 </ul>
-            </nav>
-            <div>
-                <input type="search" name="" id="">
-                <button type="button">돋보기</button>
+                <div class="header-bottom-search">
+                    <input type="search" value="리틀엠마">
+                    <button type="button">돋보기</button>
+                </div>
             </div>
         </div>
     </header>
 </body>
+
 </html>
