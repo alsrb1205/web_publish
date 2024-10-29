@@ -478,7 +478,11 @@ footer .footer-content {
 .p {
     margin-top: 30px;
 }
-
+.p2 a{
+    text-decoration: none;
+    color: var(--color-primary);
+    cursor: text;
+}
 
 /***************************************
 * title : login form style
@@ -507,7 +511,7 @@ footer .footer-content {
 }
 .login-form-text1{
     margin-top: 10px;
-    margin-left: 60px;
+    margin-left: 20px;
     letter-spacing: -1px;
 }
 .login-form input:not([type="checkbox"]),
@@ -542,4 +546,262 @@ footer .footer-content {
 .login-form ul>li:nth-child(5) div:last-child>a{
     color: var(--color-login-form);
     font-weight: 700;
+}
+/***************************************
+* title : join form style
+* author : jung@test.com
+* final date : 2024/10/29
+****************************************/
+.join-form form{
+    /* border: 1px solid green; */
+    width: 500px;
+    margin: 0 auto;
+}
+.join-form form ul{
+    list-style-type: none;
+}
+.join-form form ul li{
+    /* border: 1px solid red; */
+    padding-top: 10px;
+}
+.join-form form ul li div:not(.join-form form ul li:nth-child(6) div){
+    border: 1px solid var(--color-silver);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.join-form form ul li:nth-child(6) input,
+.join-form form ul li:nth-child(6) select{
+    border: 1px solid var(--color-silver);
+    border-radius: 5px;
+    padding: 12px 10px;
+    width: 45%;
+    margin-top: 10px;
+
+}
+.join-form form ul li:nth-child(6) span{
+    margin: 0 20px;
+    margin-top: 10px;
+}
+.join-form form ul li:first-child>div,
+.join-form form ul li:nth-child(6)>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.join-form ul li label{
+    display: inline-block;
+    text-indent: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.join-form ul li:first-child div input,
+.join-form ul li input{
+    border: none;
+    width: 80%;
+    padding-left: 10px;
+}
+.join-form ul li input{
+    width: 100%;
+    padding: 7px 10px;
+}
+.join-form ul li:first-child div input:focus,
+.join-form ul li input{
+    outline: none;
+}
+.join-form ul li label+span{
+    font-size: 0.7em;
+    font-weight: 300;
+    color: red;
+    margin-left: 10px;
+}
+.join-form-button-check{
+    border: 1px solid var(--color-silver);
+    background-color: var(--color-button);
+    color: var(--color-white);
+    border-radius: 5px;
+    padding: 7px 12px;
+    width: 100px;
+}
+.join-form form ul li:last-child{
+    text-align: center ;
+    margin: 20px 0;
+}
+.join-form-button-signup1{
+    border: 1px solid var(--color-silver);
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin: 0 5px;
+}
+.join-form-button-signup2{
+    border: 1px solid var(--color-silver);
+    background-color: var(--color-gray-222);
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin: 0 5px;
+}
+/**************************************************************
+* title : mycgv style
+* author : jung@test.com
+* final date : 2024/10/29
+***************************************************************/
+.mycgv div{
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+}
+.mycgv div span{
+    /* border: 1px solid tomato; */
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    padding: 30px;
+    margin: 30px 20px;
+}
+.mycgv div span:hover{
+    background-color: antiquewhite;
+}
+/**************************************************************
+* title : support style
+* author : jung@test.com
+* final date : 2024/10/29
+***************************************************************/
+.support-content{
+    /* border: 1px solid green; */
+    width: 700px;
+    margin: 0 auto;
+}
+.support-content>p{
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    color: var(--color-table-font);
+    font-weight: 500;
+}
+.support-content-search *{
+    border: 1px solid var(--color-silver);
+    height: 30px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+.support-content-search select{
+    width: 80px;
+}
+.support-content-search input{
+    width: 180px;
+}
+.support-content-search button{
+    background-color: var(--color-black);
+    color: white;
+    border: 1px solid rgb(91,91,88);
+    outline: 2px solid black;
+    height: 24px;
+    padding: 0 12px;
+}
+.support-content-menu ul,
+.table-pagenumber{
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 20px;
+    /* border-bottom: 2px solid var(--color-login-font); */
+    position: relative;
+}
+.support-content-menu li{
+    background-color: var(--color-login-font);
+    margin-right: 2px;
+    width: 85px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.support-content-menu ul:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px; /* border-bottom의 두께처럼 보이도록 설정 */
+    background-color: var(--color-login-font);
+    z-index: -1; /* 메뉴 뒤로 배치 */
+}
+.support-content-menu li:first-child{
+    background-color: var(--color-button);
+
+}
+.support-content-menu li a{
+    text-decoration: none;
+    color: var( --color-buttonbd2);
+    font-size: 0.8em;
+    font-weight: 700;
+}
+.support-content-menu+p{
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+.support-content table{
+    /* border: 1px solid red; */
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 0.8em;
+}
+.support-content table>thead{
+    background-color: var(--color-table);
+    border-top: 1px solid var(--color-table-border);
+    border-bottom: 1px solid var(--color-table-border);
+    color: var(--color-table-font);
+}
+.support-content table>thead>tr>th{
+    /* border: 1px solid red; */
+    padding: 10px 20px;
+}
+.support-content table>tbody>tr>td{
+    padding: 20px 20px;
+    text-align: center;
+    color: var( --color-table-font);
+}
+.support-content table>thead>tr>th:nth-child(3){
+    text-align: left;
+}
+.support-content table>tbody>tr>td:nth-child(3){
+    text-align: left;
+}
+.support-content table>tbody>tr>td>a{
+    text-decoration: none;
+    color: var(--color-table-font);
+}
+.support-content table>tbody>tr>td>a:hover{
+    text-decoration: underline;
+    font-weight: 700;
+}
+.support-content table>tbody>tr:last-child{
+    border-bottom: 1px solid var(--color-table-border-bottom);
+}
+.table-pagenumber{
+    margin-top: 30px;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0 250px;
+}
+.table-pagenumber li a{
+    text-decoration: none;
+    color: var(--color-black);    
+}
+.table-pagenumber li:first-child a{
+    color: var(--color-button);
+    text-decoration: underline;
+}
+.table-pagenumber li a:hover{
+    color: var(--color-button);
+    text-decoration: underline;
+}
+.table-pagenumber button{
+    padding: 8px 10px;
+    position: relative;
+    top: -8px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-buttonbd1);
+    border-radius: 5px;
 }

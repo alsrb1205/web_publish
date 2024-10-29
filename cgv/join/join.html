@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/cgv/css/cgv.css">
 
 </head>
+
 <body>
     <!-- header -->
     <iframe src="/cgv/cgv_header.html" frameborder="0" width="100%" height="150px">
@@ -17,45 +19,46 @@
     <!-- content -->
     <div class="content">
         <div class="join-form center-layout">
-            <h1>Join Form</h1>
+            <h1 class="center-title">회원가입</h1>
+            <p></p>
             <form action="#" method="post">
                 <ul>
                     <li>
-                        <label for=""><b>아이디</b></label>
+                        <label for="" class="join-title-font"><b>아이디</b></label>
                         <span>사용할 수 없는 아이디입니다</span>
                         <div>
                             <input type="text" name="id" id="" placeholder="아이디 입력(6~20자)">
-                            <button>중복 확인</button>
+                            <button class="join-form-button-check">중복 확인</button>
                         </div>
                     </li>
                     <li>
-                        <label for=""><b>비밀번호</b></label>
+                        <label for="" class="join-title-font"><b>비밀번호</b></label>
                         <span>12자 이내의 비밀번호를 입력해주세요</span>
                         <div>
                             <input type="password" name="pwd" id="" placeholder="비밀번호 입력">
                         </div>
                     </li>
                     <li>
-                        <label for=""><b>비밀번호 확인</b></label>
+                        <label for="" class="join-title-font"><b>비밀번호 확인</b></label>
                         <span>비밀번호가 일치하지 않습니다</span>
                         <div>
                             <input type="password" name="cpwd" id="" placeholder="비밀번호 재입력">
                         </div>
                     </li>
                     <li>
-                        <label for="">이름</label>
+                        <label for="" class="join-title-font">이름</label>
                         <div>
                             <input type="text" name="name" id="" placeholder="이름을 입력해주세요">
                         </div>
                     </li>
                     <li>
-                        <label for="">전화번호</label>
+                        <label for="" class="join-title-font">전화번호</label>
                         <div>
                             <input type="text" name="phone" id="" placeholder="휴대폰 번호 입력('-'제외 11자리 입력)">
                         </div>
                     </li>
                     <li>
-                        <label for="">이메일 주소</label>
+                        <label for="" class="join-title-font">이메일 주소</label>
                         <div>
                             <input type="text" name="emailname" id="" placeholder="이메일 주소">
                             <span>@</span>
@@ -68,8 +71,8 @@
                         </div>
                     </li>
                     <li>
-                        <button>가입하기</button>
-                        <button>가입취소</button>
+                        <button class="join-form-button-signup1">가입하기</button>
+                        <button class="join-form-button-signup2">가입취소</button>
                     </li>
                 </ul>
             </form>
@@ -77,8 +80,9 @@
 
     </div>
     <!-- footer -->
-     <iframe src="/cgv/cgv_footer.html" frameborder="0" width="100%" height="500px">
+    <iframe src="/cgv/cgv_footer.html" frameborder="0" width="100%" height="500px">
 
-     </iframe>
+    </iframe>
 </body>
+
 </html>

@@ -23,6 +23,11 @@
     --color-font-primary: rgb(34,34,34);
     --color-hashtag: rgb(246,246,246);
     --color-login-font: rgb(137,137,135);
+    --color-join-border: rgb();
+    --color-table: rgb(248,248,248);
+    --color-table-border: rgb(225,223,213);
+    --color-table-border-bottom: rgb(184,182,170);
+    --color-table-font:rgb(102,102,102);
 }
 
 /* index -total-button style */
