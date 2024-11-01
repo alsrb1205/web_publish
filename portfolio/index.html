@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/portfolio/css/common.css">
+    <script src="https://kit.fontawesome.com/e87888c4f9.js" crossorigin="anonymous"></script>
+    <style>
+        /************************* header *************************/
+        .header {
+            width: 100%;
+            background-color: var(--color-background1);
+            color: white;
+        }
+
+        .header-top {
+            /* border: 1px solid white; */
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+        }
+
+        .header-top-logo {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .header-top-logo img {
+            width: 33px;
+        }
+
+        .header-top-logo span {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .header-top-menu>ul {
+            list-style-type: none;
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .header-top-menu>ul>li {
+            margin: 5px;
+        }
+
+        .header-top-menu>ul>li>a:not(.homebutton) {
+            border: 1px solid var(--color-background1);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+        }
+
+        .header-top-menu>ul .homebutton {
+            border: 1px solid var(--color-font);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+
+        }
+
+        .header-top-menu>ul>li>a:hover {
+            border: 1px solid var(--color-font);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+
+        }
+
+        /* .header-top-menu>ul>li>a:hover{
+            border: 1px solid var(--color-font);
+            }    */
+        /************************** content **********************/
+        h1:not(.content-home h1) {
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            padding-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .content-home {
+            background-color: var(--color-background1);
+            color: white;
+            display: block;
+            text-align: center;
+            padding: 40px 0 80px 0;
+        }
+
+        .content-home img {
+            border: 3px solid var(--color-font);
+            border-radius: 100%;
+        }
+
+        .content-home-text p {
+            padding: 10px 0 20px 0;
+        }
+
+        .contactme {
+            background-color: var(--color-font);
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            font-weight: 800;
+        }
+
+        .content-bottom {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .content-about {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .content-about-top p {
+            padding-bottom: 20px;
+        }
+
+        .content-about-top {
+            display: block;
+            text-align: center;
+        }
+
+        .content-about-middle ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .content-about-middle li {
+            background-color: var(--color-background2);
+            border-radius: 10px;
+            width: 32%;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.59);
+        }
+
+        .content-about-middle li * {
+            padding: 5px;
+        }
+
+        .content-about-middle li i {
+            font-size: 50px;
+            color: var(--color-font);
+        }
+
+        .content-about-middle li p {
+            font-size: 0.8em;
+        }
+
+        .content-about-bottom img {
+            width: 50px;
+            height: 20px;
+            margin: 7px 5px 0 0;
+        }
+
+        .content-about-bottom>div {
+            display: flex;
+            padding: 5px 0;
+        }
+
+        .content-about-bottom-text {
+            letter-spacing: -0.5px;
+        }
+
+        .content-about-bottom p {
+            font-size: 0.8em;
+        }
+
+        .content-about-bottom .date {
+            font-size: 0.7em;
+        }
+
+        .content-skill {
+            background-color: var(--color-background2);
+            color: white;
+            text-align: center;
+        }
+
+        .content-skill-top {
+            padding: 0 40px;
+            margin: 0 auto;
+        }
+
+        .content-skill-top p {
+            font-size: 0.8em;
+        }
+
+        .content-work {
+            background-color: var(--color-background1);
+        }
+
+        .content-skill-middle {
+            display: flex;
+            margin: 20px 40px;
+            box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.59);
+        }
+
+        .content-skill-middle h4 {
+            padding: 10px 0;
+            color: var(--color-font);
+        }
+
+        .content-skill-middle-left {
+            background-color: var(--color-background1);
+            width: 55%;
+        }
+
+        .content-skill-middle-left,
+        .content-skill-middle-right-top,
+        .content-skill-middle-right-bottom {
+            padding: 10px 0 20px 0;
+        }
+
+        .content-skill-middle-right {
+            width: 45%;
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-skill-middle-right-top {
+            background-color: var(--color-background2);
+            flex: 1;
+        }
+
+        .content-skill-middle-right-bottom {
+            background-color: var(--color-background3);
+            flex: 1;
+        }
+
+        .content-skill-middle-right .skill-p {
+            font-size: 0.7em;
+        }
+
+        .fontcolor {
+            color: var(--color-font);
+        }
+
+        .graph {
+            padding: 15px;
+        }
+
+        .graph-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6em;
+            padding: 5px 0;
+        }
+        .graph .bar {
+            /* border: 1px solid red; */
+            height: 3px;
+            background-color: var(--color-background2);
+            margin-bottom: 10px;
+
+        }
+        .bar .bar-child {
+            height: 3px;
+            background-color: var(--color-font);
+            animation: fillbar 1s 0s 1;
+        }
+
+        @keyframes fillbar {
+            0% {
+                transform: scaleX(0);
+                transform-origin: 0% 0%;
+            }
+
+            100% {
+                transform: scaleX(1);
+                transform-origin: 0% 0%;
+            }
+        }
+        .content-work {
+            color: white;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .content-work-middle-top {
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+            margin: 10px auto 30px auto;
+            gap: 10px;
+            list-style-type: none;
+        }
+        .content-work-middle-top li {
+            width: 25%;
+            height: 30px;
+        }
+        .content-work-middle-top li a{
+            color: white;
+            border-radius: 5px;
+            border: 1px solid var(--color-font);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-work-middle-top li:first-child a{
+            background-color: var(--color-font);
+            color: black;
+        }
+        .content-work-middle-top li a:hover{
+            background-color: var(--color-font);
+            color: black;
+        }
+        .content-work-middle-top a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8em;
+        }
+        .content-work-middle-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            margin: 0 40px;
+            gap: 10px;
+        }
+        .content-work-middle-bottom li {
+            /* border: 1px solid red; */
+            /* margin: 5px; */
+            flex-basis: calc(25% - 10px);
+            text-align: center;
+        }
+        .content-work-middle-bottom img {
+            border-radius: 5px;
+            width: 100%;
+            height: auto;
+        }
+        .content-testimonial-top {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .content-testimonial-bottom {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .content-testimonial-bottom>div {
+            display: flex;
+            padding: 10px 0;
+        }
+
+        .content-testimonial-bottom-style1 img,
+        .content-testimonial-bottom-style2 img {
+            border-radius: 100%;
+            width: 100px;
+            height: 100px;
+            box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.59);
+
+        }
+
+        .content-testimonial-bottom-style1 div,
+        .content-testimonial-bottom-style2 div {
+            text-align: center;
+            height: auto;
+            margin: 10px 0 0 20px;
+            box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.59);
+
+        }
+
+        .content-bottom p:first-child {
+            font-size: 0.8em;
+        }
+
+        .content-bottom p:last-child {
+            font-size: 0.9em;
+        }
+
+        /************************************ footer ***************************************/
+        .footer {
+            background-color: var(--color-background1);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 40px 0 10px 0;
+        }
+
+        .footer * {
+            margin: 10px 0;
+        }
+
+        .footer i {
+            font-size: 30px;
+            margin: 0 10px;
+        }
+
+        .footer-p1 {
+            letter-spacing: 1px;
+        }
+
+        .footer-p2 {
+            font-size: 0.7em;
+        }
+        .gototop{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            color: white;
+            background-color: black;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.8em;
+            box-shadow: 3px 3px 0px 0px var(--color-font);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <div class="header-top-logo">
+                <img src="/portfolio/images/favicon.ico" alt="logo">
+                <span>Judy</span>
+            </div>
+            <div class="header-top-menu">
+                <ul>
+                    <li><a href="" class="homebutton">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Skills</a></li>
+                    <li><a href="">My work</a></li>
+                    <li><a href="">Testimonial</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <!-- home -->
+        <div class="content-home">
+            <img src="/portfolio/images/avata.png" alt="avata">
+            <div class="content-home-text">
+                <h1>Hello</h1>
+                <h1>I'm <span class="fontcolor">Dream Coder</span>, Judy</h1>
+                <p>A software engineer currently residing in Seoul, South Korea</p>
+            </div>
+            <button class="contactme">Contact Me</button>
+        </div>
+        <!-- contentbottom -->
+        <div class="content-bottom">
+            <!-- about -->
+            <div class="content-about global-padding">
+                <div class="content-about-top">
+                    <h1>About me</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere laboriosam ad eum
+                        sapienteinciduntquis, molestiae mollitia porro? Dolores assumenda voluptatem non fuga illum
+                        eaque sapiente.Accusamus recusandae dolorum quis.illum eaque sapiente.Accusamus recusandae
+                        dolorum quis.</p>
+                </div>
+                <div class="content-about-middle">
+                    <ul>
+                        <li>
+                            <i class="fa-brands fa-html5"></i>
+                            <h3>Front-end</h3>
+                            <p>HTML, CSS, JavaScript, TypeScript, React, WebAPIs</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-mobile"></i>
+                            <h3>Mobile</h3>
+                            <p>Android Studio, React Native, iOSm Swift, Java, Kotlin</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-server"></i>
+                            <h3>Back-end</h3>
+                            <p>Jave, JaveScript, GO, Kotlin, Spring, Spring Boot</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-about-bottom">
+                    <div>
+                        <img src="/portfolio/images/jobs/google.png" alt="">
+                        <div class="content-about-bottom-text">
+                            <p>Google as Junior Software Engineer</p>
+                            <p class="date">2019 Oct - Until now</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="/portfolio/images/jobs/samsung.png" alt="">
+                        <div class="content-about-bottom-text">
+                            <p>Samsung as Junior Software Engineer</p>
+                            <p class="date">2010 Oct - 2019 Oct</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Skills -->
+            <div class="content-skill global-padding">
+                <div class="content-skill-top">
+                    <h1>My Skills</h1>
+                    <h3>Skills & Attributes</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim expedita eius eligendi unde
+                        perferendis modi deserunt accusantium? Unde, numquam consequuntur expedita sequi dignissimos
+                        sapiente ipsam dolorum magnam vero illo consectetur?</p>
+                </div>
+                <div class="content-skill-middle">
+                    <div class="content-skill-middle-left">
+                        <h4>Coding Skills</h4>
+                        <div class="graph">
+                            <div>
+                                <div class="graph-text">
+                                    <span>HTML</span>
+                                    <span>98%</span>
+                                </div>
+                                <div class="bar">
+                                    <div class="bar-child" style="width: 98%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="graph-text">
+                                    <span>CSS</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="bar">
+                                    <div class="bar-child" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="graph-text">
+                                    <span>JavaScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="bar">
+                                    <div class="bar-child" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="graph-text">
+                                    <span>TypeScript</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="bar">
+                                    <div class="bar-child" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="graph-text">
+                                    <span>React</span>
+                                    <span>79%</span>
+                                </div>
+                                <div class="bar">
+                                    <div class="bar-child" style="width: 79%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="graph-text">
+                                    <span>NodeJS</span>
+                                    <span>68%</span>
+                                </div>
+                                <div class="bar">
+                                    <div class="bar-child" style="width: 68%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-skill-middle-right">
+                        <div class="content-skill-middle-right-top">
+                            <h4>Tools</h4>
+                            <div class="skill-p">
+                                <p>Visual Studio Code</p>
+                                <p>IntelliJ</p>
+                                <p>Android Studio Code</p>
+                                <p>iOS development tools</p>
+                                <p>Eclipse</p>
+                            </div>
+                        </div>
+                        <div class="content-skill-middle-right-bottom">
+                            <h4>Etc</h4>
+                            <div class="skill-p">
+                                <p>Git</p>
+                                <p>Scrum Master</p>
+                                <p>SVN</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- work -->
+            <div class="content-work global-padding">
+                <div class="content-work-top">
+                    <h1>My work</h1>
+                    <h3>Projects</h3>
+                </div>
+                <div class="content-work-middle">
+                    <ul class="content-work-middle-top">
+                        <li>
+                            <a href="">
+                                All
+                            </a>
+                        </li>
+                        <li><a href="">Front-end</a></li>
+                        <li><a href="">Back-end</a></li>
+                        <li><a href="">Mobile</a></li>
+                    </ul>
+                    <ul class="content-work-middle-bottom">
+                        <li><img src="/portfolio/images/projects/project1.webp" alt=""></li>
+                        <li><img src="/portfolio/images/projects/project2.webp" alt=""></li>
+                        <li><img src="/portfolio/images/projects/project3.webp" alt=""></li>
+                        <li><img src="/portfolio/images/projects/project4.webp" alt=""></li>
+                        <li><img src="/portfolio/images/projects/project5.webp" alt=""></li>
+                        <li><img src="/portfolio/images/projects/project6.webp" alt=""></li>
+                        <li><img src="/portfolio/images/projects/project7.webp" alt=""></li>
+                        <li><img src="/portfolio/images/projects/project8.webp" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Testimonial -->
+            <div class="content-testimonial global-padding">
+                <div class="content-testimonial-top">
+                    <h1>Testimonial</h1>
+                    <h3>See what they say about me</h3>
+                </div>
+                <div class="content-testimonial-bottom">
+                    <div class="content-testimonial-bottom-style1">
+                        <img src="/portfolio/images/testimonials/people1.webp" alt="">
+                        <div class="content-testimonial-bottom-style-text">
+                            <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, laborum
+                                soluta at
+                                facere
+                                velit dolor inventore numquam, sequi amet doloribus eos! Veritatis, quisquam eaque!
+                            </p>
+                            <p><span class="fontcolor">James Kim</span> / Google</p>
+                        </div>
+                    </div>
+                    <div class="content-testimonial-bottom-style2">
+                        <div>
+                            <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, laborum
+                                soluta at
+                                facere
+                                velit dolor inventore numquam, sequi amet doloribus eos! Veritatis, quisquam eaque!
+                            </p>
+                            <p><span class="fontcolor">Smith Park</span> / Samsung</p>
+                        </div>
+                        <img src="/portfolio/images/testimonials/people2.webp" alt="">
+                    </div>
+                    <div class="content-testimonial-bottom-style1">
+                        <img src="/portfolio/images/testimonials/people3.webp" alt="">
+                        <div>
+                            <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, laborum
+                                soluta at
+                                facere
+                                velit dolor inventore numquam, sequi amet doloribus eos! Veritatis, quisquam eaque!
+                            </p>
+                            <p><span class="fontcolor">Anna Jin</span> / Samsung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h2>Let's talk</h2>
+        <p class="footer-p1">jeon.developer,judy@gmail.com</p>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <p class="footer-p2">Dream Software Engineer Judy · All right reverved</p>
+    </div>
+    <div class="gototop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+</body>
+
+</html>

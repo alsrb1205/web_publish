@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --color-background1:rgb(5,10,19);
+    --color-background2:rgb(27,30,38);
+    --color-background3:rgb(7,15,28);
+    --color-font:rgb(3,232,249);
+}
+.center-layout{
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.global-padding{
+    padding: 40px 0;
+}
+

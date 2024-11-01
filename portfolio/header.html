@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <link rel="stylesheet" href="/portfolio/css/common.css">
+    <script src="https://kit.fontawesome.com/e87888c4f9.js" crossorigin="anonymous"></script>
+
+    <style>
+        .header{
+            background-color: var(--color-background1);
+            color: white;
+        }
+        .header-top {
+            border: 1px solid white;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+        }
+
+        .header-top-logo {
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        .header-top-logo img{
+            width: 40px;
+        }
+        .header-top-logo span{
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        .header-top-menu>ul {
+            list-style-type: none;
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+        .header-top-menu>ul>li{
+            margin: 5px;
+        }
+        .header-top-menu>ul>li>a{
+            border: 1px solid var(--color-font);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <div class="header-top-logo">
+                <img src="/portfolio/images/favicon.ico" alt="logo">
+                <span>Judy</span>
+            </div>
+            <div class="header-top-menu">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Skills</a></li>
+                    <li><a href="">My work</a></li>
+                    <li><a href="">Testimonial</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
