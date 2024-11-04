@@ -222,7 +222,6 @@ header{
     /* justify-content: space-between; */
 }
 .content-event-special>section:first-child ul li{
-    /* border: 1px solid red; */
     list-style-type: none;
     padding: 15px 15px 0;
 }
@@ -245,7 +244,6 @@ header{
 .event-content-title{
     font-size: 18px;
     font-weight: bold;
-
 }
 .event-content-title-date{
     font-size: 14px;
@@ -346,9 +344,6 @@ header{
 }
 .content-packmovie>div>ul>li>div{
     padding-left: 10px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
 }
 .content-packmovie>div>ul>li>div>p:first-child{
     font-size: 14px;
@@ -359,8 +354,7 @@ header{
 }
 
 /***********공지사항***************/
-.notice-content-list, .notice-content-list>div:first-child{
-    /* border: 1px solid red; */
+.notice-content-list, .notice-content-border{
     display: flex;
     justify-content: space-between;
     height: 230px;
@@ -369,49 +363,37 @@ header{
     border: 1px solid silver;
     border-radius: 10px;
     width: 750px;
-    /* height: 200px; */
-    /* padding: 20px; */
-
-}
-/* .notice-content-border>div{
-    border: 1px solid red;
-} */
-/* .notice-content-border>div>div{
-    border: 1px solid green;    
-} */
-.notice-list-left{
-    /* border: 1px solid red; */
-    width: 500px;
-    padding: 20px;
-}
-.notice-content-border>div>div:first-child{
-    display: flex;
-    justify-content: space-between;
-}
-.notice-content-border>div>div>p:first-child{
-    font-weight: bold;
-}
-.notice-content-border .supportcenter{
-    display: flex;
-}
-.notice{
-    border-bottom: 1px solid silver;
-    padding-bottom: 20px;
-}
-.notice p a{
-    font-size: 12px;
-}
-.supportcenter{
-    padding-top: 20px; 
-}
-.supportcenter>div{
-    padding-left: 25px;
 }
 .app{
     border-left: 1px solid silver;
     padding: 20px;
     text-align: center;
     width: 250px;
+}
+.notice{
+    border-bottom: 1px solid silver;
+    padding-bottom: 20px;
+}
+.notice-list-left{
+    width: 500px;
+    padding: 20px;
+}
+.notice{
+    display: flex;
+    justify-content: space-between;
+}
+.notice-content-border>div>div>p:first-child{
+    font-weight: bold;
+}
+.supportcenter{
+    display: flex;
+    padding-top: 20px;
+}
+.notice p a{
+    font-size: 12px;
+}
+.supportcenter>div{
+    padding-left: 25px;
 }
 .app img{
     padding: 20px 0 20px 0;
@@ -436,7 +418,6 @@ header{
     height: 100%;
     border-radius: 10px;
 }
-
 
 /***************************************
 * title : footer style
@@ -548,7 +529,6 @@ footer .footer-content {
 .login-form input[type="text"],
 .login-form input[type="password"]{
     padding-left: 10px;
-    /* border: none; */
 }
 .login-form button{
     outline-color: var(--color-button);
@@ -571,7 +551,6 @@ footer .footer-content {
     padding-right: 10px;
 }
 .login-form ul>li:nth-child(5){
-    /* border: 1px solid green; */
     display: flex;
     justify-content: space-between;
     font-size: 8pt;
@@ -579,11 +558,7 @@ footer .footer-content {
     margin: 0 auto;
 }
 .login-form ul>li:nth-child(5) div:last-child>:nth-child(2){
-    /* border: 1px solid green; */
     padding-right: 10px;
-    /* width: 200px;
-    display: flex;
-    justify-content: space-between; */
 }
 .login-form ul>li:nth-child(5) div:last-child>a{
     color: var(--color-login-form);
