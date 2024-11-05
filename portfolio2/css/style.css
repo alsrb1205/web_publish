@@ -566,18 +566,8 @@ footer
   .description{
     font-size: 0.9rem;
   }
-  .header{
-    flex-direction: column;
-    align-items: start;
-  }
   .header__logo__title{
     font-size: 1.5rem;
-  }
-  .header__toggle{
-    display: block;
-  }
-  .header__menu{
-    display: none;
   }
   #home{
     padding: 5rem 1.5rem;
@@ -593,14 +583,8 @@ footer
   .home__description{
     font-size: 1rem;
   }
-  .majors{
-    flex-direction: column;
-  }
   .major{
     width: 100%;
-  }
-  .job{
-    justify-content: center;
   }
   .job__name{
     font-size: 0.8rem;
@@ -608,27 +592,11 @@ footer
   .job__period{
     font-size: 0.6rem;
   }
-  .skills{
-    grid-template-columns: 1fr;
-  }
-  .categories{
-    flex-direction: column;
-  }
   .category{
-    width: 100%;
     font-size: 1rem;
-  }
-  .projects{
-    grid-template-columns: repeat(2, 1fr);
   }
   .testimonials{
     margin: 3rem 1rem;
-  }
-  .testimonial{
-    flex-direction: column;
-  }
-  .testimonial:nth-child(even) .testimonial__img{
-    order: 0;
   }
   .testimonial__bubble{
     font-size: 0.8rem;
