@@ -5,7 +5,7 @@ for (let i = 1; i <=9; i++) {
 }
 
 // 2단~9단 출력
-console.clear();
+// console.clear();
 
 for(let i=1;i<=9;i++){  // 1~9
     let rows = '';
@@ -16,7 +16,7 @@ for(let i=1;i<=9;i++){  // 1~9
 }
 
 
-console.clear();
+// console.clear();
 
 // 별찍기
 for (let i = 1; i <= 5; i++) {
