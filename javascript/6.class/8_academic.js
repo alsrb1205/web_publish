@@ -25,6 +25,15 @@ class Student extends Member {
         this.#sno = sno;
     }
     get sno() { return this.#sno; } //private이 포함된 메소드는 해당 클래스에 있어야 함
+    //전체 값을 반환하는 함수 정의
+
+    //호출방법 : 객체명.values()
+    // values =()=> [this.name, this.age, this.address. this.sno];
+
+    //호출방법 : 객체명.values
+    get values() {
+        return [this.name, this.age, this.address, this.#sno];
+    }
 }
 /**Professor Class */
 class Professor extends Member {
@@ -34,6 +43,10 @@ class Professor extends Member {
         this.#subject = subject;
     }
     get subject() { return this.#subject; }
+    get values() {
+        return [this.name, this.age, this.address, this.#subject];
+    }
+
 }
 /**Parent Class */
 class Parent extends Member {
@@ -43,6 +56,10 @@ class Parent extends Member {
         this.#cname = cname;
     }
     get cname() { return this.#cname; }
+    get values() {
+        return [this.name, this.age, this.address, this.#cname];
+    }
+
 }
 /**Employee Class */
 class Employee extends Member {
@@ -52,73 +69,83 @@ class Employee extends Member {
         this.#department = department;
     }
     get department() { return this.#department; }
+    get values() {
+        return [this.name, this.age, this.address, this.#department];
+    }
+
 }
 
 // signup 버튼 클릭시 호출되는 함수
 const signupCheck = () => {
     let type = document.querySelector('input[type=radio]:checked');
-    let sno = document.querySelector('#sno');
-    let name = document.querySelector('#name');
-    let age = document.querySelector('#age');
-    let address = document.querySelector('#address');
-    let department = document.querySelector('#department');
-    let cname = '';
-    let subject = '';
+    let name, age, address, sno, subject, cname, department;
+    let member = null; // type 에 따라서 각각의 클래스 생성
 
-    // type 에 따라서 각각의 클래스 생성
-    let member = null;
     switch (type.value) {
-        case '1': member = new Student(sno.value, name.value, age.value, address.value); break;
-        case '2': member = new Professor(name, age, address, subject); break;
-        case '3': member = new Parent(name, age, address, cname); break;
-        case '4': member = new Employee(name, age, address, department); break;
+        case '1':
+            name = document.querySelector('#student #name');
+            age = document.querySelector('#student #age');
+            address = document.querySelector('#student #address');
+            sno = document.querySelector('#student #sno');
+
+            member = new Student(sno.value, name.value, age.value, address.value); break;
+
+        case '2':
+            name = document.querySelector('#professor #name');
+            age = document.querySelector('#professor #age');
+            address = document.querySelector('#professor #address');
+            subject = document.querySelector('#professor #subject');
+
+            member = new Professor(name.value, age.value, address.value, subject.value); break;
+
+        case '3':
+            name = document.querySelector('#parent #name');
+            age = document.querySelector('#parent #age');
+            address = document.querySelector('#parent #address');
+            cname = document.querySelector('#parent #cname');
+
+            member = new Parent(name.value, age.value, address.value, cname.value); break;
+
+        case '4':
+            name = document.querySelector('#employee #name');
+            age = document.querySelector('#employee #age');
+            address = document.querySelector('#employee #address');
+            department = document.querySelector('#employee #department');
+
+            member = new Employee(name.value, age.value, address.value, department.value); break;
         default:
     }
     console.log(member);
+    // 자바스크립트로 생성되는 HTML을 Dynamic HTML(DHTML)
+    // let list = Object.keys(member); // ['name','age','address','sno'] -->클래스의 필드값이 private인 경우에는 데이터를 가져올 수 없다.
+
+    let list = '';
+    member.values.forEach((item) => {
+        list += `<li>${item}</li>`;
+    });
+
+    let output = `<ul>${list}</ul>`;
+
+    document.querySelector('#result').innerHTML = output;
+
 } //end of signupCheck
 
-// display
+// display : 라디오버튼 선택시 화면 전환시키는 함수
 const display = (type) => {
-    if(type ==='1'){
+
+    document.querySelector('#result').innerHTML = ''; //다른 버튼 선택시 result 사라지게
+
+    document.querySelector('#student').style.display = "none";
+    document.querySelector('#professor').style.display = "none";
+    document.querySelector('#parent').style.display = "none";
+    document.querySelector('#employee').style.display = "none";
+    if (type === '1') {
         document.querySelector('#student').style.display = "block";
-        document.querySelector('#professor').style.display = "none";
-        document.querySelector('#parent').style.display = "none";
-        document.querySelector('#employee').style.display = "none";
-    } else if(type ==='2'){
-        document.querySelector('#student').style.display = "none";
+    } else if (type === '2') {
         document.querySelector('#professor').style.display = "block";
-        document.querySelector('#parent').style.display = "none";
-        document.querySelector('#employee').style.display = "none";
-    }  else if(type ==='3'){
-        document.querySelector('#student').style.display = "none";
-        document.querySelector('#professor').style.display = "none";
+    } else if (type === '3') {
         document.querySelector('#parent').style.display = "block";
-        document.querySelector('#employee').style.display = "none";
-    } else if(type ==='4'){
-        document.querySelector('#student').style.display = "none";
-        document.querySelector('#professor').style.display = "none";
-        document.querySelector('#parent').style.display = "none";
+    } else if (type === '4') {
         document.querySelector('#employee').style.display = "block";
     }
-}
-
-
-
-
-// const hong = new Student('1234', '홍길동', 20, '서울시 강남구'); //학생
-// const smith = new Professor('smith', 40, '서울시 서초구', 'JavaScript'); //교수
-// const hongP = new Parent('홍길순', 60, '서울시 강남구', '홍길동'); //학부모
-// const lee = new Employee('이철수', 30, '부산시 해운대구', '개발1팀'); //직원
-
-// console.log(`*** 학생 정보 ***`);
-// console.log(`${hong.sno}\n${hong.name}\n${hong.age}\n${hong.address}`);
-
-// console.log(`*** 교수 정보 ***`);
-// console.log(`${smith.name}\n${smith.age}\n${smith.address}\n${smith.subject}`);
-
-// console.log(`*** 학부모 정보 ***`);
-// console.log(`${hongP.name}\n${hongP.age}\n${hongP.address}\n${hongP.cname}`);
-
-// console.log(`*** 직원 정보 ***`);
-// console.log(`${lee.name}\n${lee.age}\n${lee.address}\n${lee.department}`);
-
+} // end of display
