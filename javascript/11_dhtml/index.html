@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .counter_container{
+            width: 200px;
+        }
+        #number{
+            font-size: 2rem;
+            text-align: right;
+            padding-bottom: 20px;
+        }
+    </style>
+    <script src="/javascript/11_dhtml/counter.js"></script>
+</head>
+<body>
+    <h1>Counter</h1>
+    <div class="counter_container">
+        <div id="number">0</div>
+        <button type="button" onclick="counter('increment')">increment</button>
+        <button type="button" onclick="counter('decrement')">decrement</button>
+    </div>
+</body>
+</html>
