@@ -9,7 +9,6 @@ export async function kobisBoxOffice(type, searchDt) {
 
     return jsonData;
 };
-
 /**
  * KOBIS 영화 리스트 호출 함수
  */
@@ -23,6 +22,29 @@ export async function kobisMovieList() {
 
     return jsonData;
 }
+/**
+ * KMDB 영화 포스터 검색
+ */
+export async function searchMoviePoster(movieNm,openDt) {
+    const serviceKey = `8CZ2UOB2E04XCEZ5E9F0`;
+    const url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=${serviceKey}&title=${movieNm}&releaseDts=${openDt}`
+    const moviePoster = await fetch(url);
+    const jsonData = await moviePoster.json();
+    
+    return jsonData.Data[0].Result[0].posters.split('|')[0];    
+}
+
+/**
+ * KMDB 영화 상세 정보
+ */
+export async function kmdbMovieDetail(movieNm,openDt){
+    const serviceKey = `8CZ2UOB2E04XCEZ5E9F0`;
+    const url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&ServiceKey=${serviceKey}&title=${movieNm}&releaseDts=${openDt}`
+    const movieDetail = await fetch(url);
+    const jsonData = await movieDetail.json();
+    return jsonData;
+}
+
 
 /**
  * KOBIS 영화 정보 상세 호출 함수
@@ -35,3 +57,5 @@ export async function kobisMovieDetail(movieCd) {
 
     return jsonData;
 }
+
+

@@ -40,17 +40,15 @@ function initform() {
         });
 } // initform()
 
-// KMDB API 연동 후 출력화면
-function searchMovieResult(type, value, title) {
-
-    /** 검색결과 출력 Promise --> 화면 */
-    kmdb(type, value, title)
+export function searchMovieResult(type, value, title) {
+    return kmdb(type, value, title)
         .then((result) => {
             let count = result.TotalCount;
             let output = '';
-            let actorFive = []; //배열생성해서 push로 넣기
+            let actorFive = [];
             let actorAll = [];
-            if (count) { // count===1 과 동일 true이기 때문
+
+            if (count) {
                 let info = result.Data[0].Result[0];
                 let directors = info.directors.director;
                 let actors = info.actors.actor;
@@ -71,7 +69,7 @@ function searchMovieResult(type, value, title) {
                 <div class="container">
                     <div class="container-content">
                         <h3>${title}</h3>
-                        <h5>${info.titleEng}-${info.prodYear}년</h5>
+                        <h5>${info.titleEng} - ${info.prodYear}년</h5>
                         <hr>
                         <p>${info.type} ${info.rating} ${info.nation} ${info.runtime}분 ${info.repRlsDate}</p>
                         <p><span>제작사 </span><span>${info.company}</span></p>
@@ -94,25 +92,12 @@ function searchMovieResult(type, value, title) {
             } else {
                 output += `<h5>검색하신 데이터가 존재하지 않습니다.</h5>`;
             }
-            document.querySelector("#result").innerHTML = output;
 
-            /** 더보기 버튼 이벤트 */
-            document.querySelector("#more_actors")
-                .addEventListener('click', () => {
-                    document.querySelector("#actors").textContent = actorAll.join(', ');
-                    document.querySelector("#more_actors").style.display = "none";
-                    document.querySelector("#close_actors").style.display = "inline-block";
-                });
-
-            /** 접기 버튼 이벤트 */
-            document.querySelector("#close_actors")
-                .addEventListener('click', () => {
-                    document.querySelector("#actors").textContent = actorFive.join(', ');
-                    document.querySelector("#more_actors").style.display = "inline-block";
-                    document.querySelector("#close_actors").style.display = "none";
-                });
+            return { output, actorFive, actorAll };
         })
-        .catch((error) => { console.log(error) });
+        .catch((error) => {
+            console.log(error);
+            return { output: `<h5>에러가 발생했습니다.</h5>`, actorFive: [], actorAll: [] };
+        });
 }
-
 

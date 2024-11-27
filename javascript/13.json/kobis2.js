@@ -16,14 +16,18 @@ function initForm() {
         <div id="result"></div>
         <div id="poster"></div>
         <div id="imageModal" class="modal">
-            <div class="modal-content">
-                <span id="closeModal" class="close">&times;</span>
-                <img id="modalImage" src="" alt="Modal Image" width="500px">
-            </div>
+            <span id="closeModal" class="close">&times;</span>
+            <div id="modalContent" class="modal-content"></div>
         </div>
 </div>
         
         `;
+        // <div id="imageModal" class="modal">
+        //     <div class="modal-content">
+        //         <span id="closeModal" class="close">&times;</span>
+        //         <img id="modalImage" src="" alt="Modal Image" width="500px">
+        //     </div>
+        // </div>
     document.querySelector("body").innerHTML = output;
 
     // 기본 박스오피스 화면 출력 : 20240101
@@ -113,46 +117,116 @@ function searchBoxOffice(ktype, searchDt) {
         .catch();
 };
 
-/** 이미지 이벤트 처리 함수 */
-function onMovieDetail(event) {
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const closeModalBtn = document.getElementById('closeModal');
-
-    let [movieNm, openDt] = event.target.id.split(',');
-
-
-
-    kmdbMovieDetail(movieNm, openDt)
-        .then((result) => {
-            const imageSrc = event.target.src; // 클릭한 이미지의 src를 가져옴
-            modalImage.src = imageSrc; // 모달 창에 이미지 넣기
-            modal.style.display = 'block'; //모달 창을 넣기
-        })
-        .catch((error) => { console(log(error)) });
-
-
-
-
-
-
-
-        
-    //모달 닫기버튼
-    closeModalBtn.addEventListener('click', () => {
-        modal.style.display = 'none'; //모달 창 닫기
-    })
-    // 모달 바깥쪽 클릭시 모달 닫기
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    })
-
-}//onMovieDetail
-
 /**순차적으로 비동기식 호출을 위해 getPoster 함수 생성 */
 async function getPoster(movieNm, openDt) {
     return await searchMoviePoster(movieNm, openDt);
 }
 
+/** 이미지 이벤트 처리 함수 */
+function onMovieDetail(event) {
+    const modal = document.getElementById('imageModal');
+    const modalContent = document.getElementById('modalContent'); // 모달 텍스트 내용
+    const closeModalBtn = document.getElementById('closeModal');
+
+    // 기존 모달 초기화
+    modalContent.innerHTML = '';
+
+    let [movieNm, openDt] = event.target.id.split(',');
+
+    // KMDB API를 통해 영화 상세 정보 가져오기
+    kmdbMovieDetail(movieNm, openDt)
+        .then((result) => {
+            const count = result.TotalCount;
+
+            if (!count) {
+                modalContent.innerHTML = `<h5>검색하신 데이터가 존재하지 않습니다.</h5>`;
+                modal.style.display = 'block';
+                return;
+            }
+
+            const info = result.Data[0].Result[0];
+            const posterArray = info.posters.split("|");
+            const stillsArray = info.stlls.split("|");
+            const actors = info.actors.actor.map(actor => actor.actorNm);
+            const actorFive = actors.slice(0, 5);
+
+            const title = info.title.replaceAll("!HS", "").replaceAll('!HE', "");
+
+            // 모달 내용 생성
+            let output = `
+                <div class="modal-content-container">
+                    <div class="modal-header">
+                        <h3>${title}</h3>
+                        <h5>${info.titleEng} - ${info.prodYear}년</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-left">
+                            <img src="${posterArray[0]}" alt="Poster" class="poster-img">
+                        </div>
+                        <div class="modal-right">
+                            <p><strong>장르:</strong> ${info.genre}</p>
+                            <p><strong>감독:</strong> ${info.directors.director[0]?.directorNm || '정보 없음'}</p>
+                            <p><strong>출연:</strong> <span id="actors">${actorFive.join(', ')}</span>
+                                <button type="button" id="more_actors">더보기</button>
+                                <button type="button" id="close_actors" style="display:none">접기</button>
+                            </p>
+                            <p><strong>제작사:</strong> ${info.company || '정보 없음'}</p>
+                            <p><strong>개봉일:</strong> ${info.repRlsDate || '정보 없음'}</p>
+                            <p><strong>상영시간:</strong> ${info.runtime || '정보 없음'}분</p>
+                        </div>
+                    </div>
+                    <div class="modal-stills">
+                        <h4>스틸컷</h4>
+            `;
+
+            // 스틸컷 추가
+            stillsArray.forEach(still => {
+                output += `<img src="${still}" class="still-img">`;
+            });
+
+            output += `
+                    </div>
+                </div>
+            `;
+
+            // 모달에 내용 삽입
+            modalContent.innerHTML = output;
+
+            // '더보기' 버튼 이벤트 처리
+            const moreActorsBtn = document.getElementById('more_actors');
+            const closeActorsBtn = document.getElementById('close_actors');
+            const actorsElement = document.getElementById('actors');
+
+            moreActorsBtn.addEventListener('click', () => {
+                actorsElement.textContent = actors.join(', ');
+                moreActorsBtn.style.display = 'none';
+                closeActorsBtn.style.display = 'inline-block';
+            });
+
+            closeActorsBtn.addEventListener('click', () => {
+                actorsElement.textContent = actorFive.join(', ');
+                moreActorsBtn.style.display = 'inline-block';
+                closeActorsBtn.style.display = 'none';
+            });
+
+            // 모달 표시
+            modal.style.display = 'block';
+        })
+        .catch((error) => {
+            console.error("KMDB 영화 상세 조회 실패:", error);
+            modalContent.innerHTML = `<h5>영화 정보를 가져오는 중 에러가 발생했습니다.</h5>`;
+            modal.style.display = 'block';
+        });
+
+    // 모달 닫기 버튼 이벤트 처리
+    closeModalBtn.onclick = () => {
+        modal.style.display = 'none';
+    };
+
+    // 모달 외부 클릭 시 닫기 (이벤트 중복 방지)
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    };
+}

@@ -18,7 +18,7 @@ function initForm() {
         <div id="imageModal" class="modal">
             <div class="modal-content">
                 <span id="closeModal" class="close">&times;</span>
-                <img id="modalImage" src="" alt="Modal Image" width="500px">
+                <div id=modalDetail></div>
             </div>
         </div>
 </div>
@@ -116,39 +116,80 @@ function searchBoxOffice(ktype, searchDt) {
 /** 이미지 이벤트 처리 함수 */
 function onMovieDetail(event) {
     const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
     const closeModalBtn = document.getElementById('closeModal');
 
     let [movieNm, openDt] = event.target.id.split(',');
-
-
+    let output = '';
 
     kmdbMovieDetail(movieNm, openDt)
-        .then((result) => {
-            const imageSrc = event.target.src; // 클릭한 이미지의 src를 가져옴
-            modalImage.src = imageSrc; // 모달 창에 이미지 넣기
-            modal.style.display = 'block'; //모달 창을 넣기
+    .then((result) => {
+
+        modal.style.display = 'block'; //모달 창을 넣기
+
+            let actorFive = []; //배열생성해서 push로 넣기
+            let actorAll = [];
+            let info = result.Data[0].Result[0];
+            let directors = info.directors.director;
+            let actors = info.actors.actor;
+            let posterArray = info.posters.split("|");
+            let stillsArray = info.stlls.split("|");
+            let staffs = info.staffs.staff;
+            let title = info.title.replaceAll("!HS", "").replaceAll('!HE', "");
+            actors.forEach((actor, i) => {
+                if (i < 5) actorFive.push(actor.actorNm);
+            });
+            actors.forEach((actor) => {
+                actorAll.push(actor.actorNm);
+            });
+
+            output += `
+                    <div class="container">
+                    <div class="container-img">
+                        <img src="${posterArray[0]}" alt="">
+                    </div>
+                        <div class="container-content">
+                            <h3>${title}</h3>
+                            <h5>${info.titleEng}-${info.prodYear}년</h5>
+                            <hr>
+                            <p>${info.type} ${info.rating} ${info.nation} ${info.runtime}분 ${info.repRlsDate}</p>
+                            <p><span>제작사 </span><span>${info.company}</span></p>
+                            <p><span>감독 </span><span>${staffs[0].staffNm}</span></p>
+                            <p><span>출연 </span><span id="actors">${actorFive.join(', ')}</span>
+                            <button type="button" id="more_actors">더보기</button>
+                            <button type="button" id="close_actors" style="display:none">접기</button>
+                            </p>
+                        </div> 
+                    </div>
+                    <div class="modal-stills">
+                        <h4>스틸컷</h4>
+            `;
+                        // 스틸컷 추가
+                        stillsArray.forEach(still => {
+                            output += `<img src="${still}" class="still-img" width="50px">`;
+                        });
+            
+                        output += `
+                                </div>
+                            </div>
+                        `;
+            
+            
+
+            document.querySelector("#modalDetail").innerHTML = output;
+            
         })
         .catch((error) => { console(log(error)) });
-
-
-
-
-
-
-
         
-    //모달 닫기버튼
-    closeModalBtn.addEventListener('click', () => {
-        modal.style.display = 'none'; //모달 창 닫기
-    })
-    // 모달 바깥쪽 클릭시 모달 닫기
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    })
-
+        //모달 닫기버튼
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none'; //모달 창 닫기
+        })
+        // 모달 바깥쪽 클릭시 모달 닫기
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        })
 }//onMovieDetail
 
 /**순차적으로 비동기식 호출을 위해 getPoster 함수 생성 */
