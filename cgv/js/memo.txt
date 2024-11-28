@@ -1,0 +1,6 @@
+1. index.html -> script 모듈 타입으로 추가
+2. script
+    1) Daily, Date 클래스(현재날짜기준 하루전)
+    2) Kobis 박스오피스
+    3) kmdb poster 가져오기
+    4) 무비차트에 들어갈 DHTML 생성
