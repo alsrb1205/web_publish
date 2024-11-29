@@ -32,16 +32,16 @@
                     <li>
                         <div class="login-form-input">
                             <i class="fa-solid fa-user"></i>
-                            <input type="text" name="id" id="id" placeholder="ID를 입력해주세요">
+                            <input type="text" name="id" id="id" oninput="handleChange(event)" placeholder="ID를 입력해주세요">
                         </div>
-                        <p id="error-msg-id"></p>
+                        <p id="error-msg-id" class="login-error"></p>
                     </li>
                     <li>
                         <div class="login-form-input">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력해주세요">
+                            <input type="password" name="pwd" id="pwd" oninput="handleChange(event)" placeholder="비밀번호를 입력해주세요">
                         </div>
-                        <p id="error-msg-pwd"></p>
+                        <p id="error-msg-pwd" class="login-error"></p>
                     </li>
                     <li>
                         <button type="button" class="btn-main-color" onclick="loginFormCheck()">로그인</button>

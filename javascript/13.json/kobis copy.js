@@ -29,7 +29,6 @@ function initForm() {
     // 기본 박스오피스 화면 출력 : 20240101
     searchBoxOffice('Daily', '20240101');
 
-
     /**Search 버튼 이벤트 추가 */
     let searchButton = document.querySelector("#searchBtn");
     searchButton.addEventListener('click', () => {
@@ -111,7 +110,7 @@ function searchBoxOffice(ktype, searchDt) {
                 .catch(); // Promise.all()
         })
         .catch();
-};
+}; // searchBoxOffice
 
 /** 이미지 이벤트 처리 함수 */
 function onMovieDetail(event) {
@@ -121,24 +120,24 @@ function onMovieDetail(event) {
     let [movieNm, openDt] = event.target.id.split(',');
     let output = '';
 
+    // 모달창에 상세영화정보 넣기
     kmdbMovieDetail(movieNm, openDt)
-    .then((result) => {
-
-        modal.style.display = 'block'; //모달 창을 넣기
+        .then((result) => {
+            modal.style.display = 'block'; //모달 창을 넣기
 
             let actorFive = []; //배열생성해서 push로 넣기
             let actorAll = [];
             let info = result.Data[0].Result[0];
-            let directors = info.directors.director;
             let actors = info.actors.actor;
             let posterArray = info.posters.split("|");
             let stillsArray = info.stlls.split("|");
             let staffs = info.staffs.staff;
             let title = info.title.replaceAll("!HS", "").replaceAll('!HE', "");
-            actors.forEach((actor, i) => {
+
+            actors.forEach((actor, i) => { //더보기버튼 누르기 전 배우리스트 출력
                 if (i < 5) actorFive.push(actor.actorNm);
             });
-            actors.forEach((actor) => {
+            actors.forEach((actor) => { //더보기버튼 누른 후 전체배우리스트 출력 
                 actorAll.push(actor.actorNm);
             });
 
@@ -163,37 +162,50 @@ function onMovieDetail(event) {
                     <div class="modal-stills">
                         <h4>스틸컷</h4>
             `;
-                        // 스틸컷 추가
-                        stillsArray.forEach(still => {
-                            output += `<img src="${still}" class="still-img" width="50px">`;
-                        });
-            
-                        output += `
+            // 스틸컷 추가
+            stillsArray.forEach(still => {
+                output += `<img src="${still}" class="still-img" width="50px">`;
+            });
+
+            output += `
                                 </div>
                             </div>
                         `;
-            
-            
-
             document.querySelector("#modalDetail").innerHTML = output;
-            
+
+            // 더보기 버튼 이벤트 처리
+            const moreActorsBtn = document.getElementById('more_actors');
+            const closeActorsBtn = document.getElementById('close_actors');
+            const actorsElement = document.getElementById('actors');
+
+            moreActorsBtn.addEventListener('click', () => {
+                actorsElement.textContent = actorAll.join(', ');
+                moreActorsBtn.style.display = 'none';
+                closeActorsBtn.style.display = 'inline-block';
+            });
+
+            closeActorsBtn.addEventListener('click', () => {
+                actorsElement.textContent = actorFive.join(', ');
+                moreActorsBtn.style.display = 'inline-block';
+                closeActorsBtn.style.display = 'none';
+            });
         })
         .catch((error) => { console(log(error)) });
-        
-        //모달 닫기버튼
-        closeModalBtn.addEventListener('click', () => {
-            modal.style.display = 'none'; //모달 창 닫기
-        })
-        // 모달 바깥쪽 클릭시 모달 닫기
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        })
+
+
+    //모달 닫기버튼
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none'; //모달 창 닫기
+    })
+    // 모달 바깥쪽 클릭시 모달 닫기
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    })
 }//onMovieDetail
 
 /**순차적으로 비동기식 호출을 위해 getPoster 함수 생성 */
 async function getPoster(movieNm, openDt) {
     return await searchMoviePoster(movieNm, openDt);
 }
-
