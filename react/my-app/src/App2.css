@@ -1,0 +1,10 @@
+div{
+    background-color: bisque;
+}
+.container{
+    display: flex;
+    gap: 20px;
+}
+.title{
+    color: red;
+}
