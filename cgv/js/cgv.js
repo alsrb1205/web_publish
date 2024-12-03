@@ -1,4 +1,5 @@
 import { kobisBoxOffice, searchMoviePoster } from "./commons.js";
+
 createMovieChartList(1);
 
 /*
@@ -6,18 +7,25 @@ createMovieChartList(1);
  */
 function createMovieChartList(page) {
     const date = new Date();
-    const searchDt = date.getFullYear().toString().concat(date.getMonth() + 1, date.getDate() - 1);
+    const searchDt = date.getFullYear().toString().concat((date.getMonth() + 1).toString().padStart(2, '0'), (date.getDate() - 1).toString().padStart(2, '0'));
+
+    // date.setDate(date.getDate() - 1); // 하루 전 날짜로 설정
+    // const searchDt = date.getFullYear().toString().concat(
+    //     (date.getMonth() + 1).toString().padStart(2, '0'),
+    //     date.getDate().toString().padStart(2, '0')
+    // );
 
     kobisBoxOffice('Daily', searchDt)
         .then((result) => {
             const rankList = result.boxOfficeResult.dailyBoxOfficeList;
+            console.log(rankList);
+
             let posterList = []; //Promise 객체타입의 10개의 이미지 포스터
             rankList.forEach((element) => {
                 const movieNm = element.movieNm;
                 const openDt = element.openDt.replaceAll('-', '')
                 posterList.push(getPoster(movieNm, openDt));
-
-            })
+            });
             Promise.all(posterList) // 비동기식 처리를 묶어서 한번에 실행 
                 .then((poster) => {
                     let output = `<ul>`;
