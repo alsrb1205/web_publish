@@ -1,0 +1,824 @@
+/***************************************
+* title : header style
+* author : jung@test.com
+* final date : 2024/10/24
+****************************************/
+.gototop a{
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 100%;
+    padding: 11px 16px;
+}
+.gototop img{
+    position: relative;
+    top: 3px;
+    width: 15px;
+}
+header{
+    /* border: 1px solid var(--color-border); */
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    border-bottom: 2px solid red;
+}
+.header-top{
+    padding: 20px 0px;
+
+}
+.header-top, .header-bottom-content{
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-top-logo{
+    /* border: 1px solid blue; */
+    position: relative;
+    width: 330px;
+}
+.header-top-logo>a>img{
+    width: 120px;
+}
+.header-top-logo>span{
+    position: absolute;
+    top: 30px;
+    left: 120px;
+    letter-spacing: 5px;
+    color: var(--color-primary)
+}
+.header-top-card{
+    /* border: 1px solid red; */
+    position: relative;
+    left: 100px;
+    top: 5px;    
+}
+.header-top ul, .header-bottom ul{
+    /* border: 1px solid green; */
+    list-style-type: none;
+    display: flex;
+}
+.header-top ul li{
+    /* padding: 0px 10px; */
+    margin-left: 30px;
+    
+}
+.header-top ul li a{
+    /* background-color: aqua; */
+    /* padding: 30px 10px; */
+    text-decoration: none;
+    color: var(--color-primary);
+}
+.header-menu-icon{
+    /* border: 1px solid red; */
+    width: 46px;
+    min-height: 55px;
+    display: block;
+    position: relative;
+    /* overflow: hidden; */
+}
+.header-menu-icon img{
+    /* border: 1px solid red; */
+    width: 36px;
+    height: 36px;
+}
+.header-menu-icon span{
+    /* border: 1px solid red; */
+    width: 50px;
+    font-weight: 700;
+    height: 19px;
+    font-size: 11px;
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+}
+.header-bottom dl{
+    display: none;
+}
+.header-bottom{
+    border-top: 1px solid silver;
+    width: 100%;
+    height: 40px;
+    padding: 5px 0px;
+}
+.header-bottom li {
+    padding: 10px 25px;
+}
+.header-bottom li a{
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+.header-bottom-search{
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    
+}
+.header-bottom-search>input{
+    width: 80%;
+    border: none;
+    padding: 5px;
+}
+.header-bottom .header-search{
+    /* border: 1px solid red; */
+    font-size: 1.3em;
+    padding-top: 3px;
+    cursor: pointer;
+}
+/***************************************
+* title : content style
+* author : jung@test.com
+* final date : 2024/10/24
+****************************************/
+.content,
+.content-top{
+    width: 100%;
+}
+.content-top{
+    background-color: black;
+    position: relative;
+    top: -4px;
+}
+.content-top iframe,
+.content-moviechart>div,
+.content-event-special{
+    display: block;
+    width: 1000px;
+    margin: 0 auto;
+}
+/*무비차트 타이틀*/
+.content-moviechart{
+    background-color: rgb(251,251,251);
+    /* padding: 40px 0; */
+
+}
+/*
+    공통적으로 적용되는 클래스는 직접 셀렉팅하는 경우 부모를 직관적으로 지정해줘야함
+*/
+/* 무비차트/상영예정작 텍스트 */
+.content-moviechart .content-title-style >div:first-child{
+    /* border: 1px solid green; */
+    position: relative;
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* 무비차트/상영예정작 중간 라인 */
+.content-moviechart .content-title-style>div>span:first-child+span{
+    display: inline-block;
+    width: 1px;
+    height: 15px;
+    background-color: var(--color-silver);
+    position: absolute;
+    top: 10px;
+    left: 45%;
+}
+.content-moviechart-list ul{
+    /* border: 1px solid red; */
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+.content-moviechart-list ul li{
+    /* border: 1px solid blue; */
+    padding: 15px 15px 0;
+}
+.content-moviechart-list ul li:first-child{
+    /* border: 1px solid blue; */
+    padding-left: 0px;
+}
+.content-moviechart-list ul li:last-child{
+    /* border: 1px solid blue; */
+    padding-right: 0px;
+}
+.content-moviechart-list ul img{
+    border-radius: 10px;
+    width: 170px;
+}
+.content-moviechart-list ul li h3{
+    text-align: center;
+    padding: 10px 0;
+}
+.content-moviechart-list ul li h5{
+    text-align: center;
+    padding-top: 3px;
+    color: var(--color-primary);
+}
+/* 이벤트 섹션 */
+.content-event-special h3{
+    font-size: 1.4em;
+}
+.content-event-special>section:first-child ul{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.content-event-special>section:first-child ul li{
+    list-style-type: none;
+    padding: 15px 15px 0;
+}
+.content-event-special section:first-child ul li:first-child{
+    padding-left: 0;
+}
+.content-event-special section:first-child ul li:last-child{
+    padding-right: 0;
+}
+.content-event-special section:first-child ul li img{
+    width: 310px;
+    border-radius: 10px;
+}
+.content-event-special section:first-child ul li div{
+    padding: 5px 0;
+}
+.content-event-special section:first-child ul li p{
+    padding: 5px 0;
+}
+.event-content-title{
+    font-size: 18px;
+    font-weight: bold;
+}
+.event-content-title-date{
+    font-size: 14px;
+    color: var(--color-gray-222);
+    font-weight: 600;
+}
+/* 특별관 */
+.special>div:first-child{
+    padding-bottom: 30px;
+}
+.special-content{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+.special-content>div{
+    padding-bottom: 20px;
+}
+.special-content>div>a>img{
+    width: 500px;
+    height: 100%;
+}
+.special-content div+div{
+    /* border: 1px solid red; */
+    width: 450px;
+}
+.special-content div+div ul{
+    list-style-type: none;
+    /* border: 1px solid green; */
+    height: 100%;
+    text-align: center;
+}
+.special-content div+div ul li {
+    border: 1px solid white;
+    border-top: 1px solid silver;
+    height: 25%;
+}
+.special-content div+div ul li:last-child{
+    border-bottom: 1px solid silver;
+    
+}
+.special-content div+div ul li:hover{
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.special-content div+div ul li:hover+li{
+    border-top: 1px solid white;
+}
+.special-content div+div ul li a{
+    padding: 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-primary);
+}
+.special-content ul li>a>span:first-child{
+    font-size: 1.3em;
+    text-decoration: none;
+    font-weight: 50600;
+}
+.special-content ul li>a>span:last-child{
+    font-size: 0.9em;
+    color: var(--color-gray-222);
+    border: 1px solid var(--color-silver);
+    background-color: var(--color-hashtag);
+    border-radius: 10px;
+    padding: 5px;
+}
+/* 패키지영화관람권기프트카드섹션 */
+
+.content-packmovie{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+}
+.content-packmovie>div{
+    border: 1px solid var(--color-silver);
+    border-radius: 10px;
+    padding: 20px;
+    width: 320px;
+}
+.content-packmovie>div>div>span{
+    font-weight: bold;
+    font-size: 20px;
+}
+.content-packmovie ul{
+    list-style-type: none;
+}
+.content-packmovie>div>ul>li{
+    display: flex;
+    padding: 10px 10px 10px 0;
+    align-items: center;
+}
+.content-packmovie>div>ul>li>img{
+    width: 80px;
+    border-radius: 10px;
+}
+.content-packmovie>div>ul>li>div{
+    padding-left: 10px;
+}
+.content-packmovie>div>ul>li>div>p:first-child{
+    font-size: 14px;
+}
+.content-packmovie>div>ul>li>div>p:last-child{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/***********공지사항***************/
+.notice-content-list, .notice-content-border{
+    display: flex;
+    justify-content: space-between;
+    height: 230px;
+}
+.notice-content-border{
+    border: 1px solid silver;
+    border-radius: 10px;
+    width: 750px;
+}
+.app{
+    border-left: 1px solid silver;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+}
+.notice{
+    border-bottom: 1px solid silver;
+    padding-bottom: 20px;
+}
+.notice-list-left{
+    width: 500px;
+    padding: 20px;
+}
+.notice{
+    display: flex;
+    justify-content: space-between;
+}
+.notice-content-border>div>div>p:first-child{
+    font-weight: bold;
+}
+.supportcenter{
+    display: flex;
+    padding-top: 20px;
+}
+.notice p a{
+    font-size: 12px;
+}
+.supportcenter>div{
+    padding-left: 25px;
+}
+.app img{
+    padding: 20px 0 20px 0;
+}
+.app p:first-child{
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.app p:nth-child(2){
+    font-size: 13px;
+}
+.app p:last-child{
+    color:var(--color-gray-222) ;
+    font-size: 11px;
+}
+.faqbutton{
+    position: relative;
+    top: 20px;
+}
+.notice-content-list-bugs img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/***************************************
+* title : footer style
+* author : jung@test.com
+* final date : 2024/10/24
+****************************************/
+footer {
+    width: 100%;
+    height: 420px;
+    margin: 0 auto;
+    background-color: var(--color-footer-bg);
+    margin-top: 60px;
+}
+footer .footer-content {
+    width: 1000px;
+    margin: 0 auto;
+}
+.footer-content-top{
+    background-color: orange;
+    height: 180px;
+}
+.footer-content-top img{
+    margin-top: -60px;
+}
+
+.footer-intro>ul {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    border-bottom: 1px solid var(--color-silver);
+}
+
+.footer-intro>ul a {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.footer-intro>ul a:hover {
+    text-decoration: underline;
+}
+
+.footer-intro>ul li:nth-child(8) a {
+    font-weight: 1000;
+    text-decoration: underline;
+}
+
+.footer-intro~p {
+    color: var(--color-primary);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 0;
+}
+
+.p {
+    margin-top: 30px;
+}
+.p2 a{
+    text-decoration: none;
+    color: var(--color-primary);
+    cursor: text;
+}
+
+/***************************************
+* title : login form style
+* author : jung@test.com
+* final date : 2024/10/28
+****************************************/
+
+.login-form form{
+    /* border: 1px solid green; */
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-login-font);
+}
+.login-form ul{
+    border-top: 2px solid var(--color-gray-222);
+    border-bottom: 2px solid var(--color-gray-222);
+    list-style-type: none;
+    width: 500px;
+}
+.login-form ul li{
+    padding: 10px
+}
+.login-form-text1{
+    margin-top: 10px;
+    margin-left: 20px;
+    letter-spacing: -1px;
+}
+.login-form input:not([type="checkbox"]){
+    width: 230px;
+    padding: 5px;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+}
+.login-form button{
+    width: 270px;
+    padding: 10px;
+}
+.login-form input[type="text"],
+.login-form input[type="password"]{
+    padding-left: 10px;
+}
+.login-form button{
+    outline-color: var(--color-button);
+    outline-style: solid;
+    outline-width: 2px;
+}
+.login-form-input{
+    border: 2px solid var(--color-login-border);
+    width: 270px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 105px;
+}
+.login-form-input:focus-within{
+    border: 2px solid black;
+}
+.login-form-input i {
+    border-right: 1px solid var(--color-login-border);
+    padding-right: 10px;
+}
+.login-form ul>li:nth-child(5){
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    width: 263px;
+    margin: 0 auto;
+}
+.login-form ul>li:nth-child(5) div:last-child>:nth-child(2){
+    padding-right: 10px;
+}
+.login-form ul>li:nth-child(5) div:last-child>a{
+    color: var(--color-login-form);
+    font-weight: 700;
+}
+/***************************************
+* title : join form style
+* author : jung@test.com
+* final date : 2024/10/29
+****************************************/
+.join-form form{
+    /* border: 1px solid green; */
+    width: 500px;
+    margin: 0 auto;
+}
+.join-form form ul{
+    list-style-type: none;
+}
+.join-form form ul li{
+    /* border: 1px solid red; */
+    padding-top: 10px;
+}
+.join-form form ul li div:not(.join-form form ul li:nth-child(6) div){
+    border: 1px solid var(--color-silver);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.join-form form ul li:nth-child(6) input,
+.join-form form ul li:nth-child(6) select{
+    border: 1px solid var(--color-silver);
+    border-radius: 5px;
+    padding: 12px 10px;
+    width: 45%;
+    margin-top: 10px;
+
+}
+.join-form form ul li:nth-child(6) span{
+    margin: 0 20px;
+    margin-top: 10px;
+}
+.join-form form ul li:first-child>div,
+.join-form form ul li:nth-child(6)>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.join-form ul li label{
+    display: inline-block;
+    text-indent: 10px;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.join-form ul li:first-child div input,
+.join-form ul li input{
+    border: none;
+    width: 80%;
+    padding-left: 10px;
+}
+.join-form ul li input{
+    width: 100%;
+    padding: 7px 10px;
+}
+.join-form ul li:first-child div input:focus,
+.join-form ul li input{
+    outline: none;
+}
+.join-form ul li label+span{
+    font-size: 0.7em;
+    font-weight: 300;
+    color: red;
+    margin-left: 10px;
+}
+.join-form-button-check{
+    border: 1px solid var(--color-silver);
+    background-color: var(--color-button);
+    color: var(--color-white);
+    border-radius: 5px;
+    padding: 7px 12px;
+    width: 100px;
+}
+.join-form form ul li:last-child{
+    text-align: center ;
+    margin: 20px 0;
+}
+.join-form-button-signup1{
+    border: 1px solid var(--color-silver);
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin: 0 5px;
+}
+.join-form-button-signup2{
+    border: 1px solid var(--color-silver);
+    background-color: var(--color-gray-222);
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin: 0 5px;
+}
+/**************************************************************
+* title : mycgv style
+* author : jung@test.com
+* final date : 2024/10/29
+***************************************************************/
+.mycgv div{
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+}
+.mycgv div span{
+    /* border: 1px solid tomato; */
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+    padding: 30px;
+    margin: 30px 20px;
+}
+.mycgv div span:hover{
+    background-color: antiquewhite;
+}
+/**************************************************************
+* title : support style
+* author : jung@test.com
+* final date : 2024/10/29
+***************************************************************/
+.support-content{
+    /* border: 1px solid green; */
+    width: 700px;
+    margin: 0 auto;
+}
+.support-content>p{
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    color: var(--color-table-font);
+    font-weight: 500;
+}
+.support-content-search *{
+    border: 1px solid var(--color-silver);
+    height: 30px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+.support-content-search select{
+    width: 80px;
+}
+.support-content-search input{
+    width: 180px;
+}
+.support-content-search button{
+    background-color: var(--color-black);
+    color: white;
+    border: 1px solid rgb(91,91,88);
+    outline: 2px solid black;
+    height: 24px;
+    padding: 0 12px;
+}
+.support-content-menu ul,
+.table-pagenumber{
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 20px;
+    /* border-bottom: 2px solid var(--color-login-font); */
+    position: relative;
+}
+.support-content-menu li{
+    background-color: var(--color-login-font);
+    margin-right: 2px;
+    width: 85px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.support-content-menu ul:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px; /* border-bottom의 두께처럼 보이도록 설정 */
+    background-color: var(--color-login-font);
+    z-index: -1; /* 메뉴 뒤로 배치 */
+}
+.support-content-menu li:first-child{
+    background-color: var(--color-button);
+
+}
+.support-content-menu li a{
+    text-decoration: none;
+    color: var( --color-buttonbd2);
+    font-size: 0.8em;
+    font-weight: 700;
+}
+.support-content-menu+p{
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+.support-content table{
+    /* border: 1px solid red; */
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 0.8em;
+}
+.support-content table>thead{
+    background-color: var(--color-table);
+    border-top: 1px solid var(--color-table-border);
+    border-bottom: 1px solid var(--color-table-border);
+    color: var(--color-table-font);
+}
+.support-content table>thead>tr>th{
+    /* border: 1px solid red; */
+    padding: 10px 20px;
+}
+.support-content table>tbody>tr>td{
+    padding: 20px 20px;
+    text-align: center;
+    color: var( --color-table-font);
+}
+.support-content table>thead>tr>th:nth-child(3){
+    text-align: left;
+}
+.support-content table>tbody>tr>td:nth-child(3){
+    text-align: left;
+}
+.support-content table>tbody>tr>td>a{
+    text-decoration: none;
+    color: var(--color-table-font);
+}
+.support-content table>tbody>tr>td>a:hover{
+    text-decoration: underline;
+    font-weight: 700;
+}
+.support-content table>tbody>tr:last-child{
+    border-bottom: 1px solid var(--color-table-border-bottom);
+}
+.table-pagenumber{
+    margin-top: 30px;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0 250px;
+}
+.table-pagenumber li a{
+    text-decoration: none;
+    color: var(--color-black);    
+}
+.table-pagenumber li:first-child a{
+    color: var(--color-button);
+    text-decoration: underline;
+}
+.table-pagenumber li a:hover{
+    color: var(--color-button);
+    text-decoration: underline;
+}
+.table-pagenumber button{
+    padding: 8px 10px;
+    position: relative;
+    top: -8px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-buttonbd1);
+    border-radius: 5px;
+}
