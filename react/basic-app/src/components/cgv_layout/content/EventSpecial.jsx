@@ -1,4 +1,5 @@
 import Event from "./Event"
+import Notice from "./Notice"
 import Package from "./Package"
 import Special from "./Special"
 export default function EventSpecial() {
@@ -7,6 +8,7 @@ export default function EventSpecial() {
             <Event />
             <Special />
             <Package />
+            <Notice/>
         </div>
 
     )

@@ -1,17 +1,16 @@
 import HeaderBottomMenu from "./HeaderBottomMenu"
-export default function HeaderBottomMenuList() {
-    const menuList = [
-        { "name": "영화" },
-        { "name": "극장" },
-        { "name": "예매" },
-        { "name": "스토어" },
-        { "name": "이벤트" },
-        { "name": "혜택" }
-    ]
+import { useEffect,useState } from "react";
+import { fetchJSON } from "../js/commons.js";
 
+export default function HeaderBottomMenuList() {
+    const [menuList, setMenuList]=useState([]);
+    useEffect(()=>{
+        fetchJSON("/data/cgv_header.json")
+        .then(result=>setMenuList(result.bottomMenuList));
+    })
     return (
         <ul class="flex-container">
-            {menuList.map(item =>
+            {menuList&&menuList.map(item =>
                 <li>
                     <HeaderBottomMenu name={item.name} />
                 </li>
