@@ -1,0 +1,15 @@
+[
+    {
+        "src": "/images/people1.webp",
+        "name": "smith"
+    },
+    {
+        "src": "/images/people2.webp",
+        "name": "james",
+        "newMember":true
+    },
+    {
+        "src": "/images/people3.webp",
+        "name": "kelly"
+    }
+]

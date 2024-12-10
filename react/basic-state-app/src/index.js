@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 // import reportWebVitals from './reportWebVitals';
-import AppAirbnb from './component/airbnb/AppAirbnb';
+// import AppAvatar from './component/avatar/AppAvatar';
+// import AppCounter from './component/counter/AppCounter'
+import AppBestSeller from './component/yes24/AppBestSeller'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppAirbnb />
+    <AppBestSeller />
   </React.StrictMode>
 );
 
