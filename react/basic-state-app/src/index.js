@@ -5,12 +5,13 @@ import './index.css';
 // import reportWebVitals from './reportWebVitals';
 // import AppAvatar from './component/avatar/AppAvatar';
 // import AppCounter from './component/counter/AppCounter'
-import AppBestSeller from './component/yes24/AppBestSeller'
+// import AppBestSeller from './component/yes24/AppBestSeller'
+import AppOlive from './component/olive/AppOlive.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppBestSeller />
+    <AppOlive />
   </React.StrictMode>
 );
 

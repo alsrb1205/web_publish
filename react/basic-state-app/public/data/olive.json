@@ -1,0 +1,52 @@
+{
+    "productList": [
+        {
+            "id":"p_0001",
+            "rank":"1",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0021/A00000021395913ko.jpg?l=ko",
+            "brand": "메디힐",
+            "name": "[1위패드/100+100+14매] 메디힐 마데카소사이드 흔적패드 어워즈",
+            "price1": "39900원",
+            "price2": "28900원",
+            "isSale": true,
+            "isCoupon": "",
+            "isToday": true
+        },
+        {
+            "id":"p_0002",
+            "rank":"2",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0021/A00000021392508ko.jpg?l=ko",
+            "brand": "에스트라",
+            "name": "[올영1등크림] 에스트라 아토베리어365 크림 80ml 어워즈 한정기획",
+            "price1": "33000원",
+            "price2": "26000원",
+            "isSale": true,
+            "isCoupon": true,
+            "isToday": true
+        },
+        {
+            "id":"p_0003",
+            "rank":"3",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0017/A00000017142380ko.jpg?l=ko",
+            "brand": "메디힐",
+            "name": "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오",
+            "price1": "42000원",
+            "price2": "29800원",
+            "isSale": true,
+            "isCoupon": "",
+            "isToday": true
+        },
+        {
+            "id":"p_0004",
+            "rank":"4",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0017/A00000017142380ko.jpg?l=ko",
+            "brand": "메디힐",
+            "name": "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오",
+            "price1": "42000원",
+            "price2": "29800원",
+            "isSale": true,
+            "isCoupon": "",
+            "isToday": true
+        }
+    ]
+}
