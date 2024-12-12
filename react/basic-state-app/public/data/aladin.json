@@ -1,0 +1,52 @@
+{
+    "categories":[
+      {"name":"에세이"},      
+      {"name":"소설"},      
+      {"name":"자기계발"},      
+      {"name":"사회과학"},      
+      {"name":"고전"}
+    ],
+     "books":[
+        {
+            "img": "https://image.aladin.co.kr/product/35306/27/cover200/k422035074_1.jpg",
+            "title": "타임 셸터 ",
+            "type": "domestic",
+            "name":"소설"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35256/5/cover200/k412934146_1.jpg",
+            "title": "스파이 코스트 ",
+            "type": "overseas"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35220/25/cover200/8986836637_1.jpg",
+            "title": "아름다운 것들의 추한 역사 ",
+            "type": "domestic"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35220/25/cover200/8986836637_1.jpg",
+            "title": "아름다운 것들의 추한 역사 ",
+            "type": "overseas"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35220/25/cover200/8986836637_1.jpg",
+            "title": "아름다운 것들의 추한 역사 ",
+            "type": "domestic"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35220/25/cover200/8986836637_1.jpg",
+            "title": "아름다운 것들의 추한 역사 ",
+            "type": "domestic"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35220/25/cover200/8986836637_1.jpg",
+            "title": "아름다운 것들의 추한 역사 ",
+            "type": "domestic"
+        },
+        {
+            "img": "https://image.aladin.co.kr/product/35220/25/cover200/8986836637_1.jpg",
+            "title": "아름다운 것들의 추한 역사 ",
+            "type": "domestic"
+        }
+    ]
+}

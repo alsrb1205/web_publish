@@ -44,9 +44,58 @@
             "name": "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오",
             "price1": "42000원",
             "price2": "29800원",
+            "isSale": false,
+            "isCoupon": "",
+            "isToday": true
+        },
+        {
+            "id":"p_0005",
+            "rank":"5",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0017/A00000017142380ko.jpg?l=ko",
+            "brand": "메디힐",
+            "name": "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오",
+            "price1": "42000원",
+            "price2": "29800원",
             "isSale": true,
+            "isCoupon": true,
+            "isToday": false
+        },
+        {
+            "id":"p_0006",
+            "rank":"6",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0017/A00000017142380ko.jpg?l=ko",
+            "brand": "메디힐",
+            "name": "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오",
+            "price1": "42000원",
+            "price2": "29800원",
+            "isSale": true,
+            "isCoupon": "",
+            "isToday": false
+        },
+        {
+            "id":"p_0007",
+            "rank":"7",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0017/A00000017142380ko.jpg?l=ko",
+            "brand": "메디힐",
+            "name": "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오",
+            "price1": "42000원",
+            "price2": "29800원",
+            "isSale": false,
+            "isCoupon": "",
+            "isToday": true
+        },
+        {
+            "id":"p_0008",
+            "rank":"8",
+            "src": "https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/400/10/0000/0017/A00000017142380ko.jpg?l=ko",
+            "brand": "메디힐",
+            "name": "[2024 어워즈/3년 연속 1위] 어노브 딥 데미지 헤어 트리트먼트 EX 더블/듀오",
+            "price1": "42000원",
+            "price2": "29800원",
+            "isSale": false,
             "isCoupon": "",
             "isToday": true
         }
+
     ]
 }

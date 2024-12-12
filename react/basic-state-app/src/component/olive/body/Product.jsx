@@ -23,7 +23,6 @@ export default function Product({ id,src, brand, name, price1, price2, isSale, i
                     {isSale && <span className='t1'>세일</span>}
                     {isCoupon && <span className='t2'>쿠폰</span>}
                     {isToday && <span className='t3'>오늘드림</span>}
-
                 </div>
             </div>
         </div>
