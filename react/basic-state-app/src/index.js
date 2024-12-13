@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import AppAladin from './component/aladin/AppAladin';
+import AppForm from './component/form/AppForm';
+// import CgvLoginForm from './component/form/CgvLoginForm';
+// import AppAladin from './component/aladin/AppAladin';
+// import AppAladin2 from './component/aladin2/AppAladin2';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import AppAvatar from './component/avatar/AppAvatar';
@@ -13,7 +16,7 @@ import AppAladin from './component/aladin/AppAladin';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppAladin />
+    <AppForm/>
   </React.StrictMode>
 );
 

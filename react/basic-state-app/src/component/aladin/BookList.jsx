@@ -14,12 +14,14 @@ export default function BookList() {
                 setCategory(jsonData.categories);
                 if (type === 'total') {
                     setBooks(jsonData.books) // 전체 도서 목록
-                    const filterBooks = jsonData.books.filter((book) => book.type === type);//타입으로 필터링 , if 문 코드 간결하게 사용가능
-                    setBooks(filterBooks);
                 }
+                else {
+                    const filterBooks = jsonData.books.filter((book) => book.type === type);//타입으로 필터링 , if 문 코드 간결하게 사용가능
+                    setBooks(filterBooks)
+                };
             })
             .catch(error => console.log(error))
-    }, [type,selectCategory]);
+    }, [type, selectCategory]);
     const handleClick = (event) => {
         setType(event.target.value);
     }
