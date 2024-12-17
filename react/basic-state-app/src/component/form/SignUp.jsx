@@ -1,10 +1,11 @@
+// 자습용
 import React, { useState, useRef } from 'react';
 import './cgv.css';
 import './common.css';
-import {validateSignUp, errorCheckSignUp} from '../../apis/validate';
+import { validateSignUp, errorCheckSignUp } from '../../apis/validate';
 
 
-export default function Signup() {
+export default function SignUp() {
     const init = { 'id': '', 'pwd': '', 'cpwd': '', 'name': '', 'phone': '', 'email': '', 'emaildomain': '' }
     const initErrors = {
         id: '아이디를 입력해주세요',
@@ -25,18 +26,21 @@ export default function Signup() {
         emaildomainRef: useRef(null)
     }
     const [form, setForm] = useState(init);
-    const [errorMsg,setErrorMsg]=useState(init);
+    const [errorMsg, setErrorMsg] = useState(init);
 
+    //폼의 입력이 변경되는 경우 호출되는 함수
     const handleChangeSignup = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value })
-        setErrorMsg({...errorMsg,[name]:value==='' ? initErrors[name]:''})
+        setErrorMsg({ ...errorMsg, [name]: value === '' ? initErrors[name] : '' })
     }
+
+    //폼의 입력이 종료된 후 Submit 함수
     const handleSubmit = (event) => {
         const param = {
-           'refs':refs,
-           'errorMsg':errorMsg,
-           'setErrorMsg':setErrorMsg
+            'refs': refs,
+            'errorMsg': errorMsg,
+            'setErrorMsg': setErrorMsg
         }
         event.preventDefault();
 

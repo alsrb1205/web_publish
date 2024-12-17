@@ -2,8 +2,10 @@ import React from 'react';
 // import Login from './Login';
 // import UserInfo from './UserInfo';
 // import CgvLoginForm from './CgvLoginForm';
-import Signup from './SignUp';
-import Signup2 from './SignUp2';
+// import SignUp from './SignUp';
+import SignUp2 from './SignUp2';
+import SignUp3 from './SignUp3';
+// import SignUp3 from './SignUp3';
 // import Login2 from './Login2';
 
 export default function AppForm() {
@@ -13,7 +15,8 @@ export default function AppForm() {
             <hr />
             {/* <UserInfo/> */}
             {/* <CgvLoginForm/> */}
-            <Signup2/>
+            <SignUp3/>
+            {/* <SignUp3/> */}
             {/* <Login2/> */}
         </div>
     );

@@ -1,12 +1,13 @@
+// 수업내용 진행
 import React, { useState, useRef } from 'react';
 import './cgv.css';
 import './common.css';
-import {validateSignUp, errorCheckSignUp} from '../../apis/validate';
+import { validateSignUp, errorCheckSignUp } from '../../apis/validate';
+import { initFormNames } from '../../apis/initial';
 
-
-export default function Signup2() {
-    const init = { 'id': '', 'pwd': '', 'cpwd': '', 'name': '', 'phone': '', 'email': '', 'emaildomain': '' }
-
+export default function SignUp2() {
+    const idMsgRef = useRef(null);
+    const passMsgRef = useRef(null);
     const refs = {
         idRef: useRef(null),
         pwdRef: useRef(null),
@@ -16,23 +17,79 @@ export default function Signup2() {
         emailRef: useRef(null),
         emaildomainRef: useRef(null)
     }
-    const [form, setForm] = useState(init);
-    const [errorMsg,setErrorMsg]=useState(init);
 
+    //폼데이터 저장소
+    const names = ['id', 'pwd', 'cpwd', 'name', 'phone', 'email', 'emaildomain']
+    const [form, setForm] = useState(initFormNames(names));
+    const [errorMsg, setErrorMsg] = useState(initFormNames(names));
+
+    // 폼의 입력이 변경되는 경우 호출되는 함수
     const handleChangeSignup = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value })
-        errorCheckSignUp(name,value, errorMsg,setErrorMsg)
+        idMsgRef.current.style.setProperty('color', 'red');
+        idMsgRef.current.style.setProperty('font-weight', 'normal');
+
+
+        errorCheckSignUp(name, value, errorMsg, setErrorMsg)
     }
+
+    //폼의 입력이 종료된 후 Submit 함수
     const handleSubmit = (event) => {
         const param = {
-           'refs':refs,
-           'errorMsg':errorMsg,
-           'setErrorMsg':setErrorMsg
+            'refs': refs,
+            'errorMsg': errorMsg,
+            'setErrorMsg': setErrorMsg
         }
         event.preventDefault();
 
         if (validateSignUp(param)) console.log(form);
+    }
+
+    // 아이디 중복체크
+    const handleIdCheck = () => {
+        const id = refs.idRef.current;
+        if (id.value === '') {
+            errorCheckSignUp('id', id.value, errorMsg, setErrorMsg)
+
+        } else {
+            const did = 'test';
+            if (did === id.value) {
+                setErrorMsg({ ...errorMsg, ['id']: '이미 사용중인 아이디입니다. 다시 입력해주세요' });
+                idMsgRef.current.style.setProperty('color', 'red');
+
+                id.focus();
+            } else {
+                setErrorMsg({ ...errorMsg, ['id']: '사용 가능한 아이디입니다.' });
+                idMsgRef.current.style.setProperty('color', 'green');
+                idMsgRef.current.style.setProperty('font-weight', 'bold');
+            }
+        }
+    }
+
+    // 비밀번호 확인 
+
+    const handlepasswordCheck = () => {
+        const pwd = refs.pwdRef.current;
+        const cpwd = refs.cpwdRef.current;
+        if (pwd.value === '') {
+            errorCheckSignUp('pwd', pwd.value, errorMsg, setErrorMsg)
+            pwd.focus();
+        } else if (cpwd.value === '') {
+            errorCheckSignUp('cpwd', cpwd.value, errorMsg, setErrorMsg)
+            cpwd.focus();
+        } else {
+            if (pwd.value === cpwd.value) {
+                setErrorMsg({ ...errorMsg, ['pwd']: '비밀번호가 동일합니다.' });
+                passMsgRef.current.style.setProperty('color', 'green');
+                passMsgRef.current.style.setProperty('font-weight', 'bold');
+            } else {
+                setErrorMsg({ ...errorMsg, ['pwd']: '비밀번호가 일치하지 않습니다. 다시 입력해주세요.' });
+                passMsgRef.current.style.setProperty('color', 'red');
+                setForm({ ...form, ['pwd']: '', ['cpwd']: '' }); //html에서 값을 가져와야한다
+                refs.pwdRef.current.focus();
+            }
+        }
     }
 
     return (
@@ -43,16 +100,16 @@ export default function Signup2() {
                 <ul>
                     <li>
                         <label for="" className="join-title-font"><b>아이디</b></label>
-                        <span id="error-msg-id">{errorMsg.id}</span>
+                        <span id="error-msg-id" ref={idMsgRef}>{errorMsg.id}</span>
                         <div>
                             <input type="text" name="id" value={form.id} id="id" ref={refs.idRef} onChange={handleChangeSignup} placeholder="아이디 입력(6~20자)" />
-                            <button type="button" className="join-form-button-check" >중복 확인</button>
+                            <button type="button" className="join-form-button-check" onClick={handleIdCheck}>중복 확인</button>
                             <input type="hidden" id="idCheckResult" value="default" />
                         </div>
                     </li>
                     <li>
                         <label for="" className="join-title-font"><b>비밀번호</b></label>
-                        <span id="error-msg-pwd">{errorMsg.pwd}</span>
+                        <span id="error-msg-pwd" ref={passMsgRef}>{errorMsg.pwd}</span>
                         <div>
                             <input type="password" name="pwd" value={form.pwd} id="pwd" ref={refs.pwdRef} placeholder="비밀번호 입력" onChange={handleChangeSignup} />
                         </div>
@@ -61,7 +118,8 @@ export default function Signup2() {
                         <label for="" className="join-title-font"><b>비밀번호 확인</b></label>
                         <span id="error-msg-cpwd">{errorMsg.cpwd}</span>
                         <div>
-                            <input type="password" name="cpwd" value={form.cpwd} id="cpwd" ref={refs.cpwdRef} placeholder="비밀번호 재입력" onChange={handleChangeSignup} />
+                            <input type="password" name="cpwd" value={form.cpwd} id="cpwd" ref={refs.cpwdRef} placeholder="비밀번호 재입력"
+                                onBlur={handlepasswordCheck} onChange={handleChangeSignup} />
                         </div>
                     </li>
                     <li>
@@ -105,4 +163,3 @@ export default function Signup2() {
         </div>
     );
 }
-

@@ -23,11 +23,11 @@ export const validateForm = (param) => {
 export const validateLogin2 = (param) => {
     let result = true;
     if (param.idRef.current.value === '') {
-        param.setErrorMsg({...param.errorMsg,['id']:'아이디를 입력해주세요'});
+        param.setErrorMsg({ ...param.errorMsg, ['id']: '아이디를 입력해주세요' });
         param.idRef.current.focus()
         result = false;
     } else if (param.pwdRef.current.value === '') {
-        param.setErrorMsg({...param.errorMsg,['pwd']:'패스워드를 입력해주세요'});
+        param.setErrorMsg({ ...param.errorMsg, ['pwd']: '패스워드를 입력해주세요' });
         param.pwdRef.current.focus()
         result = false;
     }
@@ -40,23 +40,23 @@ export const validateLogin2 = (param) => {
 export const validateUserInfo = (param) => {
     let result = true;
     if (param.nameRef.current.value === '') {
-        param.setErrorMsg({...param.errorMsg,['name']:'이름을 입력해주세요.'})
+        param.setErrorMsg({ ...param.errorMsg, ['name']: '이름을 입력해주세요.' })
         param.nameRef.current.focus();
         result = false;
     } else if (param.addressRef.current.value === '') {
-        param.setErrorMsg({...param.errorMsg,['address']:'주소를 입력해주세요.'})
+        param.setErrorMsg({ ...param.errorMsg, ['address']: '주소를 입력해주세요.' })
         param.addressRef.current.focus();
         result = false;
 
     } else if (param.ageRef.current.value === '') {
-        param.setErrorMsg({...param.errorMsg,['age']:'나이를 입력해주세요.'})
+        param.setErrorMsg({ ...param.errorMsg, ['age']: '나이를 입력해주세요.' })
         param.ageRef.current.focus();
         result = false;
     }
     return result;
 }
 /**
- * CgvJoin 컴포넌트 유효성 체크 함수
+ * SignUp 컴포넌트 유효성 체크 함수
  */
 export const validateSignUp = (param) => {
     const fields = [
@@ -69,12 +69,12 @@ export const validateSignUp = (param) => {
         { name: 'emaildomain', message: '이메일을 선택해주세요', defaultValue: 'default' }
     ];
 
-    for (const field of fields){
+    for (const field of fields) {
         const ref = param.refs[`${field.name}Ref`];
         const value = ref.current.value;
 
-        if(value === '' || ('defaultValue' in field && value === field.defaultValue)) {
-            param.setErrorMsg({...param.errorMsg,[field.name]:field.message})
+        if (value === '' || ('defaultValue' in field && value === field.defaultValue)) {
+            param.setErrorMsg({ ...param.errorMsg, [field.name]: field.message })
             ref.current.focus();
             return false;
         }
@@ -82,7 +82,10 @@ export const validateSignUp = (param) => {
     return true;
 }
 
-export const errorCheckSignUp =(name,value,errorMsg,setErrorMsg)=>{
+/**
+ * Signup 에러 체크 함수
+ */
+export const errorCheckSignUp = (name, value, errorMsg, setErrorMsg) => {
     const names = [
         { name: 'id', message: '아이디를 입력해주세요' },
         { name: 'pwd', message: '비밀번호를 입력해주세요' },
@@ -94,45 +97,34 @@ export const errorCheckSignUp =(name,value,errorMsg,setErrorMsg)=>{
 
     ];
 
-    names.map(item=>(item.name===name) ? (
-        (value==='') ? setErrorMsg({...errorMsg,[item.name]:item.message}) : setErrorMsg({...errorMsg,[item.name]:''})
+    names.map(item => (item.name === name) ? (
+        (value === '') ? setErrorMsg({ ...errorMsg, [item.name]: item.message }) : setErrorMsg({ ...errorMsg, [item.name]: '' })
     ) : '')
 }
 
+/**
+ * SignUp3 컴포넌트 유효성 체크 함수
+ */
 
+export function validateFormSignUp3(refs) {
+    const refEntries = Object.entries(refs);
 
+    const msgs = { 'idRef': '아이디', 'passRef': '패스워드', }
 
-// export const validateSignUp = (param) => {
-//     let result = true;
-//     if (param.refs.idRef.current.value === '') {
-//         param.setErrorMsg({...param.errorMsg,['id']:'아이디를 입력해주세요'})
-//         param.refs.idRef.current.focus()
-//         result = false;
-//     } else if (param.refs.pwdRef.current.value === '') {
-//         param.setErrorMsg({...param.errorMsg,['pwd']:'비밀번호를 입력해주세요'})
-//         param.refs.pwdRef.current.focus()
-//         result = false;
-//     } else if (param.refs.cpwdRef.current.value === '') {
-//         param.setErrorMsg({...param.errorMsg,['cpwd']:'비밀번호를 입력해주세요'})
-//         param.refs.cpwdRef.current.focus()
-//         result = false;
-//     } else if (param.refs.nameRef.current.value === '') {
-//         param.setErrorMsg({...param.errorMsg,['name']:'이름을 입력해주세요'})
-//         param.refs.nameRef.current.focus()
-//         result = false;
-//     } else if (param.refs.phoneRef.current.value === '') {
-//         param.setErrorMsg({...param.errorMsg,['phone']:'전화번호를 입력해주세요'})
-//         param.refs.phoneRef.current.focus()
-//         result = false;
-//     } else if (param.refs.emailRef.current.value === '') {
-//         param.setErrorMsg({...param.errorMsg,['email']:'이메일을 입력해주세요'})
-//         param.refs.emailRef.current.focus()
-//         result = false;
-//     } else if (param.refs.emaildomainRef.current.value === 'default') {
-//         param.setErrorMsg({...param.errorMsg,['emaildomain']:'이메일을 선택해주세요'})
-//         param.refs.emaildomainRef.current.focus()
-//         result = false;
-//     }
-//     return result;
-// }
+    // !!! 배열.map() or 배열.forEach() 함수는 배열객체를 순회하는 것이 목적이므로 if 체크후 focus가 적용되지 않음 for of... 를 사용하는것이 적절
 
+    for (const item of refEntries) {
+        const name = item[0];
+        const ref = item[1];
+        if (ref.current.value === '') {
+            alert(`${msgs[name]}을 입력해주세요`)
+            ref.current.focus();
+            return false;
+        }
+    }
+    return true;
+}
+
+/**
+ * SignUp2 아이디 중복체크 함수
+ */
