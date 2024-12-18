@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import './cgv.css';
 import './common.css';
-import { validateSignUp, errorCheckSignUp } from '../../apis/validate';
+import { validateSignUp, errorCheckSignUp, handleIdCheck, handlepasswordCheck } from '../../apis/validate';
 import { initFormNames } from '../../apis/initial';
 
 export default function SignUp2() {
@@ -46,52 +46,6 @@ export default function SignUp2() {
         if (validateSignUp(param)) console.log(form);
     }
 
-    // 아이디 중복체크
-    const handleIdCheck = () => {
-        const id = refs.idRef.current;
-        if (id.value === '') {
-            errorCheckSignUp('id', id.value, errorMsg, setErrorMsg)
-
-        } else {
-            const did = 'test';
-            if (did === id.value) {
-                setErrorMsg({ ...errorMsg, ['id']: '이미 사용중인 아이디입니다. 다시 입력해주세요' });
-                idMsgRef.current.style.setProperty('color', 'red');
-
-                id.focus();
-            } else {
-                setErrorMsg({ ...errorMsg, ['id']: '사용 가능한 아이디입니다.' });
-                idMsgRef.current.style.setProperty('color', 'green');
-                idMsgRef.current.style.setProperty('font-weight', 'bold');
-            }
-        }
-    }
-
-    // 비밀번호 확인 
-
-    const handlepasswordCheck = () => {
-        const pwd = refs.pwdRef.current;
-        const cpwd = refs.cpwdRef.current;
-        if (pwd.value === '') {
-            errorCheckSignUp('pwd', pwd.value, errorMsg, setErrorMsg)
-            pwd.focus();
-        } else if (cpwd.value === '') {
-            errorCheckSignUp('cpwd', cpwd.value, errorMsg, setErrorMsg)
-            cpwd.focus();
-        } else {
-            if (pwd.value === cpwd.value) {
-                setErrorMsg({ ...errorMsg, ['pwd']: '비밀번호가 동일합니다.' });
-                passMsgRef.current.style.setProperty('color', 'green');
-                passMsgRef.current.style.setProperty('font-weight', 'bold');
-            } else {
-                setErrorMsg({ ...errorMsg, ['pwd']: '비밀번호가 일치하지 않습니다. 다시 입력해주세요.' });
-                passMsgRef.current.style.setProperty('color', 'red');
-                setForm({ ...form, ['pwd']: '', ['cpwd']: '' }); //html에서 값을 가져와야한다
-                refs.pwdRef.current.focus();
-            }
-        }
-    }
-
     return (
         <div className="join-form center-layout">
             <h1 className="center-title">회원가입</h1>
@@ -103,7 +57,15 @@ export default function SignUp2() {
                         <span id="error-msg-id" ref={idMsgRef}>{errorMsg.id}</span>
                         <div>
                             <input type="text" name="id" value={form.id} id="id" ref={refs.idRef} onChange={handleChangeSignup} placeholder="아이디 입력(6~20자)" />
-                            <button type="button" className="join-form-button-check" onClick={handleIdCheck}>중복 확인</button>
+                            <button type="button" className="join-form-button-check" onClick={()=>{
+                                const param = {
+                                    'errorCheckSignUp':errorCheckSignUp,
+                                    'errorMsg':errorMsg,
+                                    'setErrorMsg':setErrorMsg,
+                                    'idMsgRef':idMsgRef,
+                                    'idRef':refs.idRef
+                                }
+                                handleIdCheck(param)}}>중복 확인</button>
                             <input type="hidden" id="idCheckResult" value="default" />
                         </div>
                     </li>
@@ -119,7 +81,17 @@ export default function SignUp2() {
                         <span id="error-msg-cpwd">{errorMsg.cpwd}</span>
                         <div>
                             <input type="password" name="cpwd" value={form.cpwd} id="cpwd" ref={refs.cpwdRef} placeholder="비밀번호 재입력"
-                                onBlur={handlepasswordCheck} onChange={handleChangeSignup} />
+                                onBlur={()=>{
+                                    const param ={
+                                        'refs':refs,
+                                        'errorCheckSignUp':errorCheckSignUp,
+                                        'errorMsg':errorMsg,
+                                        'setErrorMsg':setErrorMsg,
+                                        'passMsgRef':passMsgRef,
+                                        'form':form,
+                                        'setForm':setForm
+                                    }
+                                    handlepasswordCheck(param)}} onChange={handleChangeSignup} />
                         </div>
                     </li>
                     <li>

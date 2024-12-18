@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function BestBookButton({qtyChange}) {
+export default function BestBookButton() {
     // qtyChange 호출 : "카트에 넣기" 버튼을 누르면, 현재 책의 구매 수량(qty)을 부모 컴포넌트로 전달하여 전체 수량(totalQty)에 반영한다.
     const [qty, setQty] = useState(1);
 
@@ -12,7 +12,7 @@ export default function BestBookButton({qtyChange}) {
         }
     }
     return (
-        <ul>
+        <ul className='container-button'>
             <li>
                 <input type="checkbox"></input>
                 <button type='button' onClick={()=>{handleClick('-')}}>-</button>
@@ -20,7 +20,7 @@ export default function BestBookButton({qtyChange}) {
                 <button type='button' onClick={()=>{handleClick('+')}}>+</button>
             </li>
             <li><button type='button'
-                    onClick={()=>{qtyChange(qty)}}>카트에 넣기</button></li>
+                    >카트에 넣기</button></li>
             <li><button type='button'>바로구매</button></li>
             <li><button type='button'>리스트에 넣기</button></li>
         </ul>

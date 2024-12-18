@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import AppForm from './component/form/AppForm';
+// import AppForm from './component/form/AppForm';
 // import CgvLoginForm from './component/form/CgvLoginForm';
 // import AppAladin from './component/aladin/AppAladin';
 // import AppAladin2 from './component/aladin2/AppAladin2';
@@ -9,14 +9,14 @@ import AppForm from './component/form/AppForm';
 // import reportWebVitals from './reportWebVitals';
 // import AppAvatar from './component/avatar/AppAvatar';
 // import AppCounter from './component/counter/AppCounter'
-// import AppBestSeller from './component/yes24/AppBestSeller'
+import AppBestSeller from './component/yes24/AppBestSeller'
 // import AppOlive from './component/olive/AppOlive.jsx';
 // import AppCounter2 from './component/counter2/AppCounter2.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppForm/>
+    <AppBestSeller/>
   </React.StrictMode>
 );
 

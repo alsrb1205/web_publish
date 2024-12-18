@@ -1,0 +1,30 @@
+.container{
+    width: 1000px;
+    margin: auto;
+    border: 1px solid red;
+}
+.container-avatar{
+    display: flex;
+    align-items: center;
+    /* width: 300px;
+    border: 1px solid red; */
+
+}
+.container-avatar p {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.container-avatar img {
+    width: 120px;
+}
+.container-content{
+    padding: 0 40px;
+    width: 500px;
+    border: 1px solid green;
+}
+.container-button{
+    list-style-type: none;
+    background-color: aliceblue;
+    padding: 20px;
+}

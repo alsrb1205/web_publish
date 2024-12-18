@@ -15,7 +15,7 @@ export default function AppForm() {
             <hr />
             {/* <UserInfo/> */}
             {/* <CgvLoginForm/> */}
-            <SignUp3/>
+            <SignUp2/>
             {/* <SignUp3/> */}
             {/* <Login2/> */}
         </div>
