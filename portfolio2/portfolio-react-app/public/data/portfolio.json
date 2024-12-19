@@ -1,0 +1,89 @@
+{
+    "headermenu": [
+        {
+            "name": "Home",
+            "active": true,
+            "href": "#home"
+        },
+        {
+            "name": "About",
+            "active": false,
+            "href": "#about"
+        },
+        {
+            "name": "Skills",
+            "active": false,
+            "href": "#skill"
+        },
+        {
+            "name": "My Work",
+            "active": false,
+            "href": "#work"
+        },
+        {
+            "name": "Testimonial",
+            "active": false,
+            "href": "#testimonial"
+        },
+        {
+            "name": "Contact",
+            "active": false,
+            "href": "#contact"
+        }
+    ],
+    "majorlist": [
+        {
+            "icon": "fa-brands fa-html5 major__icon",
+            "title": "Front-end",
+            "desc": "HTML, CSS, JavaScript, TypeScript, React, WebAPIs"
+        },
+        {
+            "icon": "fa-solid fa-mobile major__icon",
+            "title": "Mobile",
+            "desc": "Android Studio, React Native, iOS, Swift, Java, Kotlin"
+        },
+        {
+            "icon": "fa-brands fa-html5 major__icon",
+            "title": "Back-end",
+            "desc": "Java, JavaScript, Go, Kotlin, Spring, Spring Boot"
+        }
+    ],
+    "joblist": [
+        {
+            "img": "images/jobs/google.png",
+            "name": "Google as Junior Software Engineer",
+            "period": "2019 Oct - Until now"
+        },
+        {
+            "img": "images/jobs/samsung.png",
+            "name": "Samsung as Junior Software Engineer",
+            "period": "2010 Oct - 2019 Oct"
+        }
+    ],
+    "barlist": [
+        {
+            "name": "HTML",
+            "per": "98%"
+        },
+        {
+            "name": "CSS",
+            "per": "90%"
+        },
+        {
+            "name": "JavaScript",
+            "per": "90%"
+        },
+        {
+            "name": "TypeScript",
+            "per": "80%"
+        },
+        {
+            "name": "React",
+            "per": "79%"
+        },
+        {
+            "name": "NodeJS",
+            "per": "68%"
+        }
+    ]
+}

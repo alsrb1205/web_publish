@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Body({children}) {
+export default function Main({children}) {
     return (
-        <div>
+        <main>
             {children}
-        </div>
+        </main>
     );
 }
 
