@@ -66,9 +66,9 @@ button {
   outline: 0;
 }
 
-button:focus {
+/* button:focus {
   outline: 1px solid var(--color-accent);
-}
+} */
 
 .max-container {
   max-width: var(--max-size-width);
@@ -128,15 +128,38 @@ header
   gap: 4px;
 }
 
+.header__menu.open {
+  display: flex;
+  /* 열림 상태: flex로 표시 */
+  flex-direction: column;
+  /* 모바일 화면에서 세로 정렬 */
+  gap: 8px;
+  background-color: var(--color-primary);
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+  border: 1px solid var(--color-accent);
+  padding: 1rem;
+  border-radius: 8px;
+  z-index: 10;
+}
+
 .header__menu__item {
   padding: 8px 16px;
   color: var(--color-text);
+  border: 1px solid var(--color-primary);
 }
 
-.header__menu__item.active {
+.header__menu__item:hover {
   border: 1px solid var(--color-accent);
   border-radius: 4px;
 }
+
+
+/* .header__menu__item.active {
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+} */
 
 .header__toggle {
   display: none;
@@ -186,6 +209,7 @@ Home
   margin: 2rem;
   background-color: var(--color-accent);
   font-weight: bold;
+  border: 2px solid var(--color-accent);
   border-radius: 4px;
   color: var(--color-primary);
 }
@@ -233,7 +257,6 @@ About me
 
 .job {
   display: flex;
-  /* justify-content: flex-start; */
   align-items: center;
   gap: 8px;
   margin-bottom: 1rem;
@@ -492,123 +515,179 @@ footer
   media screen - 768 x 1024
 ******************************************/
 @media screen and (max-width:768px) {
-  .section{
+  .section {
     padding: 3rem 2rem;
   }
-  .title{
+
+  .title {
     font-size: 2rem;
   }
-  .description{
+
+  .description {
     font-size: 1rem;
   }
-  .header{
+
+  .header {
     flex-direction: column;
     align-items: start;
   }
-  .header__toggle{
+
+  .header__toggle {
     display: block;
   }
-  .header__menu{
+
+  .header__menu {
     display: none;
   }
-  #home{
+
+  .header__menu__item {
+    padding: 3px 10px;
+    border: 1px solid var(--color-primary);
+  }
+
+  .header__menu__item:hover {
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+  }
+
+  #home {
     padding: 5rem 3rem;
   }
-  .home__title{
+
+  .home__title {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
   }
-  .majors{
+
+  .majors {
     flex-direction: column;
   }
-  .major{
+
+  .major {
     width: 30rem;
   }
-  .job{
-    justify-content: center;
+
+  .jobs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .skills{
+
+  .job {
+    width: 30rem;
+  }
+
+  .skills {
     grid-template-columns: 1fr;
   }
-  .categories{
+
+  .categories {
     flex-direction: column;
   }
-  .category{
+
+  .category {
     width: 100%;
   }
-  .projects{
+
+  .projects {
     grid-template-columns: repeat(2, 1fr);
   }
-  .testimonial{
+
+  .testimonial {
     flex-direction: column;
   }
-  .testimonial:nth-child(even) .testimonial__img{
+
+  .testimonial:nth-child(even) .testimonial__img {
     order: 0;
   }
-  .arrow--up{
+
+  .arrow--up {
     bottom: 1.5rem;
     right: 2rem;
     font-size: 2rem;
     width: 3rem;
     height: 3rem;
+    box-shadow: 3px 3px 0px var(--color-accent);
+
   }
 }
+
 /*****************************************
   media screen - 412
 ******************************************/
 @media screen and (max-width:412px) {
-  .section{
+  .section {
     padding: 1.5rem 1rem;
   }
-  .title{
+
+  .title {
     font-size: 1.5rem;
   }
-  .description{
+
+  .description {
     font-size: 0.9rem;
   }
-  .header__logo__title{
+
+  .header__logo__title {
     font-size: 1.5rem;
+    display: none;
   }
-  #home{
+
+  #home {
     padding: 5rem 1.5rem;
   }
-  .home__avatar{
-    width: 200px;
-    height: 200px;
+
+  .home__avatar {
+    width: 50%;
+    height: 50%;
   }
-  .home__title{
+
+  .home__title {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
   }
-  .home__description{
+
+  .home__description {
     font-size: 1rem;
   }
-  .major{
+
+  .major {
     width: 100%;
   }
-  .job__name{
+
+  .job {
+    width: 100%;
+  }
+
+  .job__name {
     font-size: 0.8rem;
   }
-  .job__period{
+
+  .job__period {
     font-size: 0.6rem;
   }
-  .category{
+
+  .category {
     font-size: 1rem;
   }
-  .testimonials{
+
+  .testimonials {
     margin: 3rem 1rem;
   }
-  .testimonial__bubble{
+
+  .testimonial__bubble {
     font-size: 0.8rem;
   }
-  .arrow--up{
+
+  .arrow--up {
     bottom: 1rem;
     right: 1.5rem;
     font-size: 1.5rem;
     width: 2.5rem;
     height: 2.5rem;
   }
-  .section{
+
+  .section {
     padding-bottom: 4rem;
   }
 }

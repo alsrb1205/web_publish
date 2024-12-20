@@ -1,18 +1,14 @@
 import React from 'react';
 import AboutMajor from './AboutMajor';
 
-export default function AboutMajorList({majorList}) {
+export default function AboutMajorList({ majorList }) {
     return (
         <ul className="majors">
             {majorList && majorList.map(major =>
-                <li>
-                    <AboutMajor icon={major.icon}
-                        title={major.title}
-                        desc={major.desc} />
-
-                </li>
+                <AboutMajor icon={major.icon}
+                    title={major.title}
+                    desc={major.desc} />
             )}
         </ul>
     );
 }
-

@@ -5,12 +5,9 @@ export default function AboutJobList({ jobList }) {
     return (
         <ul className="jobs">
             {jobList && jobList.map(job =>
-                <li>
-                    <AboutJob img={job.img}
-                        name={job.name}
-                        period={job.period} />
-
-                </li>
+                <AboutJob img={job.img}
+                    name={job.name}
+                    period={job.period} />
             )}
         </ul>
     );

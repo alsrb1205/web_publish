@@ -7,7 +7,5 @@ export default function AboutMajor({icon,title,desc}) {
                 <p className="major__title">{title}</p>
                 <p>{desc}</p>
             </li>
-
     );
 }
-

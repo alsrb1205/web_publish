@@ -85,5 +85,117 @@
             "name": "NodeJS",
             "per": "68%"
         }
+    ],
+    "skillstools": [
+        {
+            "stitle": "Visual Studio Code"
+        },
+        {
+            "stitle": "IntelliJ"
+        },
+        {
+            "stitle": "Android Studio Code"
+        },
+        {
+            "stitle": "iOS development tools"
+        },
+        {
+            "stitle": "Eclipse"
+        }
+    ],
+    "etclist": [
+        {
+            "etc": "Git"
+        },
+        {
+            "etc": "Scrum Master"
+        },
+        {
+            "etc": "SVN"
+        }
+    ],
+    "categories": [
+        {
+            "name": "All"
+        },
+        {
+            "name": "Front-end"
+        },
+        {
+            "name": "Back-end"
+        },
+        {
+            "name": "Mobile"
+        }
+    ],
+    "projectlist": [
+        {
+            "img": "images/projects/project1.webp",
+            "title": "Project #1",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Front-end"
+        },
+        {
+            "img": "images/projects/project2.webp",
+            "title": "Project #2",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Front-end"
+        },
+        {
+            "img": "images/projects/project3.webp",
+            "title": "Project #3",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Front-end"
+        },
+        {
+            "img": "images/projects/project4.webp",
+            "title": "Project #4",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Front-end"
+        },
+        {
+            "img": "images/projects/project5.webp",
+            "title": "Project #5",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Back-end"
+        },
+        {
+            "img": "images/projects/project6.webp",
+            "title": "Project #6",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Back-end"
+        },
+        {
+            "img": "images/projects/project7.webp",
+            "title": "Project #7",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Mobile"
+        },
+        {
+            "img": "images/projects/project8.webp",
+            "title": "Project #8",
+            "desc": "Clone Coding with HTML, CSS",
+            "category": "Mobile"
+        }
+    ],
+    "testimonial": [
+        {
+            "img": "images/testimonials/people1.webp",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis similique, unde nam totam quam, nisiodio error amet provident iste modi eos dicta, eum suscipit rem illum inventore sapiente blanditiis?",
+            "tname": "James Kim",
+            "comp": "Google"
+        },
+        {
+            "img": "images/testimonials/people2.webp",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore necessitatibus sequi id obcaecati,assumenda quam corrupti. Numquam blanditiis praesentium, similique autem, accusamus debitis cupiditate,tempora officiis sed inventore nihil incidunt.",
+            "tname": "Smith Park",
+            "comp": "Samsung"
+        },
+        {
+            "img": "images/testimonials/people3.webp",
+            "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio nulla incidunt autem ullam, commodiin impedit repellat exercitationem provident at recusandae doloremque pariatur temporibus hic blanditiisexplicabo voluptatibus neque aliquam.",
+            "tname": "Anna Jin",
+            "comp": "Samsung"
+        }
     ]
 }
