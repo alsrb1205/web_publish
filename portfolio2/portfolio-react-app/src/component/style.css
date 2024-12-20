@@ -153,6 +153,8 @@ header
 .header__menu__item:hover {
   border: 1px solid var(--color-accent);
   border-radius: 4px;
+  transition: all 0.2s ease;
+
 }
 
 
@@ -212,6 +214,7 @@ Home
   border: 2px solid var(--color-accent);
   border-radius: 4px;
   color: var(--color-primary);
+  transition: all 0.25s ease;
 }
 
 .home__contact:hover {
