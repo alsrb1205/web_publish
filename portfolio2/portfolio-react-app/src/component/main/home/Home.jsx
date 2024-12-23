@@ -5,7 +5,7 @@ export default function Home() {
         <section id="home">
             <img className="home__avatar" src="images/pompom.png" alt="portfolio"/>
             <h2 className="home__title">Hello <br /> I'm
-                <strong className="home__title--strong">Dream Coder</strong>, KalKal
+                <strong className="home__title--strong"> Dream Coder</strong>, KalKal
             </h2>
             <p className="home__description">A software engineer currently residing in Seoul, South Korea</p>
             <a className="home__contact" href="#contact">Contact Me</a>
