@@ -1,0 +1,108 @@
+{
+    "specialList": [
+        {
+            "text1": "SUITE CINEMA",
+            "text2": "#호텔 컨셉의 프리미엄관"
+        },
+        {
+            "text1": "CINE & LIVINGROOM",
+            "text2": "#신개념 소셜 상영관"
+        },
+        {
+            "text1": "4DX",
+            "text2": "#모션시트 #오감체험"
+        },
+        {
+            "text1": "CINE de CHEF",
+            "text2": "#쉐프가 있는 영화관"
+        }
+    ],
+    "packageList": [
+        {
+            "title": "패키지",
+            "list": [
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "우리 패키지",
+                    "price": "62,000"
+                },
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "우리 패키지",
+                    "price": "62,000"
+                },
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "우리 패키지",
+                    "price": "62,000"
+                }
+            ]
+        },
+        {
+            "title": "영화관람권",
+            "list": [
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "CGV 영화관람권",
+                    "price": "62,000"
+                },
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "CGV 영화관람권",
+                    "price": "62,000"
+                },
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "CGV 영화관람권",
+                    "price": "62,000"
+                }
+            ]
+        },
+        {
+            "title": "기프트카드",
+            "list": [
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "PACONNIE A형",
+                    "price": "금액충전형"
+                },
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "PACONNIE A형",
+                    "price": "금액충전형"
+                },
+                {
+                    "src": "images/package1.jpg",
+                    "alt": "package1",
+                    "text": "PACONNIE A형",
+                    "price": "금액충전형"
+                }
+            ]
+        }
+    ],
+    "eventList": [
+        {
+            "src": "images/event2.jpg",
+            "title": "[CGV] 10월 컬처위크",
+            "date": "2024.10.24~2024.10.31"
+        },
+        {
+            "src": "images/event1.jpg",
+            "title": "[콜렉터블 무비머니]Vol.1 맥스 달튼",
+            "date": "2024.09.25~2024.10.31"
+        },
+        {
+            "src": "images/event1.jpg",
+            "title": "[콜렉터블 무비머니]Vol.1 맥스 달튼",
+            "date": "2024.09.25~2024.10.31"
+        }
+    ]
+}
