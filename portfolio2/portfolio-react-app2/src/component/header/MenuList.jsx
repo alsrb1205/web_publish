@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Menu from './Menu';
 export default function MenuList({isOpen}) {
-    const [ selectedMenu, setSelectedMenu] = useState(null);
+    const [ selected, setSelected] = useState('Home');
 
     const list = [
         {
@@ -29,12 +29,18 @@ export default function MenuList({isOpen}) {
             "href": "#contact"
         }
     ]
+    const handleMenu = (name) => {
+        setSelected(name);
+    }
+
     return (
         <nav>
             <ul className={`header__menu ${isOpen ? "open" : ""}`}>
                 {list && list.map((menu) =>
                     <li>
-                        <Menu name={menu.name} href={menu.href} selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu}/>
+                        <Menu name={menu.name} href={menu.href} selected={selected} setSelected={setSelected} click={handleMenu} style={menu.name===selected ?
+                        'header__menu__item active' : 'header__menu__item'
+                        }/>
                     </li>
                 )}
             </ul>
