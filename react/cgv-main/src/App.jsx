@@ -25,7 +25,7 @@ export default function App() {
                 <GoToButton/>
             </Content>
             <Footer>
-                <FooterTop src="/images/980x240.png"/>
+                <FooterTop src="images/980x240.png"/>
                 <FooterContent/>
             </Footer>
         </>
