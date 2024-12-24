@@ -7,13 +7,13 @@ export default function HeaderTop() {
         <div className="header-top">
             <Logo
                 href="#"
-                src="/images/logoRed.png"
+                src="images/logoRed.png"
                 text="DEEP DIVE SPACE"
                 target="_self"
                 alt=""
             />
             <HeaderTopImage
-                src="/images/header_card_img.png"
+                src="images/header_card_img.png"
                 alt=""
             />
             <HeaderTopMenuList />

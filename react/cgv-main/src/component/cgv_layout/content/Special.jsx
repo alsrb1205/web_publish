@@ -4,7 +4,7 @@ import SpecialItem from "./SpecialItem";
 export default function Special() {
     const [list,setList] = useState([]);
     useEffect(()=>{
-        fetch("/data/cgv_content.json")
+        fetch("data/cgv_content.json")
         .then(data=>data.json())
         .then(jsonData=>setList(jsonData.specialList))
         .catch();

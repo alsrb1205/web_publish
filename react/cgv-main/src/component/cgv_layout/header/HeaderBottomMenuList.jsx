@@ -5,7 +5,7 @@ import { fetchJSON } from "../js/commons.js";
 export default function HeaderBottomMenuList() {
     const [menuList, setMenuList]=useState([]);
     useEffect(()=>{
-        fetchJSON("/data/cgv_header.json")
+        fetchJSON("data/cgv_header.json")
         .then(result=>setMenuList(result.bottomMenuList));
     })
     return (

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 export default function Event() {
     const [list,setList] = useState([]);
     useEffect(()=>{
-        fetch("/data/cgv_content.json")
+        fetch("data/cgv_content.json")
         .then(data=>data.json())
         .then(jsonData=>setList(jsonData.eventList))
         .catch();

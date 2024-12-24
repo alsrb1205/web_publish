@@ -4,7 +4,7 @@ import HeaderTopMenu from "./HeaderTopMenu";
 export default function HeaderTopMenuList() {
     const [list,setList] = useState([]);
     useEffect(()=>{
-        fetch("/data/cgv_header.json")
+        fetch("data/cgv_header.json")
         .then(data=>data.json())
         .then(jsonData=>setList(jsonData.topMenuList))
         .catch();
