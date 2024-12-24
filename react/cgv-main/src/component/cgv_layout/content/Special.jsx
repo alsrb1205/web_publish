@@ -18,7 +18,7 @@ export default function Special() {
             <div class="special-content">
                 <div>
                     <a href="#">
-                        <img src="/images/special1.png" alt="special1" />
+                        <img src="images/special1.png" alt="special1" />
                     </a>
                 </div>
                 <div>
