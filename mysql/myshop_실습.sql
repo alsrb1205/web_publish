@@ -105,7 +105,7 @@ select * from order_header where order_date between '2019-01-01' and '2019-01-07
 **/
 /** customer 테이블 사용 **/
 -- Q01) 고객의 포인트 합을 조회하세요.
-
+select sum(point) from customer;
 -- Q02) '서울' 지역 고객의 포인트 합을 조회하세요.
 
 -- Q03) '서울' 지역 고객의 수를 조회하세요.
