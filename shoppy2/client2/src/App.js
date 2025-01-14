@@ -1,11 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Layout from './pages/Layout.jsx';
-import Home from './pages/Home.jsx';
-import Products from './pages/Products.jsx';
-import Carts from './pages/Carts.jsx';
-import Login from './pages/Login.jsx';
-import Signup from './pages/Signup.jsx';
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Carts from './pages/Carts';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import './styles/shoppy.css';
 
 export default function App() {
@@ -23,4 +22,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
