@@ -1,0 +1,8 @@
+1. web_publish\shoppy 프로젝트(폴더) 생성
+    mkdir shoppy
+    cd shoppy
+
+2. react 프로젝트 생성 : client
+    npx create-react-app client
+    
+    
