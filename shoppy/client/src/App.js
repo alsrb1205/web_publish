@@ -28,7 +28,7 @@ export default function App() {
           <Route path='/cart' element={<Carts cartList={cartList}/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* */}
+          <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
         </Route>
       </Routes>
     </BrowserRouter>
