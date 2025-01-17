@@ -2,13 +2,14 @@ import React, { useRef, useState } from 'react';
 import '../styles/login.css';
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { validateLogin } from '../utills/funcValidate';
+import { validateLogin } from '../utils/funcValidate';
 
 export default function Login() {
     const refs = {
         idRef : useRef(null),
         pwdRef : useRef(null)
     };
+    const msgRef = useRef(null);
     const [formData, setFormData] = useState({ "id": "", "pwd": "" });
 
     // form 데이터 입력 함수
@@ -21,7 +22,7 @@ export default function Login() {
     // Submit 함수
     const handleLoginSubmit = (event) => {
         event.preventDefault();
-        if (validateLogin(refs)) {
+        if (validateLogin(refs,msgRef)) {
             console.log('send', formData);
             // 리액트 ==> 노드서버(express) 데이터 전송
         }
@@ -58,6 +59,11 @@ export default function Login() {
                                 placeholder="패스워드를 입력해주세요" />
                         </div>
                         <p id="error-msg-pwd"></p>
+                    </li>
+                    <li>
+                        <span style={{fontSize:"0.7em",color:"white"}} ref={msgRef}>
+                            아이디 또는 패스워드를 입력해주세요
+                        </span>
                     </li>
                     <li>
                         <button type="submit" className="login-button">로그인</button>

@@ -2,21 +2,22 @@ import React, { useRef, useState } from 'react';
 import '../styles/login.css';
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { validateLogin } from '../utills/funcValidate';
+import { validateLogin } from '../utils/funcValidate';
 
 export default function Login() {
     const idRef = useRef(null);
     const pwdRef = useRef(null);
+    const msgRef = useRef(null);
+    
     const [formData, setFormData] = useState({ 'id': '', 'pwd': '' });
 
     const handleChangeForm = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     }
-
     const handleLoginSubmit = (event) => {
         event.preventDefault();
-        if (validateLogin(idRef, pwdRef)) {
+        if (validateLogin(idRef, pwdRef,msgRef)) {
             console.log(formData);
         }
     }
@@ -53,6 +54,11 @@ export default function Login() {
                             />
                         </div>
                         <p id="error-msg-pwd"></p>
+                    </li>
+                    <li>
+                        <span style={{fontSize:"0.7em",color:"white"}} ref={msgRef}>
+                            아이디 또는 패스워드를 입력해주세요
+                        </span>
                     </li>
                     <li>
                         <button type="submit" className="login-button">로그인</button>
