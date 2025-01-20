@@ -21,16 +21,16 @@ export function initSignup() {
         return acc;
     }, {});
 
-    return {names, placeholders, labels, initFormData};
+    return { names, placeholders, labels, initFormData };
 }
 
 
-export function useInitSignupRefs (names) { // 커스텀 훅
+export function useInitSignupRefs(names) { // 커스텀 훅
     const refs = useRef(names.reduce((acc, name) => {
         acc[name.concat('Ref')] = React.createRef(); //useRef Hook 바로 호출 불가
         return acc;
     }, {}));
-    refs.current["emaildomainRef"] = React.createRef();
+    refs.current.emaildomainRef = useRef(React.createRef());
 
     const msgRefs = useRef(
         names.reduce((acc, name) => {
@@ -38,5 +38,5 @@ export function useInitSignupRefs (names) { // 커스텀 훅
             return acc;
         }, {}));
 
-    return {refs, msgRefs};
+    return { refs, msgRefs };
 }
