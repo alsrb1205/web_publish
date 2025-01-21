@@ -267,8 +267,8 @@ p {
   /* border: 3px solid green; */
   width: 1200px;
   /* height: 200px; */
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   gap: 2rem;
   margin: auto;
   margin-top: 40px;
