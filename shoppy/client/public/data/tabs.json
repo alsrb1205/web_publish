@@ -1,0 +1,6 @@
+[
+    { "id": 1, "label": "Detail","href":"#detail"},
+    { "id": 2, "label": "Review","href":"#review"  },
+    { "id": 3, "label": "Q&A", "href":"#qna" },
+    { "id": 4, "label": "Return & Delivery","href":"#delivery" }
+]

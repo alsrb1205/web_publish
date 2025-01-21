@@ -264,10 +264,11 @@ p {
 }
 
 .product-detail-tab {
-  border: 3px solid green;
+  /* border: 3px solid green; */
   width: 1200px;
-  height: 200px;
+  /* height: 200px; */
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin: auto;
   margin-top: 40px;
@@ -275,3 +276,105 @@ p {
   justify-content: space-between;
 }
 /********************************************/
+.detail-menu {
+  list-style-type: none;
+  display: flex;
+  border-collapse: separate;
+  /* border: 1px solid red; */
+  justify-content: space-between;
+}
+.detail-menu li {
+  border: 1px solid #b5b5b5;
+  border-bottom-color: black;
+  border-left-width: 0;
+  padding: 15px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.detail-menu li:first-child {
+  border-left-width: 1px;
+}
+.detail-menu li a{
+  text-decoration: none;
+  color: black;
+}
+
+.detail-menu .active {
+  border: 2px solid black;
+  border-bottom: none;
+}
+
+
+.question-button {
+  text-align: end;
+  margin-bottom: 10px;
+}
+.question-button button{
+  background-color: black;
+  color: white;
+  padding: 15px 60px;
+  font-size: 14px;
+}
+
+.qna-table {
+  width: 100%;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+.qna-table tr:not(.qna-table tr:last-child) {
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+.qna-table td {
+  padding: 18px;
+}
+.complete {
+  width: 100px;
+  /* border: 1px solid red; */
+}
+.complete span {
+  background-color: black;
+  color: white;
+  padding: 0 5px;
+  font-size: 0.8rem;
+}
+.question * {
+  text-decoration: none;
+  color: black;
+}
+.qna-email {
+  text-align: end;
+  width: 250px;
+}
+.qna-date {
+  text-align: end;
+  width: 130px;
+}
+.qna-date span{
+  color: #777;
+}
+
+.answer {
+  display: none;
+}
+
+.pagination {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+}
+.pagination *:not([type="button"]) {
+  text-decoration: none;
+  color: black;
+
+}
+.pagination button{
+  background-color: white;
+  border: none;
+}
+

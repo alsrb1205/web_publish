@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { PiGiftThin } from "react-icons/pi";
 import axios from "axios";
+import QnA from "../components/QnA/QnA";
+import DetailMenu from "../components/QnA/DetailMenu";
 
 export default function DetailProduct({ addCart }) {
   const { pid } = useParams();
   const [product, setProduct] = useState({});
   const [size, setSize] = useState("XS");
+  const [activeTab, setActiveTab] = useState(1);
+
 
   useEffect(() => {
     axios
@@ -99,7 +103,10 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        DETAIL / REVIEW / Q&A / RETURN & DELIVERY
+        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <div>
+          <QnA/>
+        </div>
       </div>
     </div>
   );
