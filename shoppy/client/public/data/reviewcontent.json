@@ -1,0 +1,305 @@
+{
+    "products": [
+        {
+            "pid": "1",
+            "star": "★★★★★",
+            "rating": "5/5",
+            "size": {
+                "pid": "1",
+                "justRight": "58",
+                "small": "0",
+                "large": "42"
+            },
+            "color": {
+                "pid": "1",
+                "same": "78",
+                "similar": "20",
+                "different": "0"
+            },
+            "material": {
+                "pid": "1",
+                "same": "65",
+                "similar": "35",
+                "different": "0"
+            },
+            "reviewImages": [
+                "https://media.wconcept.co.kr/review/306182088/306182088_1733305219944.jpg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732335993259.jpeg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732020243615.jpg?RS=400"
+            ],
+            "reviews": [
+                {
+                    "id": "1",
+                    "user": "gu********",
+                    "date": "2025.01.19",
+                    "buyOption": "BLACk_M",
+                    "sizeInfo": "167cm,54kg,M/66",
+                    "satisfaction": {
+                        "size": "적당함",
+                        "color": "같음",
+                        "material": "같음"
+                    },
+                    "comment": "주머니 부분 안감이 보들보들하고 손 시렵지 않아서 너무 좋아요! 이런 디테일까지 모르고 샀는데 감동이었어요ㅎㅎ 휘뚜루마뚜루 입기 좋은 패딩입니다"
+                }
+            ]
+        },
+        {
+            "pid": "2",
+            "star": "★★★★★",
+            "rating": "5/5",
+            "size": {
+                "pid": "1",
+                "justRight": "50",
+                "small": "8",
+                "large": "42"
+            },
+            "color": {
+                "pid": "1",
+                "same": "78",
+                "similar": "20",
+                "different": "0"
+            },
+            "material": {
+                "pid": "1",
+                "same": "65",
+                "similar": "35",
+                "different": "0"
+            },
+            "reviewImages": [
+                "https://media.wconcept.co.kr/review/306182088/306182088_1733305219944.jpg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732335993259.jpeg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732020243615.jpg?RS=400"
+            ],
+            "reviews": [
+                {
+                    "id": "2",
+                    "user": "gu********",
+                    "date": "2025.01.19",
+                    "buyOption": "BLACk_XL",
+                    "sizeInfo": "187cm,80kg,XL/66",
+                    "satisfaction": {
+                        "size": "적당함",
+                        "color": "같음",
+                        "material": "같음"
+                    },
+                    "comment": "주머니 부분 안감이 보들보들하고 손 시렵지 않아서 너무 좋아요! 이런 디테일까지 모르고 샀는데 감동이었어요ㅎㅎ 휘뚜루마뚜루 입기 좋은 패딩입니다"
+                }
+            ]
+        },
+        {
+            "pid": "3",
+            "star": "★★★★★",
+            "rating": "5/5",
+            "size": {
+                "pid": "1",
+                "justRight": "58",
+                "small": "0",
+                "large": "42"
+            },
+            "color": {
+                "pid": "1",
+                "same": "78",
+                "similar": "20",
+                "different": "0"
+            },
+            "material": {
+                "pid": "1",
+                "same": "65",
+                "similar": "35",
+                "different": "0"
+            },
+            "reviewImages": [
+                "https://media.wconcept.co.kr/review/306182088/306182088_1733305219944.jpg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732335993259.jpeg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732020243615.jpg?RS=400"
+            ],
+            "reviews": [
+                {
+                    "id": "3",
+                    "user": "gu********",
+                    "date": "2025.01.19",
+                    "buyOption": "BLACk_M",
+                    "sizeInfo": "167cm,54kg,M/66",
+                    "satisfaction": {
+                        "size": "적당함",
+                        "color": "같음",
+                        "material": "같음"
+                    },
+                    "comment": "주머니 부분 안감이 보들보들하고 손 시렵지 않아서 너무 좋아요! 이런 디테일까지 모르고 샀는데 감동이었어요ㅎㅎ 휘뚜루마뚜루 입기 좋은 패딩입니다"
+                }
+            ]
+        },
+        {
+            "pid": "4",
+            "star": "★★★★★",
+            "rating": "5/5",
+            "size": {
+                "pid": "1",
+                "justRight": "58",
+                "small": "0",
+                "large": "42"
+            },
+            "color": {
+                "pid": "1",
+                "same": "78",
+                "similar": "20",
+                "different": "0"
+            },
+            "material": {
+                "pid": "1",
+                "same": "65",
+                "similar": "35",
+                "different": "0"
+            },
+            "reviewImages": [
+                "https://media.wconcept.co.kr/review/306182088/306182088_1733305219944.jpg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732335993259.jpeg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732020243615.jpg?RS=400"
+            ],
+            "reviews": [
+                {
+                    "id": "4",
+                    "user": "gu********",
+                    "date": "2025.01.19",
+                    "buyOption": "BLACk_M",
+                    "sizeInfo": "167cm,54kg,M/66",
+                    "satisfaction": {
+                        "size": "적당함",
+                        "color": "같음",
+                        "material": "같음"
+                    },
+                    "comment": "주머니 부분 안감이 보들보들하고 손 시렵지 않아서 너무 좋아요! 이런 디테일까지 모르고 샀는데 감동이었어요ㅎㅎ 휘뚜루마뚜루 입기 좋은 패딩입니다"
+                }
+            ]
+        },
+        {
+            "pid": "5",
+            "star": "★★★★★",
+            "rating": "5/5",
+            "size": {
+                "pid": "1",
+                "justRight": "58",
+                "small": "0",
+                "large": "42"
+            },
+            "color": {
+                "pid": "1",
+                "same": "78",
+                "similar": "20",
+                "different": "0"
+            },
+            "material": {
+                "pid": "1",
+                "same": "65",
+                "similar": "35",
+                "different": "0"
+            },
+            "reviewImages": [
+                "https://media.wconcept.co.kr/review/306182088/306182088_1733305219944.jpg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732335993259.jpeg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732020243615.jpg?RS=400"
+            ],
+            "reviews": [
+                {
+                    "id": "5",
+                    "user": "gu********",
+                    "date": "2025.01.19",
+                    "buyOption": "BLACk_M",
+                    "sizeInfo": "167cm,54kg,M/66",
+                    "satisfaction": {
+                        "size": "적당함",
+                        "color": "같음",
+                        "material": "같음"
+                    },
+                    "comment": "주머니 부분 안감이 보들보들하고 손 시렵지 않아서 너무 좋아요! 이런 디테일까지 모르고 샀는데 감동이었어요ㅎㅎ 휘뚜루마뚜루 입기 좋은 패딩입니다"
+                }
+            ]
+        },
+        {
+            "pid": "6",
+            "star": "★★★★★",
+            "rating": "5/5",
+            "size": {
+                "pid": "1",
+                "justRight": "58",
+                "small": "0",
+                "large": "42"
+            },
+            "color": {
+                "pid": "1",
+                "same": "78",
+                "similar": "20",
+                "different": "0"
+            },
+            "material": {
+                "pid": "1",
+                "same": "65",
+                "similar": "35",
+                "different": "0"
+            },
+            "reviewImages": [
+                "https://media.wconcept.co.kr/review/306182088/306182088_1733305219944.jpg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732335993259.jpeg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732020243615.jpg?RS=400"
+            ],
+            "reviews": [
+                {
+                    "id": "6",
+                    "user": "gu********",
+                    "date": "2025.01.19",
+                    "buyOption": "BLACk_M",
+                    "sizeInfo": "167cm,54kg,M/66",
+                    "satisfaction": {
+                        "size": "적당함",
+                        "color": "같음",
+                        "material": "같음"
+                    },
+                    "comment": "주머니 부분 안감이 보들보들하고 손 시렵지 않아서 너무 좋아요! 이런 디테일까지 모르고 샀는데 감동이었어요ㅎㅎ 휘뚜루마뚜루 입기 좋은 패딩입니다"
+                }
+            ]
+        },
+        {
+            "pid": "7",
+            "star": "★★★★★",
+            "rating": "5/5",
+            "size": {
+                "pid": "1",
+                "justRight": "58",
+                "small": "0",
+                "large": "42"
+            },
+            "color": {
+                "pid": "1",
+                "same": "78",
+                "similar": "20",
+                "different": "0"
+            },
+            "material": {
+                "pid": "1",
+                "same": "65",
+                "similar": "35",
+                "different": "0"
+            },
+            "reviewImages": [
+                "https://media.wconcept.co.kr/review/306182088/306182088_1733305219944.jpg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732335993259.jpeg?RS=400",
+                "https://media.wconcept.co.kr/review/306182088/306182088_1732020243615.jpg?RS=400"
+            ],
+            "reviews": [
+                {
+                    "id": "7",
+                    "user": "gu********",
+                    "date": "2025.01.19",
+                    "buyOption": "BLACk_M",
+                    "sizeInfo": "167cm,54kg,M/66",
+                    "satisfaction": {
+                        "size": "적당함",
+                        "color": "같음",
+                        "material": "같음"
+                    },
+                    "comment": "주머니 부분 안감이 보들보들하고 손 시렵지 않아서 너무 좋아요! 이런 디테일까지 모르고 샀는데 감동이었어요ㅎㅎ 휘뚜루마뚜루 입기 좋은 패딩입니다"
+                }
+            ]
+        }
+    ]
+}

@@ -4,12 +4,14 @@ import { PiGiftThin } from "react-icons/pi";
 import axios from "axios";
 import QnA from "../components/QnA/QnA";
 import DetailMenu from "../components/QnA/DetailMenu";
+import Review from "../components/review/Review";
+import Detail from "../components/detail-tap/Detail";
+import Delivery from "../components/delivery/Delivery";
 
 export default function DetailProduct({ addCart }) {
   const { pid } = useParams();
   const [product, setProduct] = useState({});
   const [size, setSize] = useState("XS");
-  const [activeTab, setActiveTab] = useState(1);
 
 
   useEffect(() => {
@@ -103,9 +105,12 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <DetailMenu/>
         <div>
+        <Detail selectedPid={pid} products={product} />
+          <Review/>
           <QnA/>
+          <Delivery/>
         </div>
       </div>
     </div>

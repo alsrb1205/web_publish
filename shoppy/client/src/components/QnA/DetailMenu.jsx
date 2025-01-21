@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function DetailMenu({activeTab, setActiveTab}) {
+export default function DetailMenu() {
+    const [activeTab, setActiveTab] = useState(1);
+
     const tabs = [
         { "id": 1, "label": "Detail", "href": "#detail","component":"<Detail/>" },
         { "id": 2, "label": "Review", "href": "#review","component":"<Review/>" },
