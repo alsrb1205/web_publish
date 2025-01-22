@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function DetailMenu() {
-    const [activeTab, setActiveTab] = useState(1);
-
+export default function DetailMenu({ activeTab, setActiveTab }) {
     const tabs = [
-        { "id": 1, "label": "Detail", "href": "#detail","component":"<Detail/>" },
-        { "id": 2, "label": "Review", "href": "#review","component":"<Review/>" },
-        { "id": 3, "label": "Q&A", "href": "#qna","component":"<QnA/>" },
-        { "id": 4, "label": "Return & Delivery", "href": "#delivery","component":"<Delivery/>" }
+        { "id": "detail", "label": "Detail", "href": "#detail" },
+        { "id": "review", "label": "Review", "href": "#review" },
+        { "id": "qna", "label": "Q&A", "href": "#qna" },
+        { "id": "delivery", "label": "Return & Delivery", "href": "/products/:pid#delivery" }
     ]
 
     return (
@@ -16,9 +14,7 @@ export default function DetailMenu() {
             {tabs.map(tab =>
                 <li className={(activeTab === tab.id) ? 'active' : ''}
                     onClick={() => setActiveTab(tab.id)}>
-                    <Link to={tab.href}>
-                        <label>{tab.label}</label>
-                    </Link>
+                    <label>{tab.label}</label>
                 </li>
             )}
         </ul>

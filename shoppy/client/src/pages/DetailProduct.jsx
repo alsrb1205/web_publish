@@ -12,6 +12,7 @@ export default function DetailProduct({ addCart }) {
   const { pid } = useParams();
   const [product, setProduct] = useState({});
   const [size, setSize] = useState("XS");
+  const [activeTab, setActiveTab] = useState('detail');
 
 
   useEffect(() => {
@@ -105,13 +106,14 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        <DetailMenu/>
+        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} />
         <div>
-        <Detail selectedPid={pid} products={product} />
-          <Review/>
-          <QnA/>
-          <Delivery/>
+          {activeTab === 'detail' && <Detail selectedPid={pid} products={product} />}
+          {activeTab === 'review' && <Review />}
+          {activeTab === 'qna' && <QnA />}
+          {activeTab === 'delivery' && <Delivery />}
         </div>
+
       </div>
     </div>
   );

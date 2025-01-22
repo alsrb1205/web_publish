@@ -282,6 +282,7 @@ p {
   border-collapse: separate;
   /* border: 1px solid red; */
   justify-content: space-between;
+  margin-bottom: 60px;
 }
 .detail-menu li {
   border: 1px solid #b5b5b5;
@@ -305,7 +306,9 @@ p {
   border: 2px solid black;
   border-bottom: none;
 }
-
+.product-qna {
+  margin-top: 20px;
+}
 
 .question-button {
   text-align: end;
@@ -323,28 +326,34 @@ p {
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   border-collapse: collapse;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 .qna-table tr:not(.qna-table tr:last-child) {
   border-bottom: 1px solid rgb(209, 209, 209);
 }
 .qna-table td {
-  padding: 18px;
+  padding: 24px 18px;
+  /* css 변경했음 */
 }
 .complete {
   width: 100px;
-  /* border: 1px solid red; */
 }
+
+ /* 커서값 추가 */
 .complete span {
   background-color: black;
   color: white;
   padding: 0 5px;
   font-size: 0.8rem;
+  cursor: default;
 }
-.question * {
+ /* 커서값 추가 */
+.question span {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
+
 .qna-email {
   text-align: end;
   width: 250px;
@@ -357,16 +366,32 @@ p {
   color: #777;
 }
 
-.answer {
-  display: none;
+.answer-content {
+  background-color: #f7f7f7;
 }
-
+.ask {
+  padding-bottom: 20px;
+}
+.answer-content-title {
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+.answer {
+  border-top: 1px dashed #e9e9e9;
+  padding-top: 20px;
+}
+.answer-date{
+  color: #666;
+}
 .pagination {
   list-style-type: none;
   display: flex;
   justify-content: center;
   gap: 15px;
   margin: 40px 0;
+}
+.pagination .active{
+  font-weight: bold;
 }
 .pagination *:not([type="button"]) {
   text-decoration: none;
