@@ -4,7 +4,13 @@ import { useParams } from 'react-router-dom';
 import { FaLock } from "react-icons/fa";
 
 
-export default function QnAList({ currentPage, itemsPerPage,sendTotalPages,  }) {
+export default function  QnAList({
+    currentPage,
+    itemsPerPage,
+    sendTotalPages,
+    // ★ 추가: 부모에서 내려준 콜백 함수
+    onSendTotalItemCount,
+  }) {
     const [list, setList] = useState([]);
     const { pid } = useParams();
     const [openAnswer, setOpenAnswer] = useState(null);
@@ -13,16 +19,28 @@ export default function QnAList({ currentPage, itemsPerPage,sendTotalPages,  }) 
         axios
             .get("/data/qna.json")
             .then((res) => {
+                 // 예시로 pid가 일치하는 데이터 필터
                 const farray = res.data.filter((d) => (d.pid === parseInt(pid)))
                 setList(farray[0].qnalist)
             })
             .catch((error) => console.log(error))
     }, []);
     
+    // currentPage 변경 시 openAnswer 닫기
     useEffect(() => {
         setOpenAnswer(null);
     }, [currentPage]);
 
+    // 전체 페이지, 아이템 개수 계산해서 상위로 전달
+    useEffect(() => {
+        const totalPages = Math.ceil(list.length / itemsPerPage);
+        sendTotalPages(totalPages);
+
+        // QnAList -> QnA -> DetailProduct로 아이템 개수 전달
+        onSendTotalItemCount(list.length);
+    }, [list, itemsPerPage, sendTotalPages, onSendTotalItemCount]);
+
+     // 질문 클릭 시 답변 토글
     const toggleAnswer = (item, index) => {
         if (openAnswer === index) {
             setOpenAnswer(null);
@@ -32,15 +50,12 @@ export default function QnAList({ currentPage, itemsPerPage,sendTotalPages,  }) 
             setOpenAnswer(index);
         }
     }
+
+    // 현재 페이지의 아이템들만 잘라서 노출
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = list.slice(indexOfFirstItem, indexOfLastItem);
-    useEffect(()=>{
-        const totalPages = Math.ceil(list.length / itemsPerPage);
-        sendTotalPages(totalPages);
-    },[list])
-    console.log(list);
-    
+
 
     return (
         <table className='qna-table'>

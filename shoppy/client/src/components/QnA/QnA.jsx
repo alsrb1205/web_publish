@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import QnAList from './QnAList';
+import Pagination from '../Pagination';
 
-export default function QnA() {
+export default function QnA({onTotalItemCount}) {
     const navigate = useNavigate(); // React Router의 네비게이션 훅
+
+    // 페이지 정보 관련 state
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const itemsPerPage = 6;
+
+    // QnAList에서 전체 페이지를 알려주는 함수
+    const receiveTotalPages = (page) => {
+        setTotalPages(page)
+    };
+
+    // QnAList → QnA로 올라온 totalItemCount를
+    // QnA → DetailProduct(onTotalItemCount)로 넘김
+    const receiveTotalItemCount = (count) => {
+        onTotalItemCount(count); // 결국 DetailProduct의 handleTotalItemCount를 호출
+    };
+
+    // "상품문의" 버튼 클릭 시
     const inquiry = () => {
         const result = window.confirm("로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?");
         if (result) {
@@ -12,78 +31,26 @@ export default function QnA() {
         }
     };
 
-    // Pagination 이동 함수
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const itemsPerPage = 6;
-    const pagesPerGroup = 5; // 페이지 그룹당 보이는 최대 페이지 수
-    const [pageGroup, setPageGroup] = useState(1);
-    const startPage = (pageGroup - 1) * pagesPerGroup + 1;
-    const endPage = Math.min(pageGroup * pagesPerGroup, totalPages);
-    const handlePageChange = (page) => {
-        setCurrentPage(page); // 페이지 상태 업데이트
-    };
-
-    const handleGroupChange = (group) => {
-        setPageGroup(group);
-        const firstPageOfGroup = (group - 1) * pagesPerGroup + 1;
-        setCurrentPage(firstPageOfGroup); // 새로운 그룹의 첫 번째 페이지로 이동
-    };
-
-    const receiveTotalPages = (page) => {
-        setTotalPages(page)
-    };
 
     return (
         <div className='product-qna'>
             <div className='question-button'>
                 <button type='button' onClick={inquiry}>상품문의</button>
             </div>
-            <QnAList currentPage={currentPage} itemsPerPage={itemsPerPage} sendTotalPages={receiveTotalPages} />
-            <ul className="pagination">
-                <li>
-                    <button
-                        type="button"
-                        disabled={pageGroup === 1}
-                        onClick={() => handleGroupChange(1)}>
-                        &lt;&lt;
-                    </button>
-                </li>
-                <li>
-                    <button
-                        type="button"
-                        disabled={pageGroup === 1}
-                        onClick={() => handleGroupChange(pageGroup - 1)}>
-                        &lt;
-                    </button>
-                </li>
-                {[...Array(endPage - startPage + 1)].map((_, index) => (
-                    <li>
-                        <button
-                            type="button"
-                            className={currentPage === index + 1 ? "active" : ""}
-                            onClick={() => handlePageChange(index + 1)}>
-                            {startPage + index}
-                        </button>
-                    </li>
-                ))}
-                <li>
-                    <button
-                        type="button"
-                        disabled={endPage === totalPages} // 총 페이지 수에 따라 변경 가능
-                        onClick={() => handleGroupChange(pageGroup + 1)}>
-                        &gt;
-                    </button>
-                </li>
-                <li>
-                    <button
-                        type="button"
-                        disabled={endPage === totalPages}
-                        onClick={() => handleGroupChange((Math.ceil(totalPages / pagesPerGroup)))}>
-                        &gt;&gt;
-                    </button>
-                </li>
-            </ul>
+            {/* 컴포넌트 props 변경 */}
+            <QnAList
+                currentPage={currentPage}    // 현재 페이지
+                itemsPerPage={itemsPerPage}  // 한 페이지당 보여줄 개수
+                sendTotalPages={receiveTotalPages} // 전체 페이지 수를 부모(QnA)에 알려주는 함수
+                // QnAList가 아이템 개수를 알려주면 QnA → DetailProduct로 올림
+                onSendTotalItemCount={receiveTotalItemCount}
+            />
+            <Pagination
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage} // Pagination 내부에서 페이지 바뀔 때 QnA의 state도 업데이트
+                totalPages={totalPages}
+            // pagesPerGroup={5}  // 커스텀하고 싶다면 prop으로도 내려줄 수 있음 (기본값 5)
+            />
         </div>
     );
 }

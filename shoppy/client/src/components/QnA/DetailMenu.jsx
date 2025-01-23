@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-export default function DetailMenu({ activeTab, setActiveTab }) {
+export default function DetailMenu({ activeTab, setActiveTab, totalItemCount }) {
     const tabs = [
         { "id": "detail", "label": "Detail", "href": "#detail" },
         { "id": "review", "label": "Review", "href": "#review" },
@@ -14,7 +13,7 @@ export default function DetailMenu({ activeTab, setActiveTab }) {
             {tabs.map(tab =>
                 <li className={(activeTab === tab.id) ? 'active' : ''}
                     onClick={() => setActiveTab(tab.id)}>
-                    <label>{tab.label}</label>
+                    <label>{tab.label}{(tab.id ==='qna' ? ` (${totalItemCount})`: '')}</label>
                 </li>
             )}
         </ul>

@@ -401,6 +401,7 @@ p {
 .pagination button{
   background-color: white;
   border: none;
+  cursor: pointer;
 }
 
 /******************* REVIEW *************************/

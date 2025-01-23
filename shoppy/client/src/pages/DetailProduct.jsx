@@ -25,7 +25,21 @@ export default function DetailProduct({ addCart }) {
         });
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [pid]);
+
+  useEffect(() => {
+    axios.get('/data/qna.json')
+      .then((res) => {
+        // pid에 맞는 QnA 찾기
+      const qnaData = res.data.find(d => d.pid === parseInt(pid));
+       setTotalItemCount(qnaData ? qnaData.qnalist.length : 0);
+      })
+      .catch((error) => {
+        console.error(error);
+        setTotalItemCount(0); 
+      })
+   }, [pid]);
+
 
   //장바구니 추가 버튼 이벤트
   const addCartItem = () => {
@@ -40,6 +54,15 @@ export default function DetailProduct({ addCart }) {
     };
     addCart(cartItem); // App.js의 addCart 함수 호출
   };
+
+   // 1) QnAList에서 구한 총 아이템 수를 저장할 state
+   const [totalItemCount, setTotalItemCount] = useState(0);
+
+   // 2) QnA로 콜백을 내려줄 함수
+   //    QnA -> QnAList에서 totalItemCount를 구하면 이 함수를 통해 숫자를 올려보낼 것임
+   const handleTotalItemCount = (count) => {
+     setTotalItemCount(count);
+   };
 
   return (
     <div className="content">
@@ -107,11 +130,11 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} />
+        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} totalItemCount={totalItemCount}/>
         <div>
           {activeTab === 'detail' && <Detail selectedPid={pid} product={product} />}
           {activeTab === 'review' && <Review />}
-          {activeTab === 'qna' && <QnA />}
+          {activeTab === 'qna' && <QnA onTotalItemCount={handleTotalItemCount}/>}
           {activeTab === 'delivery' && <Delivery />}
         </div>
 
