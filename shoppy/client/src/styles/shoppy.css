@@ -403,172 +403,409 @@ p {
   border: none;
 }
 
-/*********************Review**************************/
+/******************* REVIEW *************************/
 .review-container {
-  border: 1px solid red;
-  margin: 0 auto;
-  height: 100%;
-}
-.review-container h2 {
-  font-size: 2rem;
-  text-align: center;
-}
-
-.rating {
   /* border: 1px solid red; */
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 30px;
-  border-bottom: solid 1px black;
-}
-
-.stars {
-  color: gold;
-  margin-right: 10px;
-}
-
-.score {
-  font-size: 1rem;
-}
-
-.review-images {
-  display: flex; 
-  justify-content: space-between;
-}
-.review-images img {
-  width: 140px;
-  height: 140px;
-}
-.review-images img:first-child {
-  margin-left: 0;
-}
-
-.review-images img:last-child {
-  margin-right: 0;
-}
-
-.sorting-menu {
-  /* border: 1px solid red; */
-  margin: 15px 0;
-  height: 40px;
-  border-bottom: solid 1px black;
-}
-
-.sorting-menu button {
-  /* border: 1px solid red; */
-
-  background-color: white;
-  border: none;
-  border-right: 1px solid gray;
-  width: 100px;
-  height: 100%;
-}
-
-.review-button {
-  margin: 10px 0;
-}
-
-.review-content {
   margin: 20px 0;
 }
 
-.review-coment {
+.review-title {
   /* border: 1px solid red; */
-  border-bottom: 1px black;
-  width: 80%;
-}
-
-
-/** 퍼센테이지 바 */
-.review-container {
-  padding: 20px;
-}
-
-.rating-category {
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  display: flex;
-  height: 10px;
-  background-color: #eee;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.progress {
-  height: 100%;
-}
-
-.progress.small {
-  background-color: #ff9999;
-}
-
-.progress.medium {
-  background-color: #99cc99;
-}
-
-.progress.large {
-  background-color: #9999ff;
-}
-
-.progress.match {
-  background-color: #99ccff;
-}
-
-.progress.similar {
-  background-color: #ffcc99;
-}
-
-.progress.different {
-  background-color: #ff9999;
-}
-
-.review-images {
-  margin-top: 20px;
-}
-
-.review-image {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  object-fit: cover;
-  border: 1px solid #ccc;
-}
-
-.review-item {
-  border-bottom: 1px solid #ddd;
+  font-size: 1.2rem;
+  font-weight: bold;
   padding: 10px 0;
 }
 
-.review-header {
-  font-weight: bold;
+.review-top {
+  /* border: 1px solid red;ㄴ */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
-.review-satisfaction {
+.rating-group {
+  /* border: 1px solid red; */
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+/* 상품 평점 (별점 및 점수) 스타일 */
+.rating-stars {
+  width: 40%;
+}
+
+.stars {
+  font-size: 2.5rem;
+  color: black;
+  margin-right: 20px;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.review-percent-style {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-detail-group {
+  /* border: 1px solid red; */
+  width: 60%; 
+  display: flex;
+  gap: 20px; 
+}
+
+.rating-category {
+  margin-bottom: 10px;
+}
+
+.rating-category h4 {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding-bottom: 10px;
+  color: gray;
+}
+
+
+.review-detail-font {
+  /* border: 1px solid red; */
+  width: 50px;
+}
+
+/* Progress bar 스타일 */
+.progress-bar {
+  /* border: 1px solid red; */
+  display: flex;
+  width: 120px;
+  height: 4px;
+  background-color: #eee;
+  overflow: hidden;
+  margin: 0 15px;
+}
+
+.progress-bar-color {
+  background-color: black;
+}
+
+/* 리뷰 이미지 스타일 */
+.review-images {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.review-images :first-child {
+  margin-left: 0px;
+}
+
+.review-images :last-child {
+  margin-right: 0px;
+}
+
+.review-images img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+/* 리뷰 메뉴 스타일 */
+.comment-menu {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid black;
+  margin-top: 30px;
+}
+
+.comment-menu ul {
+  /* border: 1px solid red; */
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.comment-menu li {
+  /* border: 1px solid red; */
+  cursor: pointer;
+  position: relative;
+  padding: 0 10px;
+}
+
+.comment-menu li:first-child {
+  padding-left: 0;
+}
+.comment-menu li:last-child {
+  padding-right: 0;
+}
+
+.comment-menu li:not(:last-child)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 6px;
+  right: 0;
+  margin-left: 10px; 
+  background-color: black;
+  width: 1px;
+  height: 12px;
+}
+
+.comment-menu button {
+  /* border: 1px solid red; */
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+/* 리뷰 스타일 */
+.reviews-list {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+.reviews-list table {
+  width: 100%;
+}
+
+.review-stars {
+  /* border: 1px solid red; */
+  font-size: 1.6rem;
+  color: black;
+  margin-right: 20px;
+  display: inline-block;
+  padding: 10px;
+}
+
+.review-details {
+  /* border: 1px solid red; */
+  font-size: 0.8rem;
+  margin: 10px 0px;
+  line-height: 25px;
+}
+
+.review-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 5px;
+}
+
+.review-buy-option {
   margin-top: 10px;
+  flex: 1; 
+  text-align: left; 
+}
+
+.review-user-info {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px; 
+}
+
+.review-user,
+.review-date {
+  text-align: right; 
+}
+
+.review-satisfaction ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.review-satisfaction li {
+  border: 1px solid silver;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+}
+
+.review-comment-image img {
+  width: 100px;
+  height: 100px;
+  margin: 10px 0;
+}
+
+.review-comment {
+  /* border: 1px solid red; */
+  margin-bottom: 20px;
 }
 
 .review-actions {
-  margin-top: 10px;
+  /* border: 1px solid red; */
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .review-actions button {
   margin-right: 5px;
 }
+
+.review-actions > div:last-child button:last-child {
+  /* border: 1px solid red; */
+  margin-right: 0;
+}
+
 /********************detail************************/
 
-.product-detail-tab-d {
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  gap: 80px;
+}
+.detail-cont {
+  padding: 60px;
+}
+
+.detail-image {
   display: flex;
   flex-direction: column;
   gap: 40px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 80px;
 }
-.product-detail-tab-d img {
-  width: 80%;
+.detail-image img {
+  width: 100%;
 }
-.product-detail-tab-d img:first-child {
+.detail-image img:first-child {
   width: 60%;
+}
+
+.detail-description {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.detail-description h3 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.detail-info ul {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  list-style: none;
+}
+.detail-info ul li {
+  padding: 20px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+  display: flex;
+  font-size: 14px;
+}
+.detail-info ul li:last-child {
+  border-bottom: none;
+}
+.detail-info-title {
+  display: inline-block;
+  width: 30%;
+}
+.detail-info-txt {
+  margin-top: 20px;
+  color: #9b9b9b;
+  
+}
+
+.alsolike {
+  list-style: none;
+}
+.alsolike img{
+  width: 195px;
+  height: 260px;
+}
+.alsolike ul {
+  list-style: none;
+}
+
+/********************************************/
+/*delivery style*/
+
+.delivery-list-title {
+  margin-top: 60px;
+  margin-bottom: 17px;
+}
+
+.delivery-list-title h5 {
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 10px;
+  font-family: "ProximaNova-Regular", "Noto Sans KR";
+}
+
+.delivery-list-title p {
+  margin: 0;
+  font-size: 14px;
+  color:#333;
+  display: block;
+}
+
+
+.delivery-content table {
+    table-layout: fixed;
+    border-top: none;
+    border-collapse: collapse;
+    border-bottom: 1px solid #d5d5d5;
+    border-spacing: 0;
+    margin-bottom: 60px;
+}
+
+.delivery-content table th,
+.delivery-content table td {
+    border-top: 1px solid #d5d5d5;
+    word-break: break-all;
+    background-clip: padding-box;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  border-color: inherit;
+}
+
+.delivery-content table tbody th {
+    height: 68px;
+    padding-left: 43px;
+    font-family: "ProximaNova-Regular", "Noto Sans KR";
+    text-align: center;
+    color: #333;
+    background-color: #fafafa;
+    font-size: 15px;
+    padding: 0;
+}
+
+
+.delivery-content table td ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+.delivery-content table td ul li {
+    font-size: 12px;
+    color: #333;
+    line-height: 18px;
+    position: relative;
+    padding-left: 12px;
+    padding: 5px;
 }

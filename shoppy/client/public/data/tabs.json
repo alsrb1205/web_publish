@@ -1,6 +1,0 @@
-[
-    { "id": 1, "label": "Detail", "href": "#detail","component":"<Detail/>" },
-    { "id": 2, "label": "Review", "href": "#review","component":"<Review/>" },
-    { "id": 3, "label": "Q&A", "href": "#qna","component":"<QnA/>" },
-    { "id": 4, "label": "Return & Delivery", "href": "/products/:pid#delivery","component":"<Delivery/>" }
-]

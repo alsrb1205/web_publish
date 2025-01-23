@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FaLock } from "react-icons/fa";
 
 
-export default function QnAList({ currentPage, itemsPerPage,sendTotalPages }) {
+export default function QnAList({ currentPage, itemsPerPage,sendTotalPages,  }) {
     const [list, setList] = useState([]);
     const { pid } = useParams();
     const [openAnswer, setOpenAnswer] = useState(null);
@@ -41,8 +41,6 @@ export default function QnAList({ currentPage, itemsPerPage,sendTotalPages }) {
     },[list])
     console.log(list);
     
-
-
 
     return (
         <table className='qna-table'>
