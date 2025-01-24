@@ -11,13 +11,6 @@ export default function QnA({ qnaList }) {
     const [totalPages, setTotalPages] = useState(1);
     const itemsPerPage = 6;
 
-    
-    // // QnAList에서 전체 페이지를 알려주는 함수
-    // const receiveTotalPages = (page) => {
-    //     setTotalPages(page)
-    // };
-
-
     // QnAList가 아닌, QnA에서 직접 totalPages 계산
     useEffect(() => {
         const pages = Math.ceil(qnaList.length / itemsPerPage);
@@ -34,7 +27,6 @@ export default function QnA({ qnaList }) {
         }
     };
 
-
     return (
         <div className='product-qna'>
             <div className='question-button'>
@@ -44,9 +36,6 @@ export default function QnA({ qnaList }) {
             <QnAList
                 currentPage={currentPage}    // 현재 페이지
                 itemsPerPage={itemsPerPage}  // 한 페이지당 보여줄 개수
-                // sendTotalPages={receiveTotalPages} // 전체 페이지 수를 부모(QnA)에 알려주는 함수
-                // // QnAList가 아이템 개수를 알려주면 QnA → DetailProduct로 올림
-                // onSendTotalItemCount={receiveTotalItemCount}
                 list={qnaList}
             />
             <Pagination

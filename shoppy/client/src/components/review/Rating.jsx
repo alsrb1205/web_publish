@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export default function Rating() {
+export default function Rating({reviewCount}) {
     const [reviewData, setReviewData] = useState([]);
     const { pid } = useParams();
 
@@ -18,7 +18,7 @@ export default function Rating() {
 
     return (
         <div className="review-container">
-            <div className="review-title">상품 만족도</div>
+            <div className="review-title">상품 만족도 ({reviewCount})</div>
             <div className="review-top">
                 {reviewData.map((product, index) => (
                     <div key={index}>

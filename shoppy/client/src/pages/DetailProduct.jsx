@@ -5,31 +5,19 @@ import axios from "axios";
 import QnA from "../components/QnA/QnA";
 import DetailMenu from "../components/QnA/DetailMenu";
 import Review from "../components/review/Review";
-import Detail from "../components/detail-tap/Detail";
+import Detail from "../components/detail/Detail";
 import Delivery from "../components/delivery/Delivery";
-import useQnA from "../hooks/useQnA";
+import useQnA, { useProduct, useReview } from "../hooks/listCount";
+import ImageList from "../components/common/ImageList";
 
 export default function DetailProduct({ addCart }) {
   const { pid } = useParams();
-  const [product, setProduct] = useState({});
   const [size, setSize] = useState("XS");
   // tab state 추가
   const [activeTab, setActiveTab] = useState('detail');
-
   const { qnaList, qnaCount } = useQnA(pid);
-
-  // 강사님 틀이라 안건드림 상품 정보 fetch
-  useEffect(() => {
-    axios
-      .get("/data/products.json") // http://localhost:3000/data/products.json
-      .then((res) => {
-        res.data.filter((product) => {
-          if (product.pid === pid) setProduct(product);
-        });
-      })
-      .catch((error) => console.log(error));
-  }, [pid]);
-
+  const {reviewList, reviewCount} = useReview(pid);
+  const {detailDesList,detailInfoList,product,imgList} = useProduct(pid);
 
   //장바구니 추가 버튼 이벤트
   const addCartItem = () => {
@@ -45,17 +33,6 @@ export default function DetailProduct({ addCart }) {
     addCart(cartItem); // App.js의 addCart 함수 호출
   };
 
-  // 커스텀 훅으로 빼서 사용함 !!!!
-
-  //  // 1) QnAList에서 구한 총 아이템 수를 저장할 state
-  //  const [totalItemCount, setTotalItemCount] = useState(0);
-
-  //  // 2) QnA로 콜백을 내려줄 함수
-  //  //    QnA -> QnAList에서 totalItemCount를 구하면 이 함수를 통해 숫자를 올려보낼 것임
-  //  const handleTotalItemCount = (count) => {
-  //    setTotalItemCount(count);
-  //  };
-
   return (
     <div className="content">
       <div className="product-detail-top">
@@ -63,13 +40,7 @@ export default function DetailProduct({ addCart }) {
           <img src={product.image} />
           <ul className="product-detail-image-top-list">
             <li>
-              <img src={product.image} alt="" />
-            </li>
-            <li>
-              <img src={product.image} alt="" />
-            </li>
-            <li>
-              <img src={product.image} alt="" />
+              <ImageList imgList={imgList.slice(1, 4)} />
             </li>
           </ul>
         </div>
@@ -122,10 +93,10 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} qnaCount={qnaCount} />
+        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} qnaCount={qnaCount} reviewCount={reviewCount}/>
         <div>
-          {activeTab === 'detail' && <Detail selectedPid={pid} product={product} />}
-          {activeTab === 'review' && <Review />}
+          {activeTab === 'detail' && <Detail selectedPid={pid} product={product} imgList={imgList} detailDesList={detailDesList} detailInfoList={detailInfoList} />}
+          {activeTab === 'review' && <Review reviewList={reviewList} reviewCount={reviewCount}/>}
           {activeTab === 'qna' && <QnA qnaList={qnaList} />}
           {activeTab === 'delivery' && <Delivery />}
         </div>

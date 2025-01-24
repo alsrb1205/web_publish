@@ -1,20 +1,26 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import Pagination from '../Pagination';
+import { useReview } from '../../hooks/listCount';
 
-export default function ReviewComment() {
-    const [reviewData, setReviewData] = useState([]);
-    const { pid } = useParams();
+export default function ReviewComment({reviewList, reviewCount}) {
+    // 페이지 정보 관련
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const itemsPerPage = 5;  // 한 페이지에 보여줄 리뷰 수
+    const pagesPerGroup = 5; // 페이지 그룹당 최대 페이지 수
+    const [pageGroup, setPageGroup] = useState(1);
 
-    useEffect(() => {
-        axios
-            .get('/data/reviewcontent.json')
-            .then((res) => {
-                const rcArray = res.data.products.filter((reviewComment) => reviewComment.pid === pid);
-                setReviewData(rcArray);
-            })
-            .catch((error) => console.error(error));
-    }, [pid]);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = reviewList.slice(indexOfFirstItem, indexOfLastItem);
+
+        useEffect(() => {
+            const pages = Math.ceil(reviewList.length / itemsPerPage);
+            setTotalPages(pages);
+        }, [reviewList, itemsPerPage]);
+    
 
     return (
         <>
@@ -26,74 +32,74 @@ export default function ReviewComment() {
                     <li>추천순 <button>?</button></li>
                 </ul>
             </div>
+
             <div className="reviews-list">
                 <table>
-                    <colgroup>
-                        <col style={{ width: '160px' }} /> {/* 별점 영역 */}
-                        <col style={{ width: 'auto' }} /> {/* 리뷰 내용 영역 */}
-                    </colgroup>
                     <tbody>
-                        {reviewData.map((review, index) => (
-                            <tr key={index}>
-                                {/* 별점 */}
-                                <td className="review-stars">{review.reviews.star}</td>
+                        {
+                            currentItems && currentItems.map((review, index) =>
+                                <tr key={index} >
+                                    {/* 별점 */}
+                                    <td className="review-stars">
+                                        <div>
+                                            {review.star}
 
-                                {/* 리뷰 내용 */}
-                                <td>
-                                    {/* 구매옵션 & 사이즈 정보 */}
-                                    <div className="review-details">
-                                        <div className="review-info-container">
-                                            <span className="review-buy-option">구매옵션: {review.reviews.buyOption}</span>
-                                            <div className="review-user-info">
-                                                <span className="review-user">{review.reviews.user}</span>
-                                                <span className="review-date">{review.reviews.date}</span>
+                                        </div>
+
+                                    </td>
+
+                                    {/* 리뷰 내용 */}
+                                    <td>
+                                        <div className="review-details">
+                                            <div className="review-info-container">
+                                                <span className="review-buy-option">구매옵션: {review.buyOption}</span>
+                                                <div className="review-user-info">
+                                                    <span className="review-user">{review.user}</span>
+                                                    <span className="review-date">{review.date}</span>
+                                                </div>
+                                            </div>
+                                            <span className="review-size-info">사이즈 정보: {review.sizeInfo}</span>
+                                        </div>
+
+                                        <div className="review-satisfaction">
+                                            <ul>
+                                                <li>사이즈 {review.satisfaction.size}</li>
+                                                <li>색상 {review.satisfaction.color}</li>
+                                                <li>소재 {review.satisfaction.material}</li>
+                                            </ul>
+                                        </div>
+
+                                        <div className="review-comment-image">
+                                            {review.reviewImages && review.reviewImages.length > 0 ? (
+                                                review.reviewImages.map((image, idx) => (
+                                                    <img key={idx} src={image} alt={`Review Image ${idx + 1}`} />
+                                                ))
+                                            ) : null}
+                                        </div>
+
+                                        <div className="review-comment">
+                                            <p>{review.comment}</p>
+                                        </div>
+
+                                        <div className="review-actions">
+                                            <div>
+                                                <button type="button"><span>신고</span></button>
+                                                <button type="button"><span>숨김</span></button>
+                                            </div>
+                                            <div>
+                                                <button type="button">👍</button>
                                             </div>
                                         </div>
-                                        <span className="review-size-info">사이즈 정보: {review.reviews.sizeInfo}</span>
-                                    </div>
-
-
-                                    {/* 만족도 */}
-                                    <div className="review-satisfaction">
-                                        <ul>
-                                            <li>사이즈  {review.reviews.satisfaction.size}</li>
-                                            <li>색상  {review.reviews.satisfaction.color}</li>
-                                            <li>소재  {review.reviews.satisfaction.material}</li>
-                                        </ul>
-                                    </div>
-                                    {/* 리뷰 이미지 */}
-                                    <div className="review-comment-image">
-                                        <img src={review.reviews.reviewImages}/>
-                                    </div>
-
-
-                                    
-
-
-                                    {/* 리뷰 코멘트 */}
-                                    <div className="review-comment">
-                                        <p>{review.reviews.comment}</p>
-                                    </div>
-
-                                    {/* 액션 버튼 */}
-                                    <div className="review-actions">
-                                        <div>
-                                            <button type="button"><span>신고</span></button>
-                                            <button type="button"><span>숨김</span></button>
-                                        </div>
-                                        <div>
-                                            <button type="button">👍</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
+                                    </td>
+                                </tr>
+                            )
+                        }
                     </tbody>
                 </table>
-                <div>
-                    {/* 페이지 로직 */}
-                </div>
             </div>
+
+            {/* 페이지 네비게이션 */}
+            <Pagination currentPage={currentPage} totalPages={totalPages} pageGroup={pageGroup} setPageGroup={setPageGroup} setCurrentPage={setCurrentPage} pagesPerGroup={pagesPerGroup} />
         </>
     );
 }

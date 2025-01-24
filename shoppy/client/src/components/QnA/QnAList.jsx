@@ -1,6 +1,4 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { FaLock } from "react-icons/fa";
 
 
@@ -8,34 +6,8 @@ export default function QnAList({
     list,
     currentPage,
     itemsPerPage,
-    // sendTotalPages,
-    // // ★ 추가: 부모에서 내려준 콜백 함수
-    // onSendTotalItemCount,
 }) {
     const [openAnswer, setOpenAnswer] = useState(null);
-
-    //커스텀 훅으로 빼서 사용함!!
-
-    // useEffect(() => {
-    //     axios
-    //         .get("/data/qna.json")
-    //         .then((res) => {
-    //              // 예시로 pid가 일치하는 데이터 필터
-    //             const farray = res.data.filter((d) => (d.pid === parseInt(pid)))
-    //             setList(farray[0].qnalist)
-    //         })
-    //         .catch((error) => console.log(error))
-    // }, []);
-
-
-    // 전체 페이지, 아이템 개수 계산해서 상위로 전달
-    // useEffect(() => {
-    //     const totalPages = Math.ceil(list.length / itemsPerPage);
-    //     sendTotalPages(totalPages);
-
-    //     // QnAList -> QnA -> DetailProduct로 아이템 개수 전달
-    //     onSendTotalItemCount(list.length);
-    // }, [list, itemsPerPage, sendTotalPages, onSendTotalItemCount]);
 
     // 질문 클릭 시 답변 토글
     const toggleAnswer = (item, index) => {
@@ -56,7 +28,6 @@ export default function QnAList({
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = list.slice(indexOfFirstItem, indexOfLastItem);
-
 
     return (
         <table className='qna-table'>

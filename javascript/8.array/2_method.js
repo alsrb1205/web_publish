@@ -53,7 +53,7 @@ console.log(sfruits);
 console.clear();
 let numberList1 = [1, 2, 3];
 let numberList2 = [4, 5, 6];
-console.log(numberList1.concat(numberList2));
+console.log('asd',numberList1.concat(numberList2));
 console.log(numberList2.concat(numberList1));
 
 // 3.6 배열의 순서 바꾸기 : reverse()
