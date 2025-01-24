@@ -4,43 +4,40 @@ import { useParams } from 'react-router-dom';
 import { FaLock } from "react-icons/fa";
 
 
-export default function  QnAList({
+export default function QnAList({
+    list,
     currentPage,
     itemsPerPage,
-    sendTotalPages,
-    // ★ 추가: 부모에서 내려준 콜백 함수
-    onSendTotalItemCount,
-  }) {
-    const [list, setList] = useState([]);
-    const { pid } = useParams();
+    // sendTotalPages,
+    // // ★ 추가: 부모에서 내려준 콜백 함수
+    // onSendTotalItemCount,
+}) {
     const [openAnswer, setOpenAnswer] = useState(null);
 
-    useEffect(() => {
-        axios
-            .get("/data/qna.json")
-            .then((res) => {
-                 // 예시로 pid가 일치하는 데이터 필터
-                const farray = res.data.filter((d) => (d.pid === parseInt(pid)))
-                setList(farray[0].qnalist)
-            })
-            .catch((error) => console.log(error))
-    }, []);
-    
-    // currentPage 변경 시 openAnswer 닫기
-    useEffect(() => {
-        setOpenAnswer(null);
-    }, [currentPage]);
+    //커스텀 훅으로 빼서 사용함!!
+
+    // useEffect(() => {
+    //     axios
+    //         .get("/data/qna.json")
+    //         .then((res) => {
+    //              // 예시로 pid가 일치하는 데이터 필터
+    //             const farray = res.data.filter((d) => (d.pid === parseInt(pid)))
+    //             setList(farray[0].qnalist)
+    //         })
+    //         .catch((error) => console.log(error))
+    // }, []);
+
 
     // 전체 페이지, 아이템 개수 계산해서 상위로 전달
-    useEffect(() => {
-        const totalPages = Math.ceil(list.length / itemsPerPage);
-        sendTotalPages(totalPages);
+    // useEffect(() => {
+    //     const totalPages = Math.ceil(list.length / itemsPerPage);
+    //     sendTotalPages(totalPages);
 
-        // QnAList -> QnA -> DetailProduct로 아이템 개수 전달
-        onSendTotalItemCount(list.length);
-    }, [list, itemsPerPage, sendTotalPages, onSendTotalItemCount]);
+    //     // QnAList -> QnA -> DetailProduct로 아이템 개수 전달
+    //     onSendTotalItemCount(list.length);
+    // }, [list, itemsPerPage, sendTotalPages, onSendTotalItemCount]);
 
-     // 질문 클릭 시 답변 토글
+    // 질문 클릭 시 답변 토글
     const toggleAnswer = (item, index) => {
         if (openAnswer === index) {
             setOpenAnswer(null);
@@ -50,6 +47,10 @@ export default function  QnAList({
             setOpenAnswer(index);
         }
     }
+    // currentPage 변경 시 openAnswer 닫기
+    useEffect(() => {
+        setOpenAnswer(null);
+    }, [currentPage]);
 
     // 현재 페이지의 아이템들만 잘라서 노출
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -60,18 +61,18 @@ export default function  QnAList({
     return (
         <table className='qna-table'>
             <tbody>
-                {currentItems &&currentItems.map((item, index) =>
+                {currentItems && currentItems.map((item, index) =>
                     <>
                         <tr>
                             <td className='complete'><span>{item.complete}</span></td>
                             <td className='question'
                                 onClick={() => { toggleAnswer(item, index) }}>
-                                <span>{item.question}{item.isSecret ===true ? <FaLock/>: ''}</span>
+                                <span>{item.question}{item.isSecret === true ? <FaLock /> : ''}</span>
                             </td>
                             <td className='qna-email'><span>{item.email}</span></td>
                             <td className='qna-date'><span>{item.date}</span></td>
                         </tr>
-                        {openAnswer === index && 
+                        {openAnswer === index &&
                             <tr className='answer-content'>
                                 <td></td>
                                 <td colSpan={2}>

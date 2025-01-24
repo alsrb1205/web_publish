@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function DetailMenu({ activeTab, setActiveTab, totalItemCount }) {
+export default function DetailMenu({ activeTab, setActiveTab, qnaCount }) {
     const tabs = [
         { "id": "detail", "label": "Detail", "href": "#detail" },
         { "id": "review", "label": "Review", "href": "#review" },
@@ -13,7 +13,7 @@ export default function DetailMenu({ activeTab, setActiveTab, totalItemCount }) 
             {tabs.map(tab =>
                 <li className={(activeTab === tab.id) ? 'active' : ''}
                     onClick={() => setActiveTab(tab.id)}>
-                    <label>{tab.label}{(tab.id ==='qna' ? ` (${totalItemCount})`: '')}</label>
+                    <label>{tab.label}{(tab.id === 'qna' ? ` (${qnaCount})` : '')}</label>
                 </li>
             )}
         </ul>
