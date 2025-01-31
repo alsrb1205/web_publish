@@ -10,20 +10,31 @@
     npm i axios             #axios 패키지 설치
     npm i react-icons       #리액트 제공 아이콘 패키지 설치
 
+3. NodeJS 서버 생성 : server
+    shoppy > mkdir server
+
+    shoppy/server>npm init --yes            : 프로젝트 초기화 - Node 모듈 설치
+    shoppy/server>npm i express --save      : 익스프레스 서버 라이브러리 설치
+    shoppy/server>npm i mysql2              : mysql 연동 라이브러리 설치
+    shoppy/server>npm i cors                : 리액트 연동시 특정 도메인 허용 라이브러리 설치
+    shoppy/server>npm i nodemon --save-dev  // 권한 없다 나올시 npm i nodemon -g --save-dev
 
 
 
-    react project
 
-    1. react
-        - 컴포넌트 설계 : 재사용성 높임
-        - 빠른 업데이트 : react Hook(useXXX)
-        - 전역 데이터 관리 : redux
 
-    2. node(express) server
-        - mvc 패턴 정리
-        - mvc 패턴에 따른 데이터 처리 방식 숙지
-        - DB 연동 방식과 SQL 쿼리
-    
-    3. MySQL
-        - SQL 쿼리 정리 : CRUD, Join, SubQuery, View...
+
+react project
+
+1. react
+    - 컴포넌트 설계 : 재사용성 높임
+    - 빠른 업데이트 : react Hook(useXXX)
+    - 전역 데이터 관리 : redux
+
+2. node(express) server
+    - mvc 패턴 정리
+    - mvc 패턴에 따른 데이터 처리 방식 숙지
+    - DB 연동 방식과 SQL 쿼리
+
+3. MySQL
+    - SQL 쿼리 정리 : CRUD, Join, SubQuery, View...

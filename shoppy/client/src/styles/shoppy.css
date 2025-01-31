@@ -35,7 +35,7 @@ p {
 .content {
   width: 1400px;
   margin: auto;
-  border: 1px solid tomato;
+  /* border: 1px solid tomato; */
 }
 
 /**
@@ -115,7 +115,7 @@ p {
 }
 
 .product-detail-top {
-  border: 3px solid blue;
+  /* border: 3px solid blue; */
   width: 1200px;
   height: 800px;
   display: flex;
