@@ -1,15 +1,26 @@
-import express from 'express';
-import testRouter from './router/testRouter.js';
+import express from 'express'
+import mainRouter from './router/mainRouter.js';
+import helloRouter from './router/helloRouter.js';
+import employeeRouter from './router/employeeRouter.js';
+import cors from 'cors';
 
-const server = express();
+// 서버 생성 및 포트 지정
+
 const port = 9000;
+const server = express();
 
-// 요청을 처리하는 미들웨어
-// /test 요청시 -->hello test
+/** 서버의 공통적인 작업 */
+server.use(express.json());
+server.use(express.urlencoded());
+server.use(cors());
 
-server.use('/test', testRouter); // test로 시작하는 모든 경로를 라우팅
+
+// 서버의 요청처리를 위한 미들웨어 정의
+server.use('/', mainRouter)
+server.use('/hello', helloRouter);
+server.use('/employee', employeeRouter);
 
 
-server.listen(port,()=>{
-    console.log(`server start ${port}`);
-})
+server.listen(port, () => {
+    console.log(`port ==> ${port}`);
+});
