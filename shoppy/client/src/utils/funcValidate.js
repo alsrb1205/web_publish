@@ -1,3 +1,4 @@
+import axios from "axios";
 /***********************************
  *          로그인 폼 체크
  ************************************/
@@ -77,23 +78,27 @@ export const validateSignup = (refs, msgRefs) => {
 };
 
 export const handleDuplicateIdCheck = (idRef, idMsgRef, pwdRef, setIdCheckResult) => {
-    const did = 'test';
-
-    if (idRef.current.value === did) {
-        alert('사용중인 아이디입니다');
-        setIdCheckResult('default');
-        idRef.current.focus();
-        return false;
-    } else if (idRef.current.value === '') {
+    if (idRef.current.value === '') {
         idMsgRef.current.style.setProperty('color', 'red');
         setIdCheckResult('default');
         idRef.current.focus();
         return false;
     } else {
-        alert('사용 가능');
-        setIdCheckResult('complete');
-        pwdRef.current.focus();
-        return false;
+        axios.post('http://localhost:9000/member/idcheck', { "id": idRef.current.value })
+            .then(res => {
+                if (res.data.result === 1) {
+                    alert('사용중인 아이디입니다');
+                    setIdCheckResult('default');
+                    idRef.current.focus();
+                    return false;
+                } else {
+                    alert('사용 가능');
+                    setIdCheckResult('complete');
+                    pwdRef.current.focus();
+                    return false;
+                }
+            })
+            .catch(err=>console.log(err))
     }
 }
 

@@ -2,12 +2,15 @@ import React, { useRef, useState } from 'react';
 import '../styles/signup.css';
 import { validateSignup, handleDuplicateIdCheck, handlePwdCheck } from '../utils/funcValidate';
 import { initSignup, useInitSignupRefs } from '../utils/funcInitialize';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
     const { names, placeholders, labels, initFormData } = initSignup();
     const { refs, msgRefs } = useInitSignupRefs(names);
     const [formData, setFormData] = useState(initFormData);
     const [idCheckResult, setIdCheckResult] = useState('default');
+    const navigate = useNavigate();
 
 
     const handleChangeForm = (event) => {
@@ -25,14 +28,32 @@ export default function Signup() {
                 alert('중복확인을 진행해주세요.');
                 return false;
             } else {
-                console.log(formData);
+                // 서버 --> DB 테이블에 insert
+                // GET : URL 통해 호출 및 데이터 전달 => 패킷의 Header => req.params, 보안필요X, 작은 데이터
+                // POST : URL 주소로 경로 호출, 데이터 전달은 패킷의 Body => req.body, 보안필요O, 큰 데이터
+                axios.post('http://localhost:9000/member/signup', formData)
+                    .then(res => {
+                        if (res.data.result_rows === 1) {
+                            alert('회원가입에 성공하셨습니다');
+                            // 로그인 페이지 이동 : useNavigate(), window.location.href
+                            setTimeout(()=>navigate('/login'), 1000);
+                            
+                        } else {
+                            alert('회원가입에 실패하셨습니다');
+                        }
+
+                    })
+                    .catch(error => {
+                        alert('회원가입에 실패하셨습니다');
+                        console.log('error ==>',error)
+                    })
             }
         }
     };
 
     return (
         <div className="content">
-            <h1 className="center-title">SIGINUP</h1>
+            <h1 className="center-title">SIGNUP</h1>
             <form onSubmit={handleSubmit} className="signup-form">
                 <ul>
                     {/* start of map */}
@@ -82,10 +103,11 @@ export default function Signup() {
                                                             msgRefs.current['idMsgRef'],
                                                             refs.current['pwdRef'],
                                                             setIdCheckResult,
-                                                            idCheckResult
+                                                            idCheckResult,
+                                                            formData
                                                         )}
                                                     >중복확인</button>
-                                                    <input type="text" value={idCheckResult} />
+                                                    <input type="hidden" value={idCheckResult} />
                                                 </>
                                             }
                                         </>
