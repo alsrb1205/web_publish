@@ -37,11 +37,9 @@ export default function Signup() {
                             alert('회원가입에 성공하셨습니다');
                             // 로그인 페이지 이동 : useNavigate(), window.location.href
                             setTimeout(()=>navigate('/login'), 1000);
-                            
                         } else {
                             alert('회원가입에 실패하셨습니다');
                         }
-
                     })
                     .catch(error => {
                         alert('회원가입에 실패하셨습니다');
