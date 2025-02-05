@@ -1,13 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import '../styles/login.css';
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
-import { validateLogin } from '../utils/funcValidate';
+import { validateLogin } from '../utils/funcValidate.js';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../auth/AuthContext.js';
 
 export default function Login() {
+    const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext); // AuthContext의 {isLoggedIn, setIsLoggedIn} 을 useContext를 통해 가져옴
+    const navigate = useNavigate();
     const refs = {
-        idRef : useRef(null),
-        pwdRef : useRef(null)
+        idRef: useRef(null),
+        pwdRef: useRef(null)
     };
     const msgRef = useRef(null);
     const [formData, setFormData] = useState({ "id": "", "pwd": "" });
@@ -22,9 +27,27 @@ export default function Login() {
     // Submit 함수
     const handleLoginSubmit = (event) => {
         event.preventDefault();
-        if (validateLogin(refs,msgRef)) {
+        if (validateLogin(refs, msgRef)) {
             console.log('send', formData);
+
             // 리액트 ==> 노드서버(express) 데이터 전송
+            axios
+                .post('http://localhost:9000/member/login', formData)
+                .then(res => {
+                    if (res.data.result_rows === 1) {
+                        alert('로그인 성공!!!!!!!');
+                        localStorage.setItem("token", res.data.token);
+                        setIsLoggedIn(true);
+                        navigate('/');
+                    } else {
+                        alert('로그인 실패');
+                    }
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    alert('로그인 실패');
+                    console.log(err)
+                });
         }
     }
 
@@ -61,7 +84,7 @@ export default function Login() {
                         <p id="error-msg-pwd"></p>
                     </li>
                     <li>
-                        <span style={{fontSize:"0.7em",color:"white"}} ref={msgRef}>
+                        <span style={{ fontSize: "0.7em", color: "white" }} ref={msgRef}>
                             아이디 또는 패스워드를 입력해주세요
                         </span>
                     </li>

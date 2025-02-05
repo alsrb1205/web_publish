@@ -1,4 +1,4 @@
-import {db} from './db.js'
+import { db } from './db.js'
 
 /**
  * 회원가입 - INSERT
@@ -23,21 +23,34 @@ export const registerMember = async (formData) => {
     const [result, fields] = await db.execute(sql, values);
     console.log(result);
     console.log(fields);
-    
+
     // 3. 결과값 리턴
-    return {"result_rows" : result.affectedRows};
+    return { "result_rows": result.affectedRows };
 }
 
 /**
  * 아이디 중복체크 - SELECT
  */
 
-export const getIdCheck = async({id})=>{
+export const getIdCheck = async ({ id }) => {
     const sql = `
         select count(id) as result from shoppy_member where id = ?
     `;
-    const [result, fields] = await db.execute(sql, [id]); 
+    const [result, fields] = await db.execute(sql, [id]);
     console.log(result);
+
+    return result[0];
+}
+
+/**
+ * 로그인 - SELECT
+ */
+export const checkLogin = async ({ id, pwd }) => {
+    const sql = `
+        select count(*) as result_rows from shoppy_member where id = ? and pwd = ?; 
+    `;
+    const values=[id,pwd];
+    const [result] = await db.execute(sql, values);
     
     return result[0];
 }

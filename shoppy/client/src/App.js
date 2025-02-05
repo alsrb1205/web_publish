@@ -8,6 +8,7 @@ import Signup from './pages/Signup.jsx';
 import './styles/shoppy.css';
 import DetailProduct from './pages/DetailProduct.jsx';
 import { useState } from 'react';
+import { AuthProvider } from './auth/AuthContext.js';
 
 export default function App() {
   const [cartList, setCartList] = useState([]);  // 장바구니 리스트 : 배열
@@ -19,17 +20,19 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout cartCount={cartCount} />}>
-          <Route index element={<Home />} />
-          <Route path='/all' element={<Products />} />
-          <Route path='/cart' element={<Carts cartList={cartList} />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Layout cartCount={cartCount} />}>
+            <Route index element={<Home />} />
+            <Route path='/all' element={<Products />} />
+            <Route path='/cart' element={<Carts cartList={cartList} />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
