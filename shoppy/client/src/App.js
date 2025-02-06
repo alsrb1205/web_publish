@@ -7,6 +7,7 @@ import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import './styles/shoppy.css';
 import DetailProduct from './pages/DetailProduct.jsx';
+import NewProduct from './pages/NewProduct.jsx';
 import { useState } from 'react';
 import { AuthProvider } from './auth/AuthContext.js';
 
@@ -30,6 +31,8 @@ export default function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
+            <Route path='/products/new' element={<NewProduct />} />
+
           </Route>
         </Routes>
       </BrowserRouter>

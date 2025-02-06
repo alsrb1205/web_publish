@@ -7,7 +7,7 @@ export default function Header({ cartCount }) {
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleLoginToggle =()=>{
+    const handleLoginToggle = () => {
         if (isLoggedIn) {
             const select = window.confirm("정말로 로그아웃 하시겠습니까?");
             if (select) {
@@ -37,6 +37,12 @@ export default function Header({ cartCount }) {
                     <Link to='/signup'>
                         <button type='button'>Signup</button>
                     </Link>
+                    {
+                        isLoggedIn &&
+                        <Link to='/products/new'>
+                            <button type='button'>New Product</button>
+                        </Link>
+                    }
                 </nav>
             </div>
         </div>
