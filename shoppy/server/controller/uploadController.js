@@ -26,4 +26,4 @@ export const fileUpload = (req, res) => {
             });
         }
     });
-}   
+}
