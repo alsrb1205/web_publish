@@ -25,12 +25,12 @@ export const registerMember = async (req, res) => {
 /**
  * 로그인
  */
-export const checkLogin = async(req, res) => {
+export const checkLogin = async (req, res) => {
     let result = await repository.checkLogin(req.body);
     // jwt token 생성 및 result 객체에 추가 전송 : {result_rows:1, token:~~~}
-    if (result.result_rows === 1 ) {
-        const token = jwt.sign({"userId":req.body.id}, "64dAeD");
-        result = {...result, "token":token};
+    if (result.result_rows === 1) {
+        const token = jwt.sign({ "userId": req.body.id }, "64dAeD");
+        result = { ...result, "token": token };
     }
     res.json(result);
     res.end();

@@ -18,12 +18,27 @@ export const fileUpload = (req, res) => {
         if (err) {
             console.log(err)
         } else {
+            const oldFile = req.body.oldFile;
+
+            if (req.body.oldFile) {
+                //oldFile 존재 시 업로드 폴더에서 삭제
+                const oldFilePath = path.join("upload_files", oldFile)
+                if (fs.existsSync(oldFilePath)) {
+                    try {
+                        fs.unlinkSync(oldFilePath)
+                    } catch (error) {
+                        console.error("이전 파일 삭제 실패 : ", error)
+                    }
+                }
+            }
+            
             res.json({
                 // 저장된 폴더의 파일명
                 "uploadFileName": req.file.path,
                 // 사용자가 선택한 원래 파일명
                 "sourceFileName": req.file.originalname,
+                "oldFile": res.req.file.filename
             });
         }
     });
-}
+} 

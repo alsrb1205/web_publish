@@ -6,11 +6,16 @@ import { Link } from 'react-router-dom';
 export default function ProductList() {
     const [list, setList] = useState([]);
     useEffect(() => {
-        axios.get('/data/products.json')
-            .then((res) => setList(res.data))
-            .catch((error) => { console.log(error) });
+        // axios.get('/data/products.json')
+        //     .then((res) => setList(res.data))
+        //     .catch((error) => { console.log(error) });
+
+        axios.get('http://localhost:9000/product/all')
+        .then(res=>setList(res.data)
+        )
+        .catch(err=>console.log(err))
     }, []);
-    
+
     // 출력 리스트 생성 [[{},{},{}],[{},{},{}],[{}]]
     const rows = [];
     for (let i = 0; i < list.length; i += 3) {
@@ -24,7 +29,7 @@ export default function ProductList() {
                     <div className='product-list'>
                         {rowArray.map((item) =>
                             <Link key={item.pid} to={`/products/${item.pid}`}>
-                                <ProductAvatar img={item.image} />
+                                <ProductAvatar img={`${item.image}`} />
                             </Link>
                         )
                         }
