@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import ImageUpload from '../components/ImageUpload.jsx';
 import { useNavigate } from 'react-router-dom'
+import ImageUploadMultiple from '../components/ImageUploadMultiple.jsx';
 export default function NewProduct() {
     const productNameRef = useRef(null);
     const [fname, setFname] = useState({});
@@ -53,7 +54,6 @@ export default function NewProduct() {
         }
     }
 
-
     return (
         <div>
             <h1>상품등록</h1>
@@ -72,13 +72,17 @@ export default function NewProduct() {
                         <input type="text" name='description' onChange={handleChange} />
                     </li>
                     <li>
+                        <label>파일 업로드(multiple) - 최대 파일 업로드는 5개까지</label>
+                        <ImageUploadMultiple />
+                    </li>
+                    {/* <li>
                         <label>파일업로드</label>
                         <ImageUpload getFileName={getFileName} />
                         {preview &&
                             <img src={preview}
                                 alt="preview image"
                                 style={{ width: '100px', height: '100px' }} />}
-                    </li>
+                    </li> */}
                     <li>
                         <input type="hidden" name="upload" value={fname.uploadFileName} />
                         <input type="hidden" name="source" value={fname.sourceFileName} />
