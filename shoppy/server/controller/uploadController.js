@@ -1,4 +1,6 @@
 import multer from "multer";
+import fs from 'fs';
+import path from 'path';
 
 // multer 라이브러리로 파일을 업로드 폴더에 저장
 const storage = multer.diskStorage({

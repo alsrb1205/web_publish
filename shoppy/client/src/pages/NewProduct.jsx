@@ -8,14 +8,15 @@ export default function NewProduct() {
     const [fname, setFname] = useState({});
     const [preview, setPreview] = useState('');
     let [formData, setFormData] = useState({});
+    const [previewList, setPreviewList]=useState([]);
     const navigate = useNavigate();
 
     const getFileName = (filenames) => {
         setFname(filenames);
-        setPreview(`http://localhost:9000/${filenames.uploadFileName}`);
+        setPreviewList(filenames.uploadFileName);
     }
 
-    // 폼 입력시 값을 formDatat로 추가하는 이벤트 처리
+    // 폼 입력시 값을 formData로 추가하는 이벤트 처리
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -33,7 +34,7 @@ export default function NewProduct() {
             // 서버연동
             formData = {
                 ...formData, "uploadFile": fname.uploadFileName,
-                "sourceFile": fname.sourceFileName
+                             "sourceFile": fname.sourceFileName
             };
 
             axios.post('http://localhost:9000/product/new', formData)
@@ -72,8 +73,16 @@ export default function NewProduct() {
                         <input type="text" name='description' onChange={handleChange} />
                     </li>
                     <li>
-                        <label>파일 업로드(multiple) - 최대 파일 업로드는 5개까지</label>
-                        <ImageUploadMultiple />
+                        <label>파일 업로드(multiple)</label>
+                        <ImageUploadMultiple getFileName={getFileName}/>
+                        {/* 다중파일 preview */}
+                        {
+                            previewList && previewList.map((preview)=>
+                                <img src={`http://localhost:9000/${preview}`}
+                                alt="preview image"
+                                style={{ width: '100px', height: '100px', margin: '5px'}} />
+                            )
+                        }
                     </li>
                     {/* <li>
                         <label>파일업로드</label>

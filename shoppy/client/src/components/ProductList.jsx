@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom';
 export default function ProductList() {
     const [list, setList] = useState([]);
     useEffect(() => {
-        // axios.get('/data/products.json')
-        //     .then((res) => setList(res.data))
-        //     .catch((error) => { console.log(error) });
-
         axios.get('http://localhost:9000/product/all')
-        .then(res=>setList(res.data)
+        .then(res=>{setList(res.data)
+            
+        }
         )
         .catch(err=>console.log(err))
     }, []);
@@ -31,8 +29,7 @@ export default function ProductList() {
                             <Link key={item.pid} to={`/products/${item.pid}`}>
                                 <ProductAvatar img={`${item.image}`} />
                             </Link>
-                        )
-                        }
+                        )}
                     </div>
                 )
             }

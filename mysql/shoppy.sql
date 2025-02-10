@@ -43,7 +43,7 @@ select * from information_schema.tables
 use hrdb2019;
 select database();
 show tables;
-
+drop table shoppy_product;
 -- shoppy_product
 
 create table shoppy_product(
@@ -51,19 +51,22 @@ create table shoppy_product(
     pname	varchar(50)			not null,
     price	int,
     description		varchar(200),
-    upload_file		varchar(100),
-    source_file		varchar(100),
+    upload_file		json,
+    source_file		json,
     pdate			datetime
 );
 
 desc shoppy_product;
 select * from shoppy_product;
+set sql_safe_updates = 0;
 
 select pid,
 	   pname as name,
 	   price,
 	   description as info,
-	   concat('http://localhost:9000/',upload_file) as image,
+	   concat('http://localhost:9000/',upload_file->>'$[0]') as image,
 	   source_file,
 	   pdate
  from shoppy_product;
+
+select source_file from shoppy_product;

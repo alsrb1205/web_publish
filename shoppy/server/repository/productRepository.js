@@ -11,10 +11,10 @@ export const registerProduct = async (formData) => {
     `;
     const values = [
         formData.productname,
-        formData.price,
-        formData.description,
-        formData.uploadFile,
-        formData.sourceFile
+        formData.price || 0,
+        formData.description || "",
+        formData.uploadFile || null,
+        formData.sourceFile || null
     ];
     const [result] = await db.execute(sql, values);
     return { "result_rows": result.affectedRows };
@@ -29,7 +29,7 @@ export const getList=async()=>{
                pname as name,
                price,
                description as info,
-               concat('http://localhost:9000/',upload_file) as image,
+               concat('http://localhost:9000/',upload_file->>'$[0]') as image,
                source_file,
                pdate
          from shoppy_product
