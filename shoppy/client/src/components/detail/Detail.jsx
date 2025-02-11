@@ -2,35 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DetailItem from "./DetailItem.jsx";
 import ImageList from "../common/ImageList.jsx";
+import { useDetailDes } from "../../hooks/listCount.js";
+import { useParams } from "react-router-dom";
 
-export default function Detail({ product,imgList,detailDesList,detailInfoList }) {
-  // const [detailDesList, setDetailDesList] = useState([]);
-  // const [detailInfoList, setDetailInfoList] = useState([]);
+export default function Detail({ product,imgList }) {
+  const { pid } = useParams();
 
-  // useEffect(() => {
-  //   /* 제품 정보, 상세 설명 */
-  //   axios
-  //     .get("/data/product_detail_des.json")
-  //     .then((res) => {
-  //       const filteredDes = res.data.filter((des) => des.pid === selectedPid);
-  //       if (filteredDes) {
-  //         setDetailDesList(filteredDes[0].description);
-  //       }
-  //     })
-  //     .catch((error) => console.log(error));
-
-  //   /* 상품 정보 고시 */
-  //   axios
-  //   .get("/data/product_detail_info.json")
-  //   .then((res) => {
-  //     const filteredInfo = res.data.filter((info) => info.pid === selectedPid);
-  //     if (filteredInfo) {
-  //       setDetailInfoList(filteredInfo[0].contents);
-  //     }
-  //   })
-  //   .catch((error) => console.log(error));
-  // }, [selectedPid]);
-
+  const{detailDesList,detailInfoList}= useDetailDes(pid);
   return (
     <div className="detail-container">
       <div className="detail-cont">
@@ -44,7 +22,7 @@ export default function Detail({ product,imgList,detailDesList,detailInfoList })
           <p>{product.ename}</p>
 
           {/* 상세 설명 */}
-          <>
+          <>                                                             
             {detailDesList &&
               detailDesList.map((section, index) => (
                 <div key={index}>

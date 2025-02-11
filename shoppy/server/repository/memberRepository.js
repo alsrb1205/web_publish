@@ -21,8 +21,6 @@ export const registerMember = async (formData) => {
     ];
     // 2. db객체를 이용하여 SQL 실행 후 결과 가져오기
     const [result, fields] = await db.execute(sql, values);
-    console.log(result);
-    console.log(fields);
 
     // 3. 결과값 리턴
     return { "result_rows": result.affectedRows };
@@ -37,7 +35,6 @@ export const getIdCheck = async ({ id }) => {
         select count(id) as result from shoppy_member where id = ?
     `;
     const [result, fields] = await db.execute(sql, [id]);
-    console.log(result);
 
     return result[0];
 }

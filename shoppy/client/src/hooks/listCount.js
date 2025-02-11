@@ -38,23 +38,40 @@ export function useReview(pid) {
 }
 
 export function useProduct(pid) {
-    const [detailDesList, setDetailDesList] = useState([]);
-    const [detailInfoList, setDetailInfoList] = useState([]);
     const [product, setProduct] = useState([]);
     const [imgList, setImgList] = useState([]);
+    const [detailImgList, setDetailImgList] = useState([]);
 
     useEffect(() => {
-        axios.get("/data/products.json")
+        axios.post("http://localhost:9000/product/detail", { "pid": pid })
             .then((res) => {
-                const filterProduct = res.data.filter((des) => des.pid === pid);
+                setProduct(res.data);
+                // image 배열의 3개 이미지를 출력형태로 생성하여 배열에 저장
+                // const imgList = res.data.image.filter((image,i)=>{if (i<3) return image})
+                // setImgList(imgList);
 
-                setProduct(filterProduct[0]);
-                setDetailDesList(filterProduct[0].description);
-                setDetailInfoList(filterProduct[0].contents);
-                setImgList(filterProduct[0].imgList);
+                // mysql에서 json_array() 사용해서 imgList 배열만듬
+                setImgList(res.data.imgList);
+                setDetailImgList(res.data.detailImgList);
             })
             .catch(err => console.log(err))
     }, [pid])
 
-    return ({ detailDesList, detailInfoList, product, imgList });
+    return ({ product, imgList, detailImgList });
+}
+
+export function useDetailDes(pid) {
+    const [detailDesList, setDetailDesList] = useState([]);
+    const [detailInfoList, setDetailInfoList] = useState([]);
+
+    useEffect(() => {
+        axios.get('/data/products.json')
+            .then(res => {
+                const darray = res.data.filter((d) => d.pid === pid);
+                setDetailDesList(darray[0].description);
+                setDetailInfoList(darray[0].contents);
+            })
+            .catch(err => console.log(err))
+    }, [pid])
+    return ({ detailDesList, detailInfoList });
 }

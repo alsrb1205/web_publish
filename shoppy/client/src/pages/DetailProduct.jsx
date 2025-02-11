@@ -16,8 +16,8 @@ export default function DetailProduct({ addCart }) {
   // tab state 추가
   const [activeTab, setActiveTab] = useState('detail');
   const { qnaList, qnaCount } = useQnA(pid);
-  const {reviewList, reviewCount} = useReview(pid);
-  const {detailDesList,detailInfoList,product,imgList} = useProduct(pid);
+  const { reviewList, reviewCount } = useReview(pid);
+  const { detailDesList, detailInfoList, product, imgList, detailImgList } = useProduct(pid);
 
   //장바구니 추가 버튼 이벤트
   const addCartItem = () => {
@@ -37,10 +37,10 @@ export default function DetailProduct({ addCart }) {
     <div className="content">
       <div className="product-detail-top">
         <div className="product-detail-image-top">
-          <img src={product.image} />
+          <img src={product.firstImage} />
           <ul className="product-detail-image-top-list">
             <li>
-              <ImageList imgList={imgList.slice(1, 4)} />
+              <ImageList imgList={imgList} /> 
             </li>
           </ul>
         </div>
@@ -93,10 +93,10 @@ export default function DetailProduct({ addCart }) {
 
       {/* DETAIL / REVIEW / Q&A / RETURN & DELIVERY  */}
       <div className="product-detail-tab">
-        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} qnaCount={qnaCount} reviewCount={reviewCount}/>
+        <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} qnaCount={qnaCount} reviewCount={reviewCount} />
         <div>
-          {activeTab === 'detail' && <Detail selectedPid={pid} product={product} imgList={imgList} detailDesList={detailDesList} detailInfoList={detailInfoList} />}
-          {activeTab === 'review' && <Review reviewList={reviewList} reviewCount={reviewCount}/>}
+          {activeTab === 'detail' && <Detail selectedPid={pid} product={product} detailDesList={detailDesList} detailInfoList={detailInfoList} imgList={detailImgList}/>}
+          {activeTab === 'review' && <Review reviewList={reviewList} reviewCount={reviewCount} />}
           {activeTab === 'qna' && <QnA qnaList={qnaList} />}
           {activeTab === 'delivery' && <Delivery />}
         </div>
