@@ -7,10 +7,7 @@ export default function ProductList() {
     const [list, setList] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:9000/product/all')
-        .then(res=>{setList(res.data)
-            
-        }
-        )
+        .then(res=>setList(res.data))
         .catch(err=>console.log(err))
     }, []);
 

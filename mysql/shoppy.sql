@@ -89,17 +89,17 @@ WHERE
     
     
 SELECT 
-	pid,
-	pname,
-	price,
-	description,
-	upload_file as image,
-	source_file as sourceFile,
-	pdate
+    pid,
+    pname,
+    price,
+    description,
+    upload_file AS image,
+    source_file AS sourceFile,
+    pdate
 FROM
-	shoppy_product
+    shoppy_product
 WHERE
-	pid =1;    
+    pid = 1;    
 
 
                 SELECT 
@@ -129,3 +129,13 @@ WHERE
                     pid = 11
 					group by pid; 
 
+-- pid, pname, price, description, upload_file 0번지 이미지
+select pid,
+	   pname,
+       price,
+       description,
+       concat('http://localhost:9000/',upload_file->>'$[0]') as image
+from shoppy_product
+where pid in (3,5,7);
+
+select * from shoppy_product;
