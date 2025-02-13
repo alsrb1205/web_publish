@@ -13,6 +13,7 @@ export default function Header({ cartCount }) {
             if (select) {
                 alert('로그아웃 되었습니다.');
                 localStorage.removeItem('token');
+                localStorage.removeItem('user_id');
                 setIsLoggedIn(false);
                 navigate('/');
             }

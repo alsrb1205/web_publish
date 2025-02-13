@@ -49,7 +49,7 @@ export const getProduct = async (pid) => {
                     pname as name,
                     price,
                     description as info,
-                    upload_file as image,
+                    upload_file as image,                                   
                     source_file as sourceFile,
                     pdate,
                     concat('http://localhost:9000/',upload_file->>'$[0]') as firstImage,
@@ -82,7 +82,6 @@ export const getProduct = async (pid) => {
 export const getCartItems = async ({ pids }) => {
     const strArray = [];
     pids.forEach(pid => strArray.push("?"));
-
     const sql = `
     select pid,
 	   pname,                                                                                                                                                                                                                                                                                                                                                                                                                 
