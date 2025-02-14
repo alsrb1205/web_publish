@@ -10,6 +10,7 @@ import DetailProduct from './pages/DetailProduct.jsx';
 import NewProduct from './pages/NewProduct.jsx';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from './auth/AuthContext.js';
+import CartsDB from './pages/CartsDB.jsx';
 
 export default function App() {
     // 장바구니 리스트 : 배열
@@ -33,6 +34,12 @@ export default function App() {
 
         }
     }); // 장바구니 상품 갯수
+
+    /** 로컬스토리지 재호출 --> cartList, cartCount 재호출 */
+    const refreshStorage = (updateCart, updateCount) => {
+        setCartList(updateCart);
+        setCartCount(updateCount);
+    }
 
     // cartCount 가 업데이트 되면 localStorage에 cartList 를 저장
     useEffect(() => {
@@ -75,11 +82,12 @@ export default function App() {
                     <Route path='/' element={<Layout cartCount={cartCount} />}>
                         <Route index element={<Home />} />
                         <Route path='/all' element={<Products />} />
-                        <Route path='/cart' element={<Carts />} />
+                        <Route path='/cart' element={<Carts refreshStorage={refreshStorage} cartList={cartList} setCartList={setCartList}/>} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/signup' element={<Signup />} />
                         <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
                         <Route path='/products/new' element={<NewProduct />} />
+                        <Route path='/cartdb' element={<CartsDB />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

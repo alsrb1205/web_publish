@@ -25,7 +25,7 @@ export default function Carts({refreshStorage, cartList, setCartList}) {
                                 'description': matchItems.description,
                                 'image': matchItems.image
                             }
-                            : item
+                            : item 
                     }
                     );
                     setCartList(updateCartItems);

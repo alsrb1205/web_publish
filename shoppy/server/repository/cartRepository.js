@@ -14,21 +14,20 @@ export const addCart = async ({ id, cartList }) => {
             return result.affectedRows;
         })
     )
-    console.log(result);
     result_rows = result.reduce((acc, cur) => acc + cur, 0);
 
     return { "result_rows": result_rows };
 };
 
-export const addCartOne = async ({id,item}) => {    
-    const values = [item.size, item.qty, id, item.pid];
-    const sql=`
-                insert into shoppy_cart(size, qty, id, pid, cdate)
-                        values(?, ?, ?, ?,now())
-    `;    
-    const [result]= await db.execute(sql,values);
-    // console.log(result.affectedRows);
+// export const addCartOne = async ({id,item}) => {    
+//     const values = [item.size, item.qty, id, item.pid];
+//     const sql=`
+//                 insert into shoppy_cart(size, qty, id, pid, cdate)
+//                         values(?, ?, ?, ?,now())
+//     `;    
+//     const [result]= await db.execute(sql,values);
+//     // console.log(result.affectedRows);
     
-    return {"result_rows":result.affectedRows};
-}
+//     return {"result_rows":result.affectedRows};
+// }
 
