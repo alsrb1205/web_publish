@@ -3,19 +3,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../auth/AuthContext.js';
 import { useNavigate } from 'react-router-dom';
 
-export default function Carts() {
+export default function Carts({refreshStorage, cartList, setCartList}) {
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const navigate = useNavigate();
     // localStorage에 담긴 cartItems 배열 객체 출력
-    const [cartList, setCartList] = useState(() => {
-        try {
-            const initCartList = localStorage.getItem("cartItems")
-            return initCartList ? JSON.parse(initCartList) : [];
-        } catch (error) {
-            console.log('로컬스토리지 데이터 작업도중 에러발생');
-            console.log(error);
-        }
-    });
     // pids 배열 생성 cartItems의 pid 값을 pids 배열에 추가
     const pids = cartList && cartList.map((item) => item.pid);
     // axios 이용하여 DB연동
@@ -43,17 +34,32 @@ export default function Carts() {
         }
     }, [])
     /** 주문하기 이벤트 처리 */
-    const handleOrder = () => {
+    const handleOrder = (type,pid,size) => {
+        const id = localStorage.getItem('user_id');
+        let formData = [];
+        if (type ==='all') {
+            formData = { "id": id, "cartList": cartList };
+        } else {
+            const filterItem= cartList.filter(item=>item.pid=== pid &&item.size===size)
+            formData = { "id": id, "cartList": filterItem };
+        }  
         // 1. 로그인 여부 체크
         if (isLoggedIn) {
             // 로그인O -> DB 연동 후 저장
-            const id = localStorage.getItem('user_id');
-            const formData = { "id": id, "cartList": cartList };
             axios.post("http://localhost:9000/cart/add", formData)
                 .then(res => {
                     if (res.data.result_rows) {
                         alert('장바구니 db추가');
-                        localStorage.removeItem("cartItems")
+                        if (type==='all') {
+                            // 로컬스토리지 전체아이템 삭제
+                            clearStorageAll();
+                            // App.js의 cartList,cartCount 초기화
+                            refreshStorage([],0);
+                        } else {
+                            // 로컬스토리지 개별아이템 삭제
+                            const updateCart = clearStorageEach(pid,size);
+                            refreshStorage(updateCart, updateCart.length);                    
+                        }
                     }
                 }
                 )
@@ -63,24 +69,31 @@ export default function Carts() {
             window.confirm("로그인이 필요한 서비스입니다") && navigate('/login');
         }
     }
-    const handleOrderOne = (e) => {        
-        const id = localStorage.getItem('user_id');
-        const formData= {"id":id, "item":e}
-        axios.post("http://localhost:9000/cart/addone", formData)
-        .then(res=>            
-            {
-                if (res.data.result_rows===1) {
-                    alert('추가됨');
-            }
-        }
-        )
-        .catch(err=>console.log(err))
+    // 로컬스토리지 전체아이템 삭제
+    const clearStorageAll = () => {
+        console.log('------------로컬스토리지 전체 삭제 시작--------------------');
+        localStorage.removeItem("cartItems"); // 비동기
+        navigate('/cartdb');
+        setTimeout(()=>{ // setTimeout 으로 비동기처리
+            setCartList([]);
+        }, 0);
+        console.log('------------로컬스토리지 전체 삭제 종료--------------------');
     }
-    
+    // 로컬스토리지 개별아이템 삭제
+    const clearStorageEach = (pid, size) => {
+        const updateCart = cartList.filter((item) => !(item.pid === pid && item.size === size));
+        localStorage.removeItem("cartItems");
+        localStorage.setItem("cartItems",updateCart);
+        setTimeout(() => {
+            setCartList(updateCart);
+        }, 0);
+        return updateCart;
+    };
+
     return (
         <div>
             <h1>Mycart</h1>
-            <button onClick={handleOrder}>주문하기</button>
+            <button onClick={()=>handleOrder("all")}>주문하기</button>
             <table border={1}>
                 <tr>
                     <th>pid</th>
@@ -103,7 +116,7 @@ export default function Carts() {
                                 <img src={item.image} alt="" style={{ width: '100px' }} />
                             </td>
                             <td>
-                                <button onClick={()=>handleOrderOne(cartList[i])}>계속담아두기</button>
+                                <button onClick={()=>handleOrder("each", item.pid, item.size)}>계속담아두기</button>
                             </td>
                         </tr>
                     )
