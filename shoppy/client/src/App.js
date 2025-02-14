@@ -87,7 +87,7 @@ export default function App() {
                         <Route path='/signup' element={<Signup />} />
                         <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
                         <Route path='/products/new' element={<NewProduct />} />
-                        <Route path='/cartdb' element={<CartsDB />} />
+                        <Route path='/cartdb' element={<CartsDB refreshStorage={refreshStorage} cartList={cartList} setCartList={setCartList}/>} />
                     </Route>
                 </Routes>
             </BrowserRouter>

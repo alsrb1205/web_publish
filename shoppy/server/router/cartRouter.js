@@ -1,9 +1,10 @@
 import express from 'express';
-import * as cartController from '../controller/cartController.js'
+import * as controller from '../controller/cartController.js'
 
 const router = express.Router();
 
-router.post('/add', cartController.addCart)
+router.post('/add', controller.addCart)
+.post('/items', controller.getItems)
         // .post('/addone', cartController.addCartOne)
 
 export default router;

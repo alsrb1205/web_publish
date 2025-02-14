@@ -14,3 +14,8 @@ export const addCart = async (req, res) => {
 //     res.end();
 // }
 
+export const getItems = async (req, res) => {
+    const result = await repository.getItems(req.body);
+    res.json(result);
+    res.end();
+}
