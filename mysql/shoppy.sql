@@ -192,7 +192,5 @@ select sc.cid,
     where id = 'test1' and pid=3 and size='XS';
 
     select * from shoppy_cart;
-                    update shoppy_cart
-                    set qty=qty+1
-                    where cid = 1;
+
 
