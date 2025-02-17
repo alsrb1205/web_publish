@@ -193,4 +193,3 @@ select sc.cid,
 
     select * from shoppy_cart;
 
-

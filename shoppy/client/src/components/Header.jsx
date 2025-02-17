@@ -9,7 +9,6 @@ export default function Header() {
     const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
     const { cartList, setCartList, cartCount, setCartCount } = useContext(CartContext);
     const navigate = useNavigate();
-
     // 로그인 상태에 따라 cartCount 값 변경
     useEffect(() => {
         if (isLoggedIn) {
@@ -27,7 +26,6 @@ export default function Header() {
                 })
                 .catch(err => console.log(err))
     
-
         } else {
             setCartCount(0);
         }
