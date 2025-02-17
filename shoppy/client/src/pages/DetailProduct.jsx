@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { PiGiftThin } from "react-icons/pi";
 import axios from "axios";
 import QnA from "../components/QnA/QnA";
@@ -9,8 +9,11 @@ import Detail from "../components/detail/Detail";
 import Delivery from "../components/delivery/Delivery";
 import useQnA, { useProduct, useReview } from "../hooks/listCount";
 import ImageList from "../components/common/ImageList";
+import { CartContext } from "../context/CartContext.js";
+import { AuthContext } from "../auth/AuthContext.js";
 
-export default function DetailProduct({ addCart }) {
+export default function DetailProduct() {
+  const navigate = useNavigate();
   const { pid } = useParams();
   const [size, setSize] = useState("XS");
   // tab state 추가
@@ -18,19 +21,65 @@ export default function DetailProduct({ addCart }) {
   const { qnaList, qnaCount } = useQnA(pid);
   const { reviewList, reviewCount } = useReview(pid);
   const { detailDesList, detailInfoList, product, imgList, detailImgList } = useProduct(pid);
+  const { cartList, setCartList, cartCount, setCartCount } = useContext(CartContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   //장바구니 추가 버튼 이벤트
   const addCartItem = () => {
-    //장바구니 추가 항목 : { pid, size, qty }
-    // alert(`${pid} --> 장바구니 추가 완료!`);
-    // console.log(product.pid, product.price, size, 1);
-    const cartItem = {
-      pid: product.pid,
-      size: size,
-      qty: 1,
-    };
-    addCart(cartItem); // App.js의 addCart 함수 호출
+    if (isLoggedIn) {
+      //장바구니 추가 항목 : { pid, size, qty }
+      const cartItem = {
+        pid: product.pid,
+        size: size,
+        qty: 1,
+      };
+      // cartItem --> 서버전송 --> shoppy_cart 호출
+      const id = localStorage.getItem("user_id");
+      // cartItem에 있는 pid, size를 cartList(로그인 성공시 준비)의 item과 비교해서 있으면 qty+1 없으면 새로 추가
+      const findItem= cartList && cartList.find(item => item.pid===product.pid && item.size === size);
+      // some --> boolean, find --> item요소
+      
+      if (findItem !== undefined) {
+        // qty+1 :: update ----> id, pid, size
+        // qty+1 :: update ----> cid
+        console.log('update');
+        axios.put("http://localhost:9000/cart/updateQty", { "cid": findItem.cid })
+          .then(res => {
+            if (res.data.result_rows) {
+              alert('장바구니에 추가되었습니다.')
+
+              // const updateList = cartList.map((item) => 
+              //   (item.cid === findItem.cid) ?
+              //     {...item,'qty': item.qty + 1 } 
+              //     : item
+              // );
+              setCartList([...cartList, cartItem]);
+            }
+          })
+          .catch(err => console.log(err))
+
+          /** DB 연동 --> cartList 재호출!!!!! */
+
+
+      } else {
+        console.log('insert');
+        const formData = { "id": id, "cartList": [cartItem] }
+        axios.post("http://localhost:9000/cart/add", formData)
+          .then(res => {
+            if (res.data.result_rows) {
+              alert('장바구니에 추가되었습니다.')
+              setCartCount(cartCount + 1);
+            }
+          })
+          .catch(err => console.log(err))
+      }
+
+    } else {
+      window.confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?") && navigate('/login');
+    }
   };
+  console.log('dp-list', cartList);
+  
 
   return (
     <div className="content">
@@ -39,7 +88,7 @@ export default function DetailProduct({ addCart }) {
           <img src={product.firstImage} />
           <ul className="product-detail-image-top-list">
             <li>
-              <ImageList imgList={imgList} /> 
+              <ImageList imgList={imgList} />
             </li>
           </ul>
         </div>
@@ -94,7 +143,7 @@ export default function DetailProduct({ addCart }) {
       <div className="product-detail-tab">
         <DetailMenu activeTab={activeTab} setActiveTab={setActiveTab} qnaCount={qnaCount} reviewCount={reviewCount} />
         <div>
-          {activeTab === 'detail' && <Detail selectedPid={pid} product={product} detailDesList={detailDesList} detailInfoList={detailInfoList} imgList={detailImgList}/>}
+          {activeTab === 'detail' && <Detail selectedPid={pid} product={product} detailDesList={detailDesList} detailInfoList={detailInfoList} imgList={detailImgList} />}
           {activeTab === 'review' && <Review reviewList={reviewList} reviewCount={reviewCount} />}
           {activeTab === 'qna' && <QnA qnaList={qnaList} />}
           {activeTab === 'delivery' && <Delivery />}

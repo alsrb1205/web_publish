@@ -187,3 +187,12 @@ select sc.cid,
 		 shoppy_member sm,
          shoppy_product sp
 	where sc.id = sm.id and sc.pid = sp.pid and sm.id = 'test1';
+    
+    select count(*) from shoppy_cart
+    where id = 'test1' and pid=3 and size='XS';
+
+    select * from shoppy_cart;
+                    update shoppy_cart
+                    set qty=qty+1
+                    where cid = 1;
+

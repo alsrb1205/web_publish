@@ -66,7 +66,7 @@ export default function Carts({ refreshStorage, cartList, setCartList }) {
                 .catch(err => console.log(err))
         } else {
             // 로그인X -> 로그인 > DB 연동 후 저장
-            window.confirm("로그인이 필요한 서비스입니다") && navigate('/login');
+            window.confirm("로그인이 필요한 서비스입니다 로그인 하시겠습니까?") && navigate('/login');
         }
     }
     // 로컬스토리지 전체아이템 삭제

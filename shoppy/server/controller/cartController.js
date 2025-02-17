@@ -8,14 +8,27 @@ export const addCart = async (req, res) => {
     res.end();
 }
 
-// export const addCartOne = async (req, res) => {
-//     const result = await repository.addCartOne(req.body);    
-//     res.json(result);
-//     res.end();
-// }
-
 export const getItems = async (req, res) => {
     const result = await repository.getItems(req.body);
     res.json(result);
     res.end();
 }
+
+/**
+ * 장바구니 전체 카운트 조회
+ */
+export const getCount = async (req, res) => {
+    const result = await repository.getCount(req.body);
+    res.json(result);
+    res.end();
+}
+
+/**
+ * 장바구니 상품 수량 업데이트
+ */
+export const updateQty = async (req, res) => {
+    const result = await repository.updateQty(req.body);
+    res.json(result);
+    res.end();
+}
+

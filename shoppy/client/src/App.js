@@ -8,8 +8,9 @@ import Signup from './pages/Signup.jsx';
 import './styles/shoppy.css';
 import DetailProduct from './pages/DetailProduct.jsx';
 import NewProduct from './pages/NewProduct.jsx';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthProvider } from './auth/AuthContext.js';
+import { CartContext, CartProvider } from './context/CartContext.js';
 import CartsDB from './pages/CartsDB.jsx';
 
 export default function App() {
@@ -22,7 +23,7 @@ export default function App() {
             console.log('로컬스토리지 데이터 작업도중 에러발생');
             console.log(error);
         }
-    });  
+    });
 
     const [cartCount, setCartCount] = useState(() => {
         try {
@@ -57,13 +58,13 @@ export default function App() {
         //   )
         //   : [...cartList, cartItem];
         const isCheck = cartList.some(checkItem => checkItem.pid === cartItem.pid
-            && checkItem.size === cartItem.size); 
+            && checkItem.size === cartItem.size);
 
         let updateCartList = [];
         if (isCheck) {
             updateCartList = cartList.map(item =>
                 item.pid == cartItem.pid && item.size === cartItem.size
-                    ? { ...item, qty: item.qty + 1 } 
+                    ? { ...item, qty: item.qty + 1 }
                     : item
             )
         } else {
@@ -74,23 +75,27 @@ export default function App() {
 
         setCartList(updateCartList);
     }
+//   const { cartCount, setCartCount } = useContext(CartContext);
+
 
     return (
-        <AuthProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<Layout cartCount={cartCount} />}>
-                        <Route index element={<Home />} />
-                        <Route path='/all' element={<Products />} />
-                        <Route path='/cart' element={<Carts refreshStorage={refreshStorage} cartList={cartList} setCartList={setCartList}/>} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path='/signup' element={<Signup />} />
-                        <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
-                        <Route path='/products/new' element={<NewProduct />} />
-                        <Route path='/cartdb' element={<CartsDB refreshStorage={refreshStorage} cartList={cartList} setCartList={setCartList}/>} />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </AuthProvider>
+        <CartProvider>
+            <AuthProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element={<Layout/>}>
+                            <Route index element={<Home />} />
+                            <Route path='/all' element={<Products />} />
+                            <Route path='/cart' element={<Carts refreshStorage={refreshStorage} cartList={cartList} setCartList={setCartList} />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/signup' element={<Signup />} />
+                            <Route path='/products/:pid' element={<DetailProduct addCart={addCart} />} /> {/* DetailProduct.jsx 에서 정보를 전달 */}
+                            <Route path='/products/new' element={<NewProduct />} />
+                            <Route path='/cartdb' element={<CartsDB refreshStorage={refreshStorage} cartList={cartList} setCartList={setCartList} />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </AuthProvider>
+        </CartProvider>
     );
 }
