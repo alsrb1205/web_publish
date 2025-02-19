@@ -257,4 +257,5 @@ select sc.cid,
          shoppy_product sp
 	where sc.id = sm.id and sc.pid = sp.pid;
     
-    select * from view_order_list;
+                select * from view_order_list
+                where id='test1';
