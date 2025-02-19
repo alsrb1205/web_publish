@@ -7,5 +7,6 @@ router.post('/add', controller.addCart)
 .post('/items', controller.getItems)
         .post('/count', controller.getCount)
         .put('/updateQty', controller.updateQty)
+        .delete('/delete', controller.deleteItem)
 
 export default router;

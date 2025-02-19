@@ -21,21 +21,7 @@ export const addCart = async ({ id, cartList }) => {
 
 export const getItems = async ({ id }) => {
     const sql = `
-    select sc.cid,
-    sc.size,
-    sc.qty,
-    sm.id,
-    sm.zipcode,
-    sm.address,
-    sp.pid,
-    sp.pname,
-    sp.price,
-    sp.description as info,
-    concat('http://localhost:9000/',sp.upload_file->>'$[0]') as image
-    from shoppy_cart sc,
-    shoppy_member sm,
-    shoppy_product sp
-    where sc.id = sm.id and sc.pid = sp.pid and sm.id = ?;
+    select * from view_cart_list where id = ?;
     `;
     const [result] = await db.execute(sql, [id]);
 
@@ -58,13 +44,28 @@ export const getCount = async ({ id }) => {
 /**
  * 장바구니 상품 수량 업데이트
  */
-export const updateQty = async ({ cid }) => {
+export const updateQty = async ({ cid, type }) => {
+
+    const str = type === "increase" ? "+" : "-";
+
     const sql = `
                 update shoppy_cart
-                    set qty=qty+1
+                    set qty=qty${str}1
                     where cid = ?;
     `;
-    const [result] = await db.execute(sql, [cid]);
+    const [result] = await db.execute(sql, [cid], str);
 
     return { "result_rows": result.affectedRows };
+}
+
+/**
+ * 장바구니 항목 삭제
+ */
+export const deleteItem = async ({cid})=>{
+ const sql=`
+            delete from shoppy_cart where cid=?;
+ `;
+ const [result] = await db.execute(sql,[cid]);
+ return result;
+
 }

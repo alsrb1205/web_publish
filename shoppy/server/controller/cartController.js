@@ -32,3 +32,12 @@ export const updateQty = async (req, res) => {
     res.end();
 }
 
+/**
+ * 장바구니 항목 삭제
+ */
+export const deleteItem = async (req,res)=>{
+    const result = await repository.deleteItem(req.body);
+    res.json(result);
+    res.end();
+
+}
