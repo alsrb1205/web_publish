@@ -5,6 +5,7 @@ import { useOrder } from '../hooks/useOrder';
 export default function PaymentSuccess() {
     const { getOrderList, saveToOrder } = useOrder();
     const [searchParams] = useSearchParams();
+    //useSearchParams : URL의 쿼리 스트링(search parameters)을 읽고 수정할 수 있게 해준다
     const pg_token = searchParams.get("pg_token");
     const [isRun, setIsRun] = useState(false);
 
