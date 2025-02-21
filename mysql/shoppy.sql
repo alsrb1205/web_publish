@@ -259,3 +259,25 @@ select sc.cid,
     
                 select * from view_order_list
                 where id='test1';
+                
+create table shoppy_order(
+oid 	int				primary key 		auto_increment,
+size	varchar(10)		not null,
+qty		int				not null,
+tprice  int				not null,
+odate	date,
+type	varchar(30)		not null,
+tid 	varchar(30)		not null,
+id		varchar(30)		not null,		
+pid		int				not null,
+-- constraint 제약명 foreign key(카트에서 정한 컬럼명) 
+-- 			       reference (참조하는 테이블과 컬럼명) 
+constraint fk_order_id_shoppy_member_id foreign key(id)
+								  references shoppy_member(id),
+constraint fk_order_pid_shoppy_product_pid foreign key(pid)
+								  references shoppy_product(pid)
+);
+
+desc shoppy_order;
+select * from shoppy_order;
+
