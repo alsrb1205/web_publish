@@ -1,0 +1,4 @@
+1단계 : 팀장
+    (1) remote repository 생성
+    (2) PAT(Personal Token) 정보
+    (3) 팀원 추가 : Collaborator
